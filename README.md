@@ -8,7 +8,7 @@ Dom flesta hemsidor är dåligt designade och fylls av affiliate bloatware som i
 
 -------------------
 
-#Name Placeholder
+#FaceRoots
 
 Detta projekt är en användarvänlig och stilren webbplats med fokus på skäggprodukter och skäggvård. Målet är att skapa en upplevelse som kombinerar maskulin estetik, tydlig navigering och enkel produktupptäckt – oavsett om användaren är nybörjare eller skäggentusiast.
 
