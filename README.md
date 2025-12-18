@@ -1,5 +1,5 @@
 
-Översikt
+#Översikt
 
 Vi har sonderat marknaden angående skäggprodukter och skäggvård.
 
@@ -8,13 +8,13 @@ Dom flesta hemsidor är dåligt designade och fylls av affiliate bloatware som i
 
 -------------------
 
-Name Placeholder
+#Name Placeholder
 
 Detta projekt är en användarvänlig och stilren webbplats med fokus på skäggprodukter och skäggvård. Målet är att skapa en upplevelse som kombinerar maskulin estetik, tydlig navigering och enkel produktupptäckt – oavsett om användaren är nybörjare eller skäggentusiast.
 
 -------------------
 
-Syfte:
+#Syfte:
 
 Presentera skäggprodukter på ett inspirerande och lättillgängligt sätt
 
@@ -24,7 +24,7 @@ Skapa förtroende genom tydlig information och ett professionellt uttryck
 
 -------------------
 
-Målgrupp:
+#Målgrupp:
 
 Alla med intresse för skäggvård
 
@@ -34,7 +34,7 @@ Nybörjare som söker vägledning inom skäggvård
 
 -------------------
 
-UI – Visuell Design
+#UI – Visuell Design
 
 Designen bygger på ett rått men modernt uttryck som speglar skäggkultur:
 
@@ -44,7 +44,7 @@ Stora, tydliga produktbilder
 
 -------------------
 
-UX – Användarupplevelse
+#UX – Användarupplevelse
 
 UX-arbetet har enkelhet och tydlighet som kärna:
 
@@ -60,7 +60,7 @@ Användningsområde
 
 --------------------
 
-Responsiv Design
+#Responsiv Design
 
 Mobil
 
@@ -70,6 +70,6 @@ Desktop
 
 --------------------
 
-Sammanfattning
+#Sammanfattning
 
 Denna webbplats kombinerar stilren design, användarcentrerad struktur och tydlig information för att skapa en inspirerande plattform för skäggvård. Målet är att göra det enkelt och roligt att ta hand om sitt skägg.
