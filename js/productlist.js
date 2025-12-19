@@ -3,50 +3,43 @@
 * oscar.nilsson@medieinstitutet.se
 */
 
+let catList = [];
+
 (() => {
 
-    /* Run buy buttons */
+    /* Run buy buttons and random categories */
     buyButtons();
+    if (catList.length == 0) randCategories();
 
 })();
 
 (() => {
 
-    /* Have to do this nicer */
-    const mockupCategories = document.querySelector('input#mockupCategories');
-    let randomCategories = randCategories(mockupCategories.value);
-
-    mockupCategories.addEventListener('change', () => {
-        let randomCategories = randCategories(mockupCategories.value);
-
-        const categories = document.querySelectorAll('span.category');
-        categories.forEach(category => {
-            let randomNumber = Math.floor(Math.random() * (mockupCategories.value));
-
-            category.innerHTML = randomCategories[randomNumber];
-        });
-
-    });
-
     /* Checking for changes to input field for mockup categories and products. */
+    const inputC = document.querySelector('input#mockupCategories');
     const inputP = document.querySelector('input#mockupProducts');
-    
-    if (!inputP) return;
+    if (!inputC || !inputP) return;
 
-    const minVal = inputP.getAttribute('min');
-    const maxVal = inputP.getAttribute('max');
+    const intvC = { 
+        'min' : inputC.getAttribute('min'), 
+        'max' : inputC.getAttribute('max') 
+    };
+
+    const intvP = { 
+        'min' : inputP.getAttribute('min'), 
+        'max' : inputP.getAttribute('max') 
+    };
+
     const events = ['change', 'keyup'];
-
     events.forEach(ev => {
-
-        inputP.addEventListener(ev, () => { // Check if events occur on input field.
-
-            let mockupProducts = Math.min(Math.max(inputP.value, minVal), maxVal); // Assign input value in interval between min and max.
-            inputP.value = mockupProducts; // Set input value to value in interval.
-            updateMockups(mockupProducts, randomCategories); // Update amount of mockup products.
-
+        inputC.addEventListener(ev, () => {
+            inputC.value = Math.min(Math.max(inputC.value, intvC.min), intvC.max);
+            randCategories();
         });
-
+        inputP.addEventListener(ev, () => { // Check if events occur on input field.
+            inputP.value  = Math.min(Math.max(inputP.value, intvP.min), intvP.max); // Set input value to value in interval between min and max.
+            updateMockups(); // Update mockup products.
+        });
     });
 
 })();
@@ -73,26 +66,31 @@ function buyButtons() {
 }
 
 /* Creating mockup products */
-function updateMockups (mockupProducts, randomCategories) {
+function updateMockups () {
+    const numProducts = Number(document.querySelector('input#mockupProducts').value);
     const main = document.querySelector('main'); // Declare main.
     const productCards = main?.querySelectorAll('article.productCard'); // If main exists, create an array of all productCards in main.
 
-    if (!productCards || productCards.length === 0) return; // If no productCards exist, stop.
+    if (!numProducts || !productCards || productCards.length === 0) return; // If no productCards exist, stop.
 
-    if (productCards.length < mockupProducts) { // If input value is greater than current amount of productCards.
+    if (productCards.length < numProducts) { // If input value is greater than current amount of productCards.
 
         const categories = document.querySelectorAll('span.category');
 
-        for (let index = productCards.length; index < mockupProducts; index++) {
+        for (let index = productCards.length; index < numProducts; index++) {
 
             article = document.createElement('article'); // Create new productCard.
             article.className = 'productCard';
-            article.innerHTML = productCards[0].innerHTML.split('1').join(index + 1);
+            article.innerHTML = productCards[0].innerHTML;
+            
+            const img = article.querySelector('img');
+            const title = article.querySelector('h3');
+            
+            img.setAttribute('src', img.getAttribute('src').split('1').join((index % 10) + 1))
 
-            let randomNumber = Math.floor(Math.random() * (randomCategories.length));
+            title.innerHTML = title.innerHTML.split('1').join(index + 1);
 
-            article.querySelector('span.category')
-                .innerHTML = randomCategories[Math.floor(Math.random() * (randomNumber))];
+            randCategories(article);
 
             main.append(article); // Append new productCard to main.
         }
@@ -100,9 +98,9 @@ function updateMockups (mockupProducts, randomCategories) {
         buyButtons(); // Refresh buyButtons so that new productCards get functional buttons.
     }
 
-    if (productCards.length > mockupProducts) { // If input value is less than current amount of productCards.
+    if (productCards.length > numProducts) { // If input value is less than current amount of productCards.
 
-        for (let index = productCards.length; index > mockupProducts; index--) {
+        for (let index = productCards.length; index > numProducts; index--) {
             productCards[index-1].remove(); // Remove productCard.
         }
 
@@ -117,23 +115,42 @@ function capitalize(s) {
 };
 
 /* Create mockup categories */
-function randCategories(num) {
+function randCatList(num) {
     const words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis tenetur quibusdam molestias fugit a velit. Nesciunt, eaque harum. Earum sed, cum quia incidunt maxime vero alias laborum saepe sint.'
         .replace(/[^a-zA-Z ]/g, '')
         .split(' ')
-        .filter(w => w.length >= 2);
+        .filter(w => w.length >= 2); // Remove special characters, split the string into array, and filter words shorter than 2 characters.
 
-    // Gör en unik pool (case-insensitive) så att "lorem" och "Lorem" räknas som samma
+    // Make a list of the unique words in the array and make them lowercase.
     const pool = [...new Set(words.map(w => w.toLowerCase()))];
-
-    num = Math.min(num, pool.length);
+    num = Math.min(num, pool.length); // Adjust the pool to defined max number of words.
 
     const arr = [];
     while (arr.length < num) {
         const i = Math.floor(Math.random() * pool.length);
-        const [picked] = pool.splice(i, 1);   // tar bort ordet ur poolen => kan aldrig väljas igen
-        arr.push(capitalize(picked));
+        const [picked] = pool.splice(i, 1); // Remove picked word from the pool.
+        arr.push(capitalize(picked)); // Push picked word to return array and capitalize first letter.
     }
 
     return arr;
+}
+
+/* Uppdate all .category innerHTML with random category */
+function randCategories(single) {
+
+    const numCategories = Number(document.querySelector('input#mockupCategories').value); // Get value from input field.
+
+    const domCategories = (!single)
+        ? document.querySelectorAll('.category') // If single-element isn't set declare domCategories as array of all .category elements from page.
+        : single.querySelectorAll('.category'); // Else, use the provided element.
+
+    const s = new Set([...domCategories].map(el => el.textContent.trim())); // Make a list of categories where everything but the text is stripped.
+    let uniqueCat = [...s]; // Filter and keep unique values in list.
+
+    if (!single) catList = randCatList(numCategories); // If single-element is not set, create a new random categories list.
+
+    domCategories.forEach(category => {
+        category.innerHTML = catList[Math.floor(Math.random() * numCategories)]; //
+    });
+    
 }
