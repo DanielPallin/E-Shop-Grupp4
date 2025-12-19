@@ -11,6 +11,8 @@ let catList = [];
     buyButtons();
     if (catList.length == 0) randCategories();
 
+    // updSidebar();
+
 })();
 
 (() => {
@@ -35,10 +37,12 @@ let catList = [];
         inputC.addEventListener(ev, () => {
             inputC.value = Math.min(Math.max(inputC.value, intvC.min), intvC.max);
             randCategories();
+            // updSidebar();
         });
         inputP.addEventListener(ev, () => { // Check if events occur on input field.
             inputP.value  = Math.min(Math.max(inputP.value, intvP.min), intvP.max); // Set input value to value in interval between min and max.
             updateMockups(); // Update mockup products.
+            // updSidebar();
         });
     });
 
@@ -85,7 +89,7 @@ function updateMockups () {
             
             const img = article.querySelector('img');
             const title = article.querySelector('h3');
-            
+
             img.setAttribute('src', img.getAttribute('src').split('1').join((index % 10) + 1))
 
             title.innerHTML = title.innerHTML.split('1').join(index + 1);
@@ -153,4 +157,40 @@ function randCategories(single) {
         category.innerHTML = catList[Math.floor(Math.random() * numCategories)]; //
     });
     
+}
+
+function updSidebar() {
+    if (catList.length == 0) return;
+    console.log(catList);
+    const sidebar = document.querySelector('aside#sidebar');
+    const ul = document.createElement('ul');
+
+    const productCards = document.querySelectorAll('article.productCard');
+
+    let productCatlist = {};
+    productCards.forEach(productCard => {
+        const name = productCard.querySelector('h3').textContent.trim();
+        const cat = productCard.querySelector('.category').textContent.trim();
+        (productCatlist[cat] ??= []).push(name);
+    });
+
+    console.log(productCatlist);
+
+    Object.entries(productCatlist).forEach(([cat, names]) => {
+        const li = document.createElement('li');
+        li.textContent = cat;
+        ul.append(li);
+
+        if (names.length > 0) {
+            const subUl = document.createElement('ul');
+            names.forEach(name => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                ul.append(li);
+            });
+
+        }
+    });
+
+    sidebar.append(ul);
 }
