@@ -75,14 +75,26 @@ div#mainContainer, div#cart {
 }
 
 header, footer {
-    padding: 2rem;
     width: 100%;
     background-color: #0D0D0D;
     color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 
     & > * {
-        margin: 0 auto;
+        width: 100%;
         max-width: var(--pageWidth);
+    }
+
+    & div.container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
     }
 }
 
@@ -90,12 +102,6 @@ header {
     background-image: url(../img/header_bg.png);
     background-size: cover;
     background-position: center;
-}
-
-div#cart {
-    margin: 0 auto;
-    text-align: right;
-    padding: .5rem 2rem;
 }
 /* --> */
 
@@ -106,6 +112,7 @@ div#mainContainer {
     grid-template-areas: "sidebar main";
     grid-template-columns: var(--sidebarWidth) auto;
     gap: var(--gridRowGap) var(--gridColGap);
+    padding: 0 1rem;
 }
 
 main {
