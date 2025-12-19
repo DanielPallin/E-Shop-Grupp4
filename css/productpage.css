@@ -1,0 +1,30 @@
+/* Product page defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    color: #222;
+    line-height: 1.5;
+}
+
+/* Waiting for header to be made */
+
+/* Waiting for nav to be made */
+
+/* Waiting for Logo to be set */
+
+.btn-primary {
+    background: green;
+    color: white;
+    margin-top: 100px;
+    margin-left: 150px;
+    padding: 10px;
+}
+button:hover {
+    background-color: rgb(29, 253, 9);
+
+}
