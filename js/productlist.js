@@ -12,41 +12,65 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
     .toLowerCase();
 
 (() => {
-
-    /* Run buy buttons and random categories */
-    buyButtons();
-    if (catList.length == 0) randCategories();
-
-    updSidebar();
-
-    changeImgBgColor(img, imgBgColor);
-
-})();
-
-(() => {
-
-    /* Checking for changes to input field for mockup categories and products. */
     const inputC = document.querySelector('input#mockupCategories');
     const inputP = document.querySelector('input#mockupProducts');
     if (!inputC || !inputP) return;
 
-    const intvC = { 'min' : inputC.getAttribute('min'), 'max' : inputC.getAttribute('max') };
-    const intvP = { 'min' : inputP.getAttribute('min'), 'max' : inputP.getAttribute('max') };
+    const url = new URL(location);
+
+    if (!url.searchParams.has('mcats')) url.searchParams.set('mcats', inputC.value);
+    if (!url.searchParams.has('mprods')) url.searchParams.set('mprods', inputP.value);
+
+    history.replaceState(null, '', url);
+})();
+
+(() => {
+    buyButtons();
+
+    if (catList.length === 0) randCategories();
+    updateMockups();          // viktigt så att mprods används vid load
+    updSidebar();
+
+    changeImgBgColor(img, imgBgColor);
+})();
+
+(() => {
+    const inputC = document.querySelector('input#mockupCategories');
+    const inputP = document.querySelector('input#mockupProducts');
+    if (!inputC || !inputP) return;
+
+    const intvC = { min: Number(inputC.getAttribute('min')), max: Number(inputC.getAttribute('max')) };
+    const intvP = { min: Number(inputP.getAttribute('min')), max: Number(inputP.getAttribute('max')) };
 
     const events = ['change', 'keyup'];
+
+    const setParam = (key, value) => {
+        const url = new URL(location);
+        url.searchParams.set(key, value);
+        history.replaceState(null, '', url);
+    };
+
     events.forEach(ev => {
         inputC.addEventListener(ev, () => {
-            inputC.value = Math.min(Math.max(inputC.value, intvC.min), intvC.max);
-            randCategories();
-            updSidebar();
-        });
-        inputP.addEventListener(ev, () => { // Check if events occur on input field.
-            inputP.value  = Math.min(Math.max(inputP.value, intvP.min), intvP.max); // Set input value to value in interval between min and max.
-            updateMockups(); // Update mockup products.
-            updSidebar();
-        });
+        const value = Math.min(Math.max(Number(inputC.value), intvC.min), intvC.max);
+        inputC.value = value;
+
+        setParam('mcats', value);
+
+        randCategories();
+        updSidebar();
     });
 
+    inputP.addEventListener(ev, () => {
+        const value = Math.min(Math.max(Number(inputP.value), intvP.min), intvP.max);
+        inputP.value = value;
+
+        setParam('mprods', value);
+
+        updateMockups();
+        updSidebar();
+        });
+    });
 })();
 
 /* Making buyButtons add items to cart. */
@@ -72,7 +96,13 @@ function buyButtons() {
 
 /* Creating mockup products */
 function updateMockups () {
-    const numProducts = Number(document.querySelector('input#mockupProducts').value);
+    // const numProducts = Number(document.querySelector('input#mockupProducts').value);
+    const params = new URLSearchParams(location.search);
+    const inputP = document.querySelector('input#mockupProducts');
+    const fallback = Number(inputP?.value ?? 1);
+
+    const numProducts = Number(params.get('mprods')) || fallback;
+
     const main = document.querySelector('main'); // Declare main.
     const productCards = main?.querySelectorAll('article.productCard'); // If main exists, create an array of all productCards in main.
 
@@ -148,7 +178,13 @@ function randCatList(num) {
 /* Uppdate all .category innerHTML with random category */
 function randCategories(single) {
 
-    const numCategories = Number(document.querySelector('input#mockupCategories').value); // Get value from input field.
+    // const numCategories = Number(document.querySelector('input#mockupCategories').value); // Get value from input field.
+    const params = new URLSearchParams(location.search);
+
+    const inputC = document.querySelector('input#mockupCategories');
+    const fallback = Number(inputC?.value ?? 1);
+
+    const numCategories = Number(params.get('mcats')) || fallback;
 
     const domCategories = (!single)
         ? document.querySelectorAll('.category') // If single-element isn't set declare domCategories as array of all .category elements from page.
