@@ -11,7 +11,7 @@ let catList = [];
     buyButtons();
     if (catList.length == 0) randCategories();
 
-    // updSidebar();
+    updSidebar();
 
 })();
 
@@ -37,12 +37,12 @@ let catList = [];
         inputC.addEventListener(ev, () => {
             inputC.value = Math.min(Math.max(inputC.value, intvC.min), intvC.max);
             randCategories();
-            // updSidebar();
+            updSidebar();
         });
         inputP.addEventListener(ev, () => { // Check if events occur on input field.
             inputP.value  = Math.min(Math.max(inputP.value, intvP.min), intvP.max); // Set input value to value in interval between min and max.
             updateMockups(); // Update mockup products.
-            // updSidebar();
+            updSidebar();
         });
     });
 
@@ -107,7 +107,7 @@ function updateMockups () {
         for (let index = productCards.length; index > numProducts; index--) {
             productCards[index-1].remove(); // Remove productCard.
         }
-
+        
     }
 }
 
@@ -161,8 +161,10 @@ function randCategories(single) {
 
 function updSidebar() {
     if (catList.length == 0) return;
-    console.log(catList);
-    const sidebar = document.querySelector('aside#sidebar');
+    const sidebar = document.querySelector('aside#sidebar nav');
+    const currUl = sidebar.querySelector('ul');
+    if (currUl) currUl.remove(); 
+
     const ul = document.createElement('ul');
 
     const productCards = document.querySelectorAll('article.productCard');
@@ -174,8 +176,6 @@ function updSidebar() {
         (productCatlist[cat] ??= []).push(name);
     });
 
-    console.log(productCatlist);
-
     Object.entries(productCatlist).forEach(([cat, names]) => {
         const li = document.createElement('li');
         li.textContent = cat;
@@ -183,12 +183,16 @@ function updSidebar() {
 
         if (names.length > 0) {
             const subUl = document.createElement('ul');
+
             names.forEach(name => {
                 const li = document.createElement('li');
-                li.textContent = name;
-                ul.append(li);
+                const a = document.createElement('a');
+                a.setAttribute('href', 'product.html');
+                a.textContent = name;
+                li.append(a)
+                subUl.append(li);
             });
-
+            ul.append(subUl);
         }
     });
 
