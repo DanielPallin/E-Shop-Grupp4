@@ -1,0 +1,42 @@
+:root {
+  /* Färger */
+  --color-black: #0D0D0D;
+  --color-white: #F8F8F8;
+  --color-brown-dark: #403022;
+  --color-brown: #735943;
+  --color-beige-light: #F2CAA7;
+  --color-beige: #BF8C6F;
+
+  /* UI */
+  --radius-sm: 4px;
+  --shadow-default: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 60ch;
+} */
+/* 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+} */
+
+/* .button-light {} */
+/* .button-dark {} */
