@@ -5,6 +5,12 @@
 
 let catList = [];
 
+let img = document.querySelector('article img.productImage');
+let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('article'))
+    .backgroundColor)
+    .split('#')[1]
+    .toLowerCase();
+
 (() => {
 
     /* Run buy buttons and random categories */
@@ -12,6 +18,8 @@ let catList = [];
     if (catList.length == 0) randCategories();
 
     updSidebar();
+
+    changeImgBgColor(img, imgBgColor);
 
 })();
 
@@ -22,15 +30,8 @@ let catList = [];
     const inputP = document.querySelector('input#mockupProducts');
     if (!inputC || !inputP) return;
 
-    const intvC = { 
-        'min' : inputC.getAttribute('min'), 
-        'max' : inputC.getAttribute('max') 
-    };
-
-    const intvP = { 
-        'min' : inputP.getAttribute('min'), 
-        'max' : inputP.getAttribute('max') 
-    };
+    const intvC = { 'min' : inputC.getAttribute('min'), 'max' : inputC.getAttribute('max') };
+    const intvP = { 'min' : inputP.getAttribute('min'), 'max' : inputP.getAttribute('max') };
 
     const events = ['change', 'keyup'];
     events.forEach(ev => {
@@ -89,6 +90,11 @@ function updateMockups () {
             
             const img = article.querySelector('img');
             const title = article.querySelector('h3');
+
+            // const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
+            // img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
+
+            changeImgBgColor(img, imgBgColor);
 
             img.setAttribute('src', img.getAttribute('src').split('1').join((index % 10) + 1))
 
@@ -197,4 +203,17 @@ function updSidebar() {
     });
 
     sidebar.append(ul);
+}
+
+function rgbToHex (color) {
+    const m = color.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i);
+    if (!m) return color;
+    const [r, g, b] = m.slice(1, 4).map(Number);
+    
+    return "#" + [r, g, b].map(v => v.toString(16).padStart(2, "0")).join("").toUpperCase();
+};
+
+function changeImgBgColor (img, imgBgColor) {
+    const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
+    img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
 }

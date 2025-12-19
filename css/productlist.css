@@ -3,24 +3,31 @@
     --tabletWidth: 960px;
     --mobileWidth: 768px;
     --sidebarWidth: 250px;
+
     --pageAlignment: center;
 
     --gridColGap: 2rem;
-    --gridRowGap: 4rem;
+    --gridRowGap: 2rem;
 
-    --pageBg: #fff;
-    --contentBg: #fff;
+    --pageBg: #f8f8f8;
+    --contentBg: #f8f8f8;
 
-    --color: #222;
-    --linkColor: #222;
-    --linkHoverColor: #333;
+    --color: #403022;
+    --linkColor: rgba(64, 48, 34, 1);
+    --linkHoverColor: rgba(64, 48, 34, 1);
+    --linkTextDecoration: none;
+    --linkHoverTextDecoration: underline;
+    
     --btnColor: #eee;
-    --btnBgColor: #222;
+    --btnBgColor: rgba(64, 48, 34, 1);
     --btnHoverColor: #333;
+    --btnHoverBgColor: rgba(64, 48, 34, .9);
+    --btnBorderRadius: 8px;
 
     --borderRadius: 4px;
 
-    font-family: 'Helvetica Neue', 'Helvetica', Arial, Verdana, sans-serif;
+    font-family: 'Epilogue', Arial, Verdana, sans-serif;
+    font-weight: 400;;
 }
 
 :root * {
@@ -39,9 +46,12 @@ body {
 
     & a {
         color: var(--linkColor);
+        font-size: .8em;
+        text-decoration: var(--linkTextDecoration);
 
         &:hover {
             color: var(--linkHoverColor);
+            text-decoration: var(--linkHoverTextDecoration);
         }
     }
 
@@ -49,8 +59,9 @@ body {
         background-color: var(--btnBgColor);
         color: var(--btnColor);
         border: none;
-        border-radius: var(--borderRadius);
+        border-radius: var(--btnBorderRadius);
         cursor: pointer;
+        font-weight: 300;
 
         &:hover {
             background-color: var(--btnHoverColor);
@@ -66,13 +77,19 @@ div#mainContainer, div#cart {
 header, footer {
     padding: 2rem;
     width: 100%;
-    background-color: #222;
-    color: #eee;
+    background-color: #0D0D0D;
+    color: #F8F8F8;
 
     & > * {
         margin: 0 auto;
         max-width: var(--pageWidth);
     }
+}
+
+header {
+    background-image: url(../img/header_bg.png);
+    background-size: cover;
+    background-position: center;
 }
 
 div#cart {
@@ -119,6 +136,9 @@ article {
     animation-name: productCard;
     animation-duration: .5s;
     animation-fill-mode: forwards;
+    border-radius: var(--borderRadius);
+    overflow: hidden;
+    padding: 2rem;
 
     & > *:not(.action) {
         grid-column: 1 / span 2;
@@ -127,6 +147,10 @@ article {
     & figure {
         margin: 0;
         width: 100%;
+
+        & a {
+            display: block;
+        }
 
         & img {
             width: 100%;
@@ -138,13 +162,23 @@ article {
         }
     }
 
+    & span.category {
+        opacity: .5;
+        font-weight: bold;
+        font-size: .8em;
+    }
+
     & p.productDetails {
         display: none;
     }
 
+    /* & a.action {
+        text-decoration: underline;
+    } */
+
     & button.buy {
-        font-size: 1em;
-        padding: .33em 1em;
+        font-size: 1rem;
+        padding: .5em .5em;
     }
 }
 
