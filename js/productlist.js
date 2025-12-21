@@ -282,33 +282,43 @@ function getTop(el) {
 }
 
 function initSidebar() {
+    const prevPos = sidebar.style.position;
+    const prevTop = sidebar.style.top;
+
+    sidebar.style.position = 'absolute';
+    sidebar.style.top = ''; 
+
     headerTop = getTop(header);
-    headerHeight = header.scrollHeight;
+    headerHeight = header.offsetHeight;
     sidebarTop = getTop(sidebar);
-    sidebarHeight = sidebar.scrollHeight;
+    sidebarHeight = sidebar.offsetHeight;
+    parentTop = getTop(sidebar.offsetParent);
     stopY = getTop(footer);
 
-    // data.innerText = `SidebarTop: ${sidebarTop}\nSidebarHeight: ${sidebarHeight}\nStopY: ${stopY}`;
+    sidebar.style.position = prevPos;
+    sidebar.style.top = prevTop;
+
+    onScroll();
 }
 
-
-/* 
-* To do: fix problems when resizing horizontally. Probable cause is that fixed sidebar isn't positioned in x-direction.
-* To do: make sidebar stop erlier. Travels too far over footer right now.
-*/
 function onScroll() {
     const y = window.scrollY;
+    const fixedTop = sidebarTop - (headerTop + headerHeight);
 
     if (y <= headerTop + headerHeight ) {
         sidebar.style.position = 'absolute';
         sidebar.style.top = '';
-    } else if (y > headerTop + headerHeight && y + sidebarHeight < stopY) {
-        sidebar.style.position = 'fixed';
-        sidebar.style.top = `${sidebarTop - (headerTop + headerHeight)}px`;
-    } else {
-        sidebar.style.position = 'absolute';
-        sidebar.style.top = `${stopY - sidebarHeight + sidebarTop - (headerTop + headerHeight)}px`;
+        return;
     }
+    
+    if (y + fixedTop + sidebarHeight < stopY) {
+        sidebar.style.position = 'fixed';
+        sidebar.style.top = `${fixedTop}px`;
+        return;
+    }
+
+    sidebar.style.position = 'absolute';
+    sidebar.style.top = `${(stopY - sidebarHeight) - parentTop}px`; //sidebar.style.top = `${stopY - sidebarHeight - (headerTop + headerHeight)}px`;
 }
 
 window.addEventListener('scroll', onScroll);

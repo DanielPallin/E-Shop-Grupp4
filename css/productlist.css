@@ -113,6 +113,7 @@ header {
 }
 /* --> */
 
+/* Main container: containing sidebar and main */
 div#mainContainer {
     flex: 1;
     display: grid;
@@ -128,6 +129,7 @@ div#mainContainer {
     }
 }
 
+/* Main: containing product cards */
 main {
     grid-area: main;
     display: grid;
@@ -135,6 +137,7 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+/* Product card */
 article {
     background-color: var(--contentBg);
     display: grid;
@@ -193,6 +196,7 @@ article {
     }
 }
 
+/* Sidebar */
 aside {
     position: absolute;
     grid-area: sidebar;
@@ -283,7 +287,8 @@ aside {
 }
 */
 
-/* Tablet */
+
+/* Responsiveness: tablet */
 @media screen and (max-width: 960px) {
     div#mainContainer {
         grid-template-areas: 
@@ -314,7 +319,7 @@ aside {
     }
 }
 
-/* Mobile */
+/* Responsiveness: mobile */
 @media screen and (max-width: 768px) {
     main {
         grid-template-columns: 1fr 1fr;
@@ -325,6 +330,7 @@ aside {
     }
 }
 
+/* Animation: fade-in mockup product cards */
 @keyframes productCard {
     0% { opacity: 0; }
     100% { opacity: 1; }
