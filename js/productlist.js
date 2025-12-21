@@ -18,17 +18,23 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
 
     const url = new URL(location);
 
-    if (!url.searchParams.has('mcats')) url.searchParams.set('mcats', inputC.value);
-    if (!url.searchParams.has('mprods')) url.searchParams.set('mprods', inputP.value);
+    url.searchParams.has('mcats')
+        ? (inputC.value = url.searchParams.get('mcats'))
+        : url.searchParams.set('mcats', inputC.value);
+
+    url.searchParams.has('mprods')
+        ? (inputP.value = url.searchParams.get('mprods'))
+        : url.searchParams.set('mprods', inputP.value);
 
     history.replaceState(null, '', url);
+
 })();
 
 (() => {
     buyButtons();
 
-    if (catList.length === 0) randCategories();
-    updateMockups();          // viktigt så att mprods används vid load
+    if (catList.length === 0) mockupCategories();
+    mockupProducts();          // viktigt så att mprods används vid load
     updSidebar();
 
     changeImgBgColor(img, imgBgColor);
@@ -57,7 +63,7 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
 
         setParam('mcats', value);
 
-        randCategories();
+        mockupCategories();
         updSidebar();
     });
 
@@ -67,7 +73,7 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
 
         setParam('mprods', value);
 
-        updateMockups();
+        mockupProducts();
         updSidebar();
         });
     });
@@ -95,7 +101,7 @@ function buyButtons() {
 }
 
 /* Creating mockup products */
-function updateMockups () {
+function mockupProducts () {
     // const numProducts = Number(document.querySelector('input#mockupProducts').value);
     const params = new URLSearchParams(location.search);
     const inputP = document.querySelector('input#mockupProducts');
@@ -130,7 +136,7 @@ function updateMockups () {
 
             title.innerHTML = title.innerHTML.split('1').join(index + 1);
 
-            randCategories(article);
+            mockupCategories(article);
 
             main.append(article); // Append new productCard to main.
         }
@@ -145,6 +151,7 @@ function updateMockups () {
         }
         
     }
+    cEvent(mockupProducts, 'products:changed');
 }
 
 /* Capitalize first letter of string */
@@ -176,7 +183,7 @@ function randCatList(num) {
 }
 
 /* Uppdate all .category innerHTML with random category */
-function randCategories(single) {
+function mockupCategories(single) {
 
     // const numCategories = Number(document.querySelector('input#mockupCategories').value); // Get value from input field.
     const params = new URLSearchParams(location.search);
@@ -199,6 +206,7 @@ function randCategories(single) {
         category.innerHTML = catList[Math.floor(Math.random() * numCategories)]; //
     });
     
+    cEvent(mockupCategories, 'categories:changed');
 }
 
 function updSidebar() {
@@ -218,7 +226,11 @@ function updSidebar() {
         (productCatlist[cat] ??= []).push(name);
     });
 
-    Object.entries(productCatlist).forEach(([cat, names]) => {
+    const list = Object.entries(productCatlist)
+        .sort(([catA], [catB]) => catA.localeCompare(catB, 'sv'))
+        .map(([cat, names]) => ({ cat, names }));
+
+    list.forEach(({cat, names}) => {
         const li = document.createElement('li');
         li.textContent = cat;
         ul.append(li);
@@ -239,6 +251,7 @@ function updSidebar() {
     });
 
     sidebar.append(ul);
+    cEvent(updSidebar, 'sidebar:updated');
 }
 
 function rgbToHex (color) {
@@ -253,3 +266,65 @@ function changeImgBgColor (img, imgBgColor) {
     const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
     img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
 }
+
+/* Scroll and fixed sidebar */
+const sidebar = document.querySelector('aside#sidebar');
+const footer = document.querySelector('footer');
+const mockupPanel = document.querySelector('#mockupPanel');
+
+let sidebarTop;
+let stopY;
+
+function getTop(el) {
+    return el.getBoundingClientRect().top + window.scrollY;
+}
+
+function initSidebar() {
+    sidebarTop = getTop(sidebar);
+    sidebarHeight = sidebar.scrollHeight;
+    stopY = getTop(footer);
+
+    // data.innerText = `SidebarTop: ${sidebarTop}\nSidebarHeight: ${sidebarHeight}\nStopY: ${stopY}`;
+}
+
+function onScroll() {
+    const y = window.scrollY;
+    const sidebarBottom = window.scrollY + sidebarHeight;
+
+    if (y <= sidebarTop ) {
+        sidebar.style.position = 'absolute';
+        sidebar.style.top = '';
+    } else if (y > sidebarTop && sidebarBottom < stopY) {
+        sidebar.style.position = 'fixed';
+        sidebar.style.top = '0';
+    } else {
+        sidebar.style.position = 'absolute';
+        sidebar.style.top = `${stopY - sidebarHeight}px`;
+    }
+}
+
+['load', 'resize']
+    .forEach(event => { window.addEventListener(event, initSidebar) });
+
+['sidebar:updated']
+    .forEach(event => { document.addEventListener(event, initSidebar) });
+
+window.addEventListener('scroll', onScroll);
+
+function cEvent(fn, eventName) {
+    document.dispatchEvent(
+        new CustomEvent(eventName, {
+            detail: { source: fn }
+        })
+    );
+}
+
+/* Mockup panel */
+const mockupPanelClose = mockupPanel.querySelector('a.close');
+mockupPanelClose.addEventListener('click', (event) => {
+    event.preventDefault();
+    mockupPanel.classList.toggle('open');
+    mockupPanelClose.textContent = (mockupPanel.classList.contains('open'))
+        ? 'Stäng'
+        : 'Öppna';
+});
