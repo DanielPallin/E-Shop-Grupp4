@@ -1,3 +1,10 @@
+/*
+* Gruppuppgift: E-shop
+* Grupp 4 / FaceRoots
+* Oscar Nilsson
+* oscar.nilsson@medieinstitutet.se
+*/
+
 :root {
     --pageWidth: 1200px; /* Desktop */
     --tabletWidth: 960px;
@@ -87,12 +94,13 @@ header, footer {
     & > * {
         width: 100%;
         max-width: var(--pageWidth);
+        text-align: center;
     }
 
     & div.container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         box-sizing: border-box;
     }
@@ -233,7 +241,7 @@ aside {
     grid-auto-rows: max-content;
     align-items: center;
     gap: .5rem;
-    transform: translateY(calc(85%));
+    transform: translateY(calc(78%));
     transition: transform .25s ease;
 
     background-color: var(--contentBg);

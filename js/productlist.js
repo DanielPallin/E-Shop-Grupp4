@@ -1,4 +1,6 @@
 /*
+* Gruppuppgift: E-shop
+* Grupp 4 / FaceRoots
 * Oscar Nilsson
 * oscar.nilsson@medieinstitutet.se
 */
@@ -269,17 +271,19 @@ function changeImgBgColor (img, imgBgColor) {
 
 /* Scroll and fixed sidebar */
 const sidebar = document.querySelector('aside#sidebar');
+const header = document.querySelector('header');
 const footer = document.querySelector('footer');
 const mockupPanel = document.querySelector('#mockupPanel');
 
-let sidebarTop;
-let stopY;
+let headerTop, headerHeight, sidebarTop, sidebarHeight, stopY;
 
 function getTop(el) {
     return el.getBoundingClientRect().top + window.scrollY;
 }
 
 function initSidebar() {
+    headerTop = getTop(header);
+    headerHeight = header.scrollHeight;
     sidebarTop = getTop(sidebar);
     sidebarHeight = sidebar.scrollHeight;
     stopY = getTop(footer);
@@ -287,29 +291,33 @@ function initSidebar() {
     // data.innerText = `SidebarTop: ${sidebarTop}\nSidebarHeight: ${sidebarHeight}\nStopY: ${stopY}`;
 }
 
+
+/* 
+* To do: fix problems when resizing horizontally. Probable cause is that fixed sidebar isn't positioned in x-direction.
+* To do: make sidebar stop erlier. Travels too far over footer right now.
+*/
 function onScroll() {
     const y = window.scrollY;
-    const sidebarBottom = window.scrollY + sidebarHeight;
 
-    if (y <= sidebarTop ) {
+    if (y <= headerTop + headerHeight ) {
         sidebar.style.position = 'absolute';
         sidebar.style.top = '';
-    } else if (y > sidebarTop && sidebarBottom < stopY) {
+    } else if (y > headerTop + headerHeight && y + sidebarHeight < stopY) {
         sidebar.style.position = 'fixed';
-        sidebar.style.top = '0';
+        sidebar.style.top = `${sidebarTop - (headerTop + headerHeight)}px`;
     } else {
         sidebar.style.position = 'absolute';
-        sidebar.style.top = `${stopY - sidebarHeight}px`;
+        sidebar.style.top = `${stopY - sidebarHeight + sidebarTop - (headerTop + headerHeight)}px`;
     }
 }
+
+window.addEventListener('scroll', onScroll);
 
 ['load', 'resize']
     .forEach(event => { window.addEventListener(event, initSidebar) });
 
 ['sidebar:updated']
     .forEach(event => { document.addEventListener(event, initSidebar) });
-
-window.addEventListener('scroll', onScroll);
 
 function cEvent(fn, eventName) {
     document.dispatchEvent(
@@ -325,6 +333,6 @@ mockupPanelClose.addEventListener('click', (event) => {
     event.preventDefault();
     mockupPanel.classList.toggle('open');
     mockupPanelClose.textContent = (mockupPanel.classList.contains('open'))
-        ? 'Stäng'
-        : 'Öppna';
+        ? 'Close'
+        : 'Open';
 });
