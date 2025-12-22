@@ -3,19 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/productpage.css" />
+    <title>FaceRoots – Product</title>
 
-
+    <link rel="stylesheet" href="css/productpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <!-- header  -->
+
+<header>
+    <div class="container">
+        <h1>FaceRoots</h1>
     </div>
+</header>
 
-    <div>
-            <button class="btn-primary"> Add to Cart </button>
+<main class="productPage">
 
-</div>
+    <!-- Product image -->
+    <section class="productMedia">
+        <img src="img/products/product-1_bgf8f8f8.png" alt="Product name">
+    </section>
+
+    <!-- Product info -->
+    <section class="productInfo">
+
+        <h2 class="productTitle">Product Name #1</h2>
+        <span class="category">Category name</span>
+
+        <div class="purchaseActions">
+            <button class="action buy">Add to cart</button>
+            <button class="action buyNow">Buy now</button>
+        </div>
+
+        <p class="price">€29.99</p>
+
+        <!-- Description -->
+        <div class="description">
+            <h3>Description</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Nisi aspernatur quisquam asperiores accusantium excepturi.
+            </p>
+        </div>
+
+        <!-- Product information -->
+        <details class="productDetails">
+            <summary>Product information</summary>
+            <ul>
+                <li><strong>Volume:</strong> 50 ml</li>
+                <li><strong>Skin type:</strong> All skin types</li>
+                <li><strong>Ingredients:</strong> Aloe Vera, Vitamin C</li>
+                <li><strong>Origin:</strong> Sweden</li>
+            </ul>
+        </details>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Footer</p>
+</footer>
+
 </body>
 </html>

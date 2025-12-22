@@ -1,30 +1,104 @@
-/* Product page defaults */
-* {
+.productPage {
+    max-width: var(--pageWidth);
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.productMedia img {
+    width: 100%;
+    border-radius: var(--borderRadius);
+    background-color: #fff;
+}
+
+
+.productInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.productTitle {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family:Arial, Helvetica, sans-serif;
-    color: #222;
-    line-height: 1.5;
+.category {
+    opacity: 0.6;
+    font-size: 0.85em;
+    font-weight: bold;
 }
 
-/* Waiting for header to be made */
 
-/* Waiting for nav to be made */
-
-/* Waiting for Logo to be set */
-
-.btn-primary {
-    background: green;
-    color: white;
-    margin-top: 100px;
-    margin-left: 150px;
-    padding: 10px;
+.purchaseActions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
 }
-button:hover {
-    background-color: rgb(29, 253, 9);
 
+.purchaseActions button {
+    padding: 0.75em 1.5em;
+    font-size: 1rem;
+}
+
+button.buyNow {
+    background-color: #BF8C6F;
+    color: #fff;
+}
+
+button.buyNow:hover {
+    background-color: #a8745a;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+/* description */
+.description h3 {
+    margin-bottom: 0.25rem;
+}
+
+.description p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.productDetails {
+    margin-top: 1.5rem;
+    background-color: #fff;
+    border-radius: var(--borderRadius);
+    padding: 1rem;
+}
+
+.productDetails summary {
+    cursor: pointer;
+    font-weight: bold;
+    list-style: none;
+}
+
+.productDetails summary::-webkit-details-marker {
+    display: none;
+}
+
+.productDetails summary::after {
+    content: "＋";
+    float: right;
+}
+
+.productDetails[open] summary::after {
+    content: "−";
+}
+
+.productDetails ul {
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .productPage {
+        grid-template-columns: 1fr;
+    }
 }
