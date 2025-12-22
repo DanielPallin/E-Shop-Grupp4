@@ -1,0 +1,69 @@
+:root {
+  /* Färger */
+  --color-black: #0D0D0D;
+  --color-white: #F8F8F8;
+  --color-brown-dark: #403022;
+  --color-brown: #735943;
+  --color-beige-light: #F2CAA7;
+  --color-beige: #BF8C6F;
+
+  /* UI */
+  --radius-sm: 4px;
+  --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: 'Epilogue', sans-serif;
+}
+
+
+/* h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 60ch;
+} */
+
+/* LINK */
+.a-light {
+    text-decoration: none;
+    color: var(--color-white)
+}
+
+.a:hover {
+    text-decoration: underline;
+} 
+
+
+/* BUTTON */
+.button-light {
+    background-color: var(--color-white);
+    color: var(--color-brown-dark);
+    font-weight: 700;
+}
+.button-dark {
+    background-color: var(--color-brown-dark);
+    color: var(--color-white);
+        font-weight: 700;
+
+}
+
+/* BUTTON:Hover 90% Opacitet */
+.button-light:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.button-dark:hover {
+    background-color: rgba(64, 48, 34, 0.8);
+}

@@ -89,6 +89,9 @@ button {
     width: 100%;
     border-radius: var(--borderRadius);
     background-color: #fff;
+    object-fit:fill; max-width: 150px;
+    justify-content: space-between;
+    margin: 50px;
 }
 
 
