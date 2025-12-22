@@ -12,8 +12,12 @@ body {
 }
 
 /* HEADER */
-.header {
-  border-bottom: 1px solid #ddd;
+.header-img {
+  display: block;
+  width: 100%;
+  max-height: 40vh;
+  object-fit: cover;
+  object-position: 0 20%;
 }
 
 .nav-container {
