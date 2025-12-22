@@ -9,8 +9,13 @@
 
   /* UI */
   --radius-sm: 4px;
-  --shadow-default: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+body {
+  font-family: 'Epilogue', sans-serif;
+}
+
 
 /* h1 {
   font-size: 3rem;
@@ -29,14 +34,36 @@ p {
   margin-bottom: 1rem;
   max-width: 60ch;
 } */
-/* 
-a {
+
+/* LINK */
+.a-light {
     text-decoration: none;
+    color: var(--color-white)
 }
 
-a:hover {
+.a:hover {
     text-decoration: underline;
-} */
+} 
 
-/* .button-light {} */
-/* .button-dark {} */
+
+/* BUTTON */
+.button-light {
+    background-color: var(--color-white);
+    color: var(--color-brown-dark);
+    font-weight: 700;
+}
+.button-dark {
+    background-color: var(--color-brown-dark);
+    color: var(--color-white);
+        font-weight: 700;
+
+}
+
+/* BUTTON:Hover 90% Opacitet */
+.button-light:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.button-dark:hover {
+    background-color: rgba(64, 48, 34, 0.8);
+}
