@@ -13,11 +13,10 @@
 }
 .nav-header {
     display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 10px;
-    background-color: aqua;
-    
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--color-brown-dark);
 }
 
 .nav-left a {
@@ -25,8 +24,8 @@ padding: 10px;
     text-decoration: none;
 }
 
-.nav-left a:hover {
-    text-decoration:underline;
+.nav-left a:hover, .nav-left a.active {
+    text-decoration: underline;
 }
 
 .nav-right button {
@@ -44,14 +43,13 @@ padding: 10px;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: aqua;
+    background-color: var(--color-brown-dark);
     border-radius: 2px;
     min-width: 180px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0, 0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0,0.2);
     padding: 10px 0;
     margin-top: 20px;
     z-index: 1;
-    transition: all 0.3s ease-in-out;
 }
 
 .dropdown:hover .dropdown-content {
@@ -59,35 +57,21 @@ padding: 10px;
 }
 
 .dropdown-content a {
-display: block;
-padding: 10px 20px;
-white-space:  nowrap;
-transition: background-color 0.2s ease;
+    display: block;
+    padding: 10px 20px;
+    white-space:  nowrap;
 ;}
 
 .dropdown-content a:hover {
-    background-color: blue;
+    background-color: var(--color-brown);
     border-radius: 4px;
-    color: rgb(0, 0, 0);
-
 }
-
-
+ 
 button {
-    background-color: rgb(255, 255, 255);
     border: 0;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-default);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2),
-        
-
-}
-
-
-button:hover {
-    box-shadow:
-        0 6px 12px rgba(0,0,0,0.2),
-        0 0 12px rgba(255,255,255,0.9);
 }
