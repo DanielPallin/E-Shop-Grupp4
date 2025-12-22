@@ -234,7 +234,18 @@ function updSidebar() {
 
     list.forEach(({cat, names}) => {
         const li = document.createElement('li');
-        li.textContent = cat;
+        const checkbox = document.createElement('input');
+        const label = document.createElement('label');
+
+        checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('id', 'id_' + cat);
+
+        label.setAttribute('for', 'id_' + cat);
+        label.innerText = cat;
+
+        li.append(checkbox);
+        li.append(label);
+
         ul.append(li);
 
         if (names.length > 0) {
