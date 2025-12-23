@@ -8,7 +8,7 @@
 let catList = [];
 
 let img = document.querySelector('article img.productImage');
-let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('article'))
+let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('article.productCard'))
     .backgroundColor)
     .split('#')[1]
     .toLowerCase();
@@ -118,7 +118,7 @@ function mockupProducts () {
 
     if (productCards.length < numProducts) { // If input value is greater than current amount of productCards.
 
-        const categories = document.querySelectorAll('span.category');
+        const categories = document.querySelectorAll('span.productCategory');
 
         for (let index = productCards.length; index < numProducts; index++) {
 
@@ -126,8 +126,8 @@ function mockupProducts () {
             article.className = 'productCard';
             article.innerHTML = productCards[0].innerHTML;
             
-            const img = article.querySelector('img');
-            const title = article.querySelector('h3');
+            const img = article.querySelector('img.productImage');
+            const title = article.querySelector('h3.productName');
 
             // const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
             // img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
@@ -153,7 +153,6 @@ function mockupProducts () {
         }
         
     }
-    cEvent(mockupProducts, 'products:changed');
 }
 
 /* Capitalize first letter of string */
@@ -184,7 +183,7 @@ function randCatList(num) {
     return arr;
 }
 
-/* Uppdate all .category innerHTML with random category */
+/* Uppdate all .productCategory innerHTML with random category */
 function mockupCategories(single) {
 
     // const numCategories = Number(document.querySelector('input#mockupCategories').value); // Get value from input field.
@@ -196,8 +195,8 @@ function mockupCategories(single) {
     const numCategories = Number(params.get('mcats')) || fallback;
 
     const domCategories = (!single)
-        ? document.querySelectorAll('.category') // If single-element isn't set declare domCategories as array of all .category elements from page.
-        : single.querySelectorAll('.category'); // Else, use the provided element.
+        ? document.querySelectorAll('.productCategory') // If single-element isn't set declare domCategories as array of all .productCategory elements from page.
+        : single.querySelectorAll('.productCategory'); // Else, use the provided element.
 
     const s = new Set([...domCategories].map(el => el.textContent.trim())); // Make a list of categories where everything but the text is stripped.
     let uniqueCat = [...s]; // Filter and keep unique values in list.
@@ -207,8 +206,6 @@ function mockupCategories(single) {
     domCategories.forEach(category => {
         category.innerHTML = catList[Math.floor(Math.random() * numCategories)]; //
     });
-    
-    cEvent(mockupCategories, 'categories:changed');
 }
 
 function updSidebar() {
@@ -223,8 +220,8 @@ function updSidebar() {
 
     let productCatlist = {};
     productCards.forEach(productCard => {
-        const name = productCard.querySelector('h3').textContent.trim();
-        const cat = productCard.querySelector('.category').textContent.trim();
+        const name = productCard.querySelector('h3.productName').textContent.trim();
+        const cat = productCard.querySelector('span.productCategory').textContent.trim();
         (productCatlist[cat] ??= []).push(name);
     });
 
@@ -264,7 +261,6 @@ function updSidebar() {
     });
 
     sidebar.append(ul);
-    cEvent(updSidebar, 'sidebar:updated');
 }
 
 function rgbToHex (color) {
@@ -278,77 +274,6 @@ function rgbToHex (color) {
 function changeImgBgColor (img, imgBgColor) {
     const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
     img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
-}
-
-/* Scroll and fixed sidebar */
-const sidebar = document.querySelector('aside#sidebar');
-const header = document.querySelector('header');
-const footer = document.querySelector('footer');
-const mockupPanel = document.querySelector('#mockupPanel');
-
-let headerTop, headerHeight, sidebarTop, sidebarHeight, stopY;
-
-function getTop(el) {
-    return el.getBoundingClientRect().top + window.scrollY;
-}
-
-function initSidebar() {
-    const prevPos = sidebar.style.position;
-    const prevTop = sidebar.style.top;
-
-    sidebar.style.position = 'absolute';
-    sidebar.style.top = ''; 
-
-    headerTop = getTop(header);
-    headerHeight = header.offsetHeight;
-    sidebarTop = getTop(sidebar);
-    sidebarHeight = sidebar.offsetHeight;
-    sidebarMargin = window.getComputedStyle(sidebar).marginTop.split('px')[0]; /* (window.getComputedStyle(sidebar).marginTop.split('px')[0] < 0)
-        ? window.getComputedStyle(sidebar).marginTop
-        ; '';*/
-    parentTop = getTop(sidebar.offsetParent);
-    stopY = getTop(footer);
-
-    sidebar.style.position = prevPos;
-    sidebar.style.top = prevTop;
-
-    onScroll();
-}
-
-function onScroll() {
-    const y = window.scrollY;
-    const fixedTop = sidebarTop - (headerTop + headerHeight);
-
-    if (y <= headerTop + headerHeight ) {
-        sidebar.style.position = 'absolute';
-        sidebar.style.top = '';
-        return;
-    }
-    
-    if (y + fixedTop + sidebarHeight < stopY) {
-        sidebar.style.position = 'fixed';
-        sidebar.style.top = `${fixedTop-sidebarMargin}px`;
-        return;
-    }
-
-    sidebar.style.position = 'absolute';
-    sidebar.style.top = `${(stopY - sidebarHeight) - parentTop}px`; //sidebar.style.top = `${stopY - sidebarHeight - (headerTop + headerHeight)}px`;
-}
-
-window.addEventListener('scroll', onScroll);
-
-['load', 'resize']
-    .forEach(event => { window.addEventListener(event, initSidebar) });
-
-['sidebar:updated']
-    .forEach(event => { document.addEventListener(event, initSidebar) });
-
-function cEvent(fn, eventName) {
-    document.dispatchEvent(
-        new CustomEvent(eventName, {
-            detail: { source: fn }
-        })
-    );
 }
 
 /* Mockup panel */
