@@ -145,7 +145,6 @@ div#mainContainer {
     grid-template-columns: var(--sidebarWidth) auto;
     gap: var(--gridRowGap) var(--gridColGap);
     padding: 0 1rem;
-    overflow: hidden;
 
     & h2 {
         grid-column: 1 / span 3;
@@ -338,8 +337,7 @@ div#mockupPanel {
     grid-auto-rows: max-content;
     align-items: center;
     gap: .5rem;
-    transform: translateY(70%);
-    transition: transform .25s ease;
+
     background-color: var(--contentBg);
     color: var(--color);
     padding: 1rem;
