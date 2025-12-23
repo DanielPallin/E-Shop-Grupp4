@@ -303,6 +303,9 @@ function initSidebar() {
     headerHeight = header.offsetHeight;
     sidebarTop = getTop(sidebar);
     sidebarHeight = sidebar.offsetHeight;
+    sidebarMargin = window.getComputedStyle(sidebar).marginTop.split('px')[0]; /* (window.getComputedStyle(sidebar).marginTop.split('px')[0] < 0)
+        ? window.getComputedStyle(sidebar).marginTop
+        ; '';*/
     parentTop = getTop(sidebar.offsetParent);
     stopY = getTop(footer);
 
@@ -324,7 +327,7 @@ function onScroll() {
     
     if (y + fixedTop + sidebarHeight < stopY) {
         sidebar.style.position = 'fixed';
-        sidebar.style.top = `${fixedTop}px`;
+        sidebar.style.top = `${fixedTop-sidebarMargin}px`;
         return;
     }
 
