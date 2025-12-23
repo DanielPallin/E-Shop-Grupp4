@@ -36,7 +36,7 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
     buyButtons();
 
     if (catList.length === 0) mockupCategories();
-    mockupProducts();          // viktigt så att mprods används vid load
+    mockupProducts();
     updSidebar();
 
     changeImgBgColor(img, imgBgColor);
@@ -128,6 +128,7 @@ function mockupProducts () {
             
             const img = article.querySelector('img.productImage');
             const title = article.querySelector('h3.productName');
+            const price = article.querySelector('span.productPrice');
 
             // const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
             // img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
@@ -137,6 +138,7 @@ function mockupProducts () {
             img.setAttribute('src', img.getAttribute('src').split('1').join((index % 10) + 1))
 
             title.innerHTML = title.innerHTML.split('1').join(index + 1);
+            price.innerHTML = mockupPrice(200, 2500, null, 'SEK');
 
             mockupCategories(article);
 
@@ -277,6 +279,7 @@ function changeImgBgColor (img, imgBgColor) {
 }
 
 /* Mockup panel */
+const mockupPanel = document.querySelector('#mockupPanel');
 const mockupPanelClose = mockupPanel.querySelector('a.close');
 mockupPanelClose.addEventListener('click', (event) => {
     event.preventDefault();
@@ -285,3 +288,12 @@ mockupPanelClose.addEventListener('click', (event) => {
         ? 'Close'
         : 'Open';
 });
+
+/* Mockup price */
+function mockupPrice(min, max, round, curr) {
+    if (!round) round = 100;
+    let price = Math.floor(Math.random() * ((max + 1) - min) + min);
+    price = (Math.round(price/round)*round-1).toLocaleString('se-SE');
+
+    return `${price} ${curr}`;
+}
