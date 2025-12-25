@@ -1,0 +1,147 @@
+
+
+.contact-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+
+
+.contact-content {
+  background-color: #F8F8F8;
+  padding: 4rem;
+}
+
+.contact-content h1 {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-form label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  border-bottom: 1px solid #222;
+  padding: 0.5rem 0;
+  font-family: inherit;
+  background: transparent;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 2rem;
+  align-self: flex-start;
+}
+
+
+.contact-info p {
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+
+.contact-image {
+  background-image: url("../img/Bakgrund.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+@media (max-width: 900px) {
+  .contact-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-image {
+    height: 300px;
+  }
+}
+
+
+.footer {
+  background-color: #403022;
+  color: #F8F8F8;
+  padding: 3rem 1rem 1.5rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footer-col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-col p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #F8F8F8;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+  color: #F8F8F8;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(248, 248, 248, 0.2);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
