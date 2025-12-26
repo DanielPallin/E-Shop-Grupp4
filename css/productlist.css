@@ -186,6 +186,10 @@ article.productCard {
         grid-column: 1 / span 2;
     }
 
+    &:not(.filtered) {
+        display: none;
+    }
+
     & header {
         display: grid;
         grid-template-columns: 1fr auto;

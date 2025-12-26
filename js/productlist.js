@@ -206,17 +206,23 @@ function mockupCategories(single) {
     if (!single) catList = randCatList(numCategories); // If single-element is not set, create a new random categories list.
 
     domCategories.forEach(category => {
-        category.innerHTML = catList[Math.floor(Math.random() * numCategories)]; //
+        let catName = catList[Math.floor(Math.random() * numCategories)];
+        category.innerHTML = catName; //
+        category.closest('article.productCard').setAttribute('data-productCategory', catName)
     });
 }
 
+/* Update sidebar */
+// To do: use existing UL and clone LI instead of deleting and creating new ones.
 function updSidebar() {
     if (catList.length == 0) return;
     const sidebar = document.querySelector('aside#sidebar nav');
     const currUl = sidebar.querySelector('ul');
-    if (currUl) currUl.remove(); 
+
+    if (currUl) currUl.remove();
 
     const ul = document.createElement('ul');
+    ul.setAttribute('id', 'categoryList');
 
     const productCards = document.querySelectorAll('article.productCard');
 
@@ -297,3 +303,57 @@ function mockupPrice(min, max, round, curr) {
 
     return `${price} ${curr}`;
 }
+
+let selectedCategories = [];
+
+function applyFilter() {
+    const productList = document.querySelectorAll('article.productCard');
+    productList.forEach(product => {
+        const productCat = product.getAttribute('data-productCategory');
+        const filtered = selectedCategories.length === 0 || selectedCategories.includes(productCat);
+        product.classList.toggle('filtered', filtered);
+    });
+};
+
+function updateHeading() {
+    const heading = document.querySelector('main > h2');
+    if (!heading) return;
+
+    let headingSpan = document.querySelector('span[data-headingcats]');
+    if (!headingSpan) {
+        headingSpan = document.createElement('span');
+        headingSpan.dataset.headingcats = '1';
+        heading.append(headingSpan);
+    }
+
+    if (selectedCategories.length) {
+        headingSpan.textContent = ':' + [...selectedCategories].sort().join(', ');
+    } else {
+        headingSpan.remove();
+    }
+};
+
+(() => {
+    const categoryList = document.querySelector('ul#categoryList');
+    if (!categoryList) return;
+
+    applyFilter();
+    updateHeading();
+
+    categoryList.querySelectorAll('li').forEach(li => {
+        const input = li.querySelector('input');
+        const label = li.querySelector('label');
+        if (!input || !label || label.htmlFor !== input.id) return;
+
+        input.addEventListener('change', () => {
+            const catName = label.innerText;
+
+            if ( input.checked && !selectedCategories.includes(catName)) selectedCategories.push(catName);
+            if ( !input.checked && selectedCategories.includes(catName)) selectedCategories.splice(selectedCategories.indexOf(catName), 1);
+            
+            applyFilter();
+            updateHeading();
+        });
+    });
+
+})();
