@@ -269,6 +269,7 @@ function updSidebar() {
     });
 
     sidebar.append(ul);
+    document.dispatchEvent(new Event('categoryList:updated'));
 }
 
 function rgbToHex (color) {
@@ -334,26 +335,43 @@ function updateHeading() {
 };
 
 (() => {
-    const categoryList = document.querySelector('ul#categoryList');
-    if (!categoryList) return;
+    const sidebarNav = document.querySelector('aside#sidebar nav');
+    if (!sidebarNav) return;
 
+    const syncSelectedFromDOM = () => {
+        selectedCategories = [...sidebarNav.querySelectorAll('input[type="checkbox"]:checked')]
+            .map(inp => inp.closest('li')?.querySelector('label')?.innerText.trim())
+            .filter(Boolean);
+    };
+
+    sidebarNav.addEventListener('change', (e) => {
+        const input = e.target;
+        if (!(input instanceof HTMLInputElement) || input.type !== 'checkbox') return;
+        if (!input.closest('#categoryList')) return;
+
+        const label = input.closest('li')?.querySelector('label');
+        if (!label) return;
+
+        const catName = label.innerText.trim();
+
+        if (input.checked) {
+            if (!selectedCategories.includes(catName)) selectedCategories.push(catName);
+        } else {
+            selectedCategories = selectedCategories.filter(x => x !== catName);
+        }
+
+        applyFilter();
+        updateHeading();
+    });
+
+    document.addEventListener('categoryList:updated', () => {
+        syncSelectedFromDOM();
+        applyFilter();
+        updateHeading();
+    });
+
+    syncSelectedFromDOM();
     applyFilter();
     updateHeading();
-
-    categoryList.querySelectorAll('li').forEach(li => {
-        const input = li.querySelector('input');
-        const label = li.querySelector('label');
-        if (!input || !label || label.htmlFor !== input.id) return;
-
-        input.addEventListener('change', () => {
-            const catName = label.innerText;
-
-            if ( input.checked && !selectedCategories.includes(catName)) selectedCategories.push(catName);
-            if ( !input.checked && selectedCategories.includes(catName)) selectedCategories.splice(selectedCategories.indexOf(catName), 1);
-            
-            applyFilter();
-            updateHeading();
-        });
-    });
 
 })();
