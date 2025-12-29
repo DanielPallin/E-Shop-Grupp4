@@ -444,12 +444,34 @@ div#mockupPanel {
                 calc(var(--gridColGap) * -1); /* To compensate for grid gap and horizontal padding */
             top: 0;
             box-shadow: var(--productCardBoxShadow);
-            overflow: hidden;
             max-width: 100vw;
+            background-color: var(--contentBg);
 
             & nav {
                 padding: var(--gridRowGap) var(--gridColGap) 0 var(--gridColGap);
                 gap: 0;
+
+                &::before, &::after {
+                    opacity: 0;
+                    position: absolute;
+                    content: "<";
+                    left: calc(var(--gridColGap)/2);
+                    transform: translateX(-50%);
+                    top: 50%;
+                    transition: opacity 1s ease;
+                }
+
+                &::after {
+                    right: 0;
+                    left: auto;
+                    right: calc(var(--gridColGap)/2);
+                    transform: translateX(50%);
+                    content: ">"
+                }
+
+                &.scrollLeft::before, &.scrollRight::after {
+                    opacity: 1;
+                }
 
                 & > ul {
                     position: relative;

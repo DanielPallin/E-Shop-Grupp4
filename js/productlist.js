@@ -29,7 +29,6 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
         : url.searchParams.set('mprods', inputP.value);
 
     history.replaceState(null, '', url);
-
 })();
 
 (() => {
@@ -373,5 +372,33 @@ function updateHeading() {
     syncSelectedFromDOM();
     applyFilter();
     updateHeading();
+})();
+
+/* Scroll arrows for horizontal scroll in navbar */
+(() => {
+    const nav = document.querySelector('aside#sidebar > nav');
+    const catList = nav.querySelector('ul#categoryList');
+    const scrollOffset = 10;
+
+    const updClasses = () => {
+            const hasScroll = (catList.scrollWidth - catList.clientWidth) > 1; // Check if content is wider than container.
+        
+            nav.classList.toggle('scrollLeft', (catList.scrollLeft > 0 + scrollOffset)); // If user has scrolled to the right, add class scrollLeft.
+            nav.classList.toggle('scrollRight', (hasScroll && catList.scrollLeft + catList.clientWidth < catList.scrollWidth - scrollOffset));  // If it is posible to scroll to the right, add class scrollRight.
+    }
+
+    ['load', 'resize'].forEach(event => {
+        window.addEventListener(event, () => { // Listen for load and resize.
+            const vW = document.documentElement.clientWidth;
+            if (vW > 960) return; // If viewport is wider than 960px, do nothing.
+
+            updClasses(); // Update classes.
+
+            catList.addEventListener('scroll', () => { // Opdate classes when user is scrolling the categoryList.
+                updClasses();
+            });
+
+        });
+    });
 
 })();
