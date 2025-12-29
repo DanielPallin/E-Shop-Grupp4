@@ -328,7 +328,7 @@ function updateHeading() {
     }
 
     if (selectedCategories.length) {
-        headingSpan.textContent = ':' + [...selectedCategories].sort().join(', ');
+        headingSpan.textContent = ': ' + [...selectedCategories].sort().join(', ');
     } else {
         headingSpan.remove();
     }
