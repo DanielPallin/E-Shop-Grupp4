@@ -457,7 +457,7 @@ div#mockupPanel {
                     content: "<";
                     left: calc(var(--gridColGap)/2);
                     transform: translateX(-50%);
-                    top: 50%;
+                    bottom: calc(var(--gridRowGap));
                     transition: opacity 1s ease;
                 }
 
@@ -478,11 +478,6 @@ div#mockupPanel {
                     flex-direction: row;
                     overflow-x: scroll;
                     padding: var(--gridRowGap) 0;
-
-                    &::after {
-                        left: initial;
-                        right: 0;
-                    }
                 }
 
                 & input[type="checkbox"] {
