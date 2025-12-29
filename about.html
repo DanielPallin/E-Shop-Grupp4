@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
 
 
     <title>FaceRoots</title>
@@ -16,9 +17,18 @@
 <body>
 <header>
     <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+    <a href="index.html" class="nav-logo-link">
+    <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+</a>
     <nav class="nav-header">
+        
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-left">
-            <img src="img/temporary_logo.svg" alt="FaceRoots" class="nav-logo">
+
             <a class="a-light" href="index.html">Home</a>
             <div class="dropdown">
             <a href="productlist.html" class="dropbtn a-light" >
@@ -36,13 +46,9 @@
             <a class="a-light" href="contact.html">Contact</a>
         </div>
             
-          <div class="nav-right">
-            <button class="button-light"><span class="material-symbols-outlined ">
-shopping_cart
-</span> Cart</button>
-            <button class="button-light"><span class="material-symbols-outlined">
-account_circle
-</span>Login</button>
+        <div class="nav-right">
+            <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> Cart</button>
+            <button class="button-light"><span class="material-symbols-outlined">account_circle</span>Login</button>
         </div>
     </nav>
 </header>
@@ -72,5 +78,6 @@ account_circle
         <hr> 
     </div>
 </div>
+<script src="js/header.js"></script>
 </body>
 </html>

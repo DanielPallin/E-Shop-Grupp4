@@ -22,6 +22,13 @@ position: relative;
     object-position: 0 20%;
 }
 
+.nav-logo {
+    position: absolute;
+    z-index: 11;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+}
 .nav-header {
     display: flex;
     justify-content: space-between;
@@ -33,8 +40,20 @@ position: relative;
     z-index: 10;
 }
 
-.nav-logo {
-    max-height: 1.5rem;
+.hamburger {  
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    gap: 5px;
+    margin-left: 2vw;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-white);
+    border-radius: var(--radius-sm);
 }
 
 .nav-left {
@@ -194,8 +213,63 @@ hr {
 /* TABLET */
 @media (max-width: 960px) {
     /* Header */
-    
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .nav-left a, .nav-left .dropdown {
+        display: none;
+    }
+
+    .nav-left.active a, .nav-left.active .dropdown {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+    }
+    .nav-left {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--color-brown-dark);
+        width: 50vw;
+        /*         padding: 1rem 0;
+        */        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        z-index: 20;
+        }
+        
+        .nav-left.active {
+            display: flex;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                   }
+
+.dropdown.active .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}   
+
+
+.dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+.dropbtn.active .material-symbols-outlined {
+    transform: rotate(180deg);
+
+}
+
+ .dropdown.active .dropdown-content {
+        display: flex;
+        flex-direction: column;
+    }
 
 
     /* About */
@@ -211,7 +285,11 @@ hr {
   display: block;
 }
 }
-
+*/
 @media (max-width: 768px) {
 
+    .nav-left.active {
+        width: 90vw;
+    } 
 }
+ 
