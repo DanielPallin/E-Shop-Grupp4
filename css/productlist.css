@@ -198,6 +198,7 @@ article.productCard {
             "productName productName"
             "productBrand productPrice"
             "productCategory productPrice";
+        width: 100%;
 
         & figure {
             
@@ -248,11 +249,19 @@ article.productCard {
         }
     }
 
-    & p.productDescription {
-        display: none;
+    & p, & ul {
+        margin: 0;
     }
 
-    & p.productDetails {
+    & ul {
+        padding: 0 0 0 1.5em;
+    }
+
+    & *.productDescription {
+        /* display: none; */
+    }
+
+    & *.productDetails {
         display: none;
     }
 
@@ -344,6 +353,7 @@ div#cart {
 /* Mockup panel */
 div#mockupPanel {
     display: grid;
+    display: none;
     grid-template-columns: auto 1fr;
     position: fixed;
     bottom: var(--gridRowGap);
@@ -499,6 +509,7 @@ div#mockupPanel {
                     color: var(--linkColor);
                     padding: .33em .5em .25em .5em;
                     border-radius: 6px;
+                    white-space: nowrap;
 
                     &:hover {
                         color: var(--linkHoverColor);
