@@ -233,19 +233,19 @@ function updSidebar() {
         (productCatlist[cat] ??= []).push(name); // Add every productname to their corresponding category.
     });
 
-    const list = Object.entries(productCatlist) // Create new list with categories sorted alphabetically
+    const list = Object.entries(productCatlist) // Create new list with categories sorted alphabetically.
         .sort(([catA], [catB]) => catA.localeCompare(catB, 'sv'))
         .map(([cat, names]) => ({ cat, names }));
 
     list.forEach(({cat, names}) => {
-        const li = document.createElement('li');
+        const li = document.createElement('li'); // Create list items with inputs and labels.
         const checkbox = document.createElement('input');
         const label = document.createElement('label');
 
-        checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('type', 'checkbox'); // Add attributes to checkbox.
         checkbox.setAttribute('id', 'id_' + cat);
 
-        label.setAttribute('for', 'id_' + cat);
+        label.setAttribute('for', 'id_' + cat); // Add attribute "for" to label.
         label.innerText = cat;
 
         li.append(checkbox);
@@ -254,7 +254,7 @@ function updSidebar() {
         ul.append(li);
 
         if (names.length > 0) {
-            const subUl = document.createElement('ul');
+            const subUl = document.createElement('ul'); // Create sublist to accommodate products.
 
             names.forEach(name => {
                 const li = document.createElement('li');
@@ -269,9 +269,10 @@ function updSidebar() {
     });
 
     sidebar.append(ul);
-    document.dispatchEvent(new Event('categoryList:updated'));
+    document.dispatchEvent(new Event('categoryList:updated')); // Trigger event.
 }
 
+/* Translate RGB value to HEX. */
 function rgbToHex (color) {
     const m = color.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i);
     if (!m) return color;
@@ -280,6 +281,7 @@ function rgbToHex (color) {
     return "#" + [r, g, b].map(v => v.toString(16).padStart(2, "0")).join("").toUpperCase();
 };
 
+/* Change image name depending on provided background color (hex) */
 function changeImgBgColor (img, imgBgColor) {
     const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
     img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
@@ -307,6 +309,7 @@ function mockupPrice(min, max, round, curr) {
 
 let selectedCategories = [];
 
+/* Add/remove class filtered depending on if product-category exists in selectedCategories. */
 function applyFilter() {
     const productList = document.querySelectorAll('article.productCard');
     productList.forEach(product => {
@@ -329,7 +332,7 @@ function updateHeading() {
     }
 
     if (selectedCategories.length) {
-        headingSpan.textContent = ': ' + [...selectedCategories].sort().join(', ');
+        headingSpan.textContent = ': ' + [...selectedCategories].sort().join(', '); // Join selected categories to one string.
     } else {
         headingSpan.remove();
     }
@@ -356,9 +359,9 @@ function updateHeading() {
         const catName = label.innerText.trim();
 
         if (input.checked) {
-            if (!selectedCategories.includes(catName)) selectedCategories.push(catName);
+            if (!selectedCategories.includes(catName)) selectedCategories.push(catName); // Add category to selectedCategories list (if not already in the list).
         } else {
-            selectedCategories = selectedCategories.filter(x => x !== catName);
+            selectedCategories = selectedCategories.filter(x => x !== catName); // Remove category from selectedCategories.
         }
 
         applyFilter();
