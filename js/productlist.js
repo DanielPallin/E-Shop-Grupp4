@@ -11,7 +11,7 @@ let img = document.querySelector('article img.productImage');
 let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('article.productCard'))
     .backgroundColor)
     .split('#')[1]
-    .toLowerCase();
+    .toLowerCase(); // Get the background-color of the product card in hex-format.
 
 (() => {
     const inputC = document.querySelector('input#mockupCategories');
@@ -20,7 +20,7 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
 
     const url = new URL(location);
 
-    url.searchParams.has('mcats')
+    url.searchParams.has('mcats') // If search-params has mcats and mprods, use them, if not get amount of mockup categories and products from input field.
         ? (inputC.value = url.searchParams.get('mcats'))
         : url.searchParams.set('mcats', inputC.value);
 
@@ -38,10 +38,11 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
     mockupProducts();
     updSidebar();
 
-    changeImgBgColor(img, imgBgColor);
+    changeImgBgColor(img, imgBgColor); // Get images with same bg-color as product card.
 })();
 
 (() => {
+    /* Get amount of mockup categories and products from input field, on change and keyup. */
     const inputC = document.querySelector('input#mockupCategories');
     const inputP = document.querySelector('input#mockupProducts');
     if (!inputC || !inputP) return;
@@ -218,21 +219,21 @@ function updSidebar() {
     const sidebar = document.querySelector('aside#sidebar nav');
     const currUl = sidebar.querySelector('ul');
 
-    if (currUl) currUl.remove();
+    if (currUl) currUl.remove(); // Remove existing ul.
 
-    const ul = document.createElement('ul');
-    ul.setAttribute('id', 'categoryList');
+    const ul = document.createElement('ul'); // Create new ul.
+    ul.setAttribute('id', 'categoryList'); // Add id to new list.
 
-    const productCards = document.querySelectorAll('article.productCard');
+    const productCards = document.querySelectorAll('article.productCard'); // Create array of productCards.
 
     let productCatlist = {};
-    productCards.forEach(productCard => {
+    productCards.forEach(productCard => { // Loop through all productCards.
         const name = productCard.querySelector('h3.productName').textContent.trim();
         const cat = productCard.querySelector('span.productCategory').textContent.trim();
-        (productCatlist[cat] ??= []).push(name);
+        (productCatlist[cat] ??= []).push(name); // Add every productname to their corresponding category.
     });
 
-    const list = Object.entries(productCatlist)
+    const list = Object.entries(productCatlist) // Create new list with categories sorted alphabetically
         .sort(([catA], [catB]) => catA.localeCompare(catB, 'sv'))
         .map(([cat, names]) => ({ cat, names }));
 
@@ -315,6 +316,7 @@ function applyFilter() {
     });
 };
 
+/* Updates heading with filtered categories. */
 function updateHeading() {
     const heading = document.querySelector('main > h2');
     if (!heading) return;
