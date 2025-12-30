@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <script src="productpage-gallery.js"></script>
+<!-- Header & navbar -->
 <header>
     <img class="header-img" src="image-repo/seven_men_1grey.webp" alt="bearded men">
     <nav class="nav-header">
@@ -31,7 +32,7 @@
             <a class="a-light" href="contact.html">Contact</a>
         </div>
             
-          <div class="nav-right">
+        <div class="nav-right">
             <button class="button-light"><span class="material-symbols-outlined ">
 shopping_cart
 </span> Cart</button>
@@ -43,49 +44,58 @@ account_circle
 </header>
 
 <main class="productPage">
+<!-- LEFT: Product gallery -->
+<section class="productMedia card">
 
-    <!-- Product image -->
-    <section class="productMedia">
-        <img src="image-repo/beard_clipper_silver_one.avif" alt="Product name">
-    </section>
+<img 
+    id="mainProductImage"
+    class="mainImage"
+    src="image-repo/beard_clipper_silver_three.avif"
+    alt="Beard Trimmer">
 
-    <!-- Product info -->
-    <section class="productInfo">
+<div class="thumbnailRow">
+    <img src="image-repo/beard_clipper_silver_three.avif" alt="Thumbnail 1" class="active">
+    <img src="image-repo/beard_clipper_silver_one.avif" alt="Thumbnail 2">
+    <img src="image-repo/beard_clipper_silver_two.avif alt="Thumbnail 3">
+</div>
 
-        <h2 class="productTitle">Product Name #1</h2>
-        <span class="category">Category name</span>
+</section>
 
-        <div class="purchaseActions">
-            <button class="action buy">Add to cart</button>
-            <button class="action buyNow">Buy now</button>
-        </div>
+<!-- RIGHT: Purchase box -->
+<section class="productPurchase card">
 
-        <p class="price">€29.99</p>
+    <h2 class="productTitle">Beard Turbo Master Trimmer</h2>
+    <span class="category">Beard Care</span>
 
-        <!-- Description -->
-        <div class="description">
-            <h3>Description</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nisi aspernatur quisquam asperiores accusantium excepturi.
-            </p>
-        </div>
+    <div class="priceBox">
+        <span class="price">€99</span>
+    </div>
 
-        <!-- Product information -->
-        <details class="productDetails">
-            <summary>Product information</summary>
-            <ul>
-                <li><strong>Volume:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nisi aspernatur quisquam asperiores accusantium excepturi. </li>
-                <li><strong>Skin type:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nisi aspernatur quisquam asperiores accusantium excepturi. </li>
-                <li><strong>Ingredients:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Nisi aspernatur quisquam asperiores accusantium excepturi.</li>
-                <li><strong>Origin:</strong> Sweden</li>
-            </ul>
-        </details>
+    <div class="purchaseActions">
+        <button class="action buyNow">Buy now</button>
+        <button class="action buy">Add to cart</button>
+    </div>
 
-    </section>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="description card fullWidth">
+    <h3>Description</h3>
+    <p>
+        High-performance beard trimmer designed for precision, durability
+        and effortless grooming.
+    </p>
+</section>
+
+<!-- PRODUCT INFO -->
+    <details class="productDetails fullWidth card">
+    <summary>Product information</summary>
+    <ul>
+        <li><strong>Origin:</strong> Sweden</li>
+        <li><strong>Material:</strong> Stainless steel</li>
+        <li><strong>Battery:</strong> USB-C rechargeable</li>
+    </ul>
+    </details>
 
 </main>
 

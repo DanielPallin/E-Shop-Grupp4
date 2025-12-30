@@ -1,6 +1,6 @@
 .material-symbols-outlined {
-  vertical-align: middle;
-  line-height: 1;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 .header-img {
@@ -66,7 +66,7 @@
     background-color: var(--color-brown);
     border-radius: 4px;
 }
- 
+
 button {
     border: 0;
     border-radius: var(--radius-sm);
@@ -76,25 +76,11 @@ button {
     gap: 8px;
 }
 
-
-.productPage {
-    max-width: var(--pageWidth);
-    padding: 2rem 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-
 .productMedia img {
-    display: flex; 
     width: 100%;
-    border-radius: var (1,4);
-    background-color: #403022;
-    object-fit:fill; max-width: 150px; max-height: 350px;
-    justify-content: center;
-    margin: 50px;
+    height: 100%;
+    object-fit: cover; 
 }
-
 
 .productInfo {
     display: flex;
@@ -111,7 +97,6 @@ button {
     font-size: 0.85em;
     font-weight: bold;
 }
-
 
 .purchaseActions {
     display: flex;
@@ -145,13 +130,13 @@ button {
     margin-top: 1.5rem;
     background-color: #BF8C6F;
     border-radius: var(--borderRadius);
-    padding: 2rem;
 }
 
 .productDetails summary {
     cursor: pointer;
     font-weight: bold;
     list-style: none;
+    padding: 2rem;
 }
 
 .productDetails summary::-webkit-details-marker {
@@ -174,6 +159,174 @@ button {
 
 @media screen and (max-width: 768px) {
     .productPage {
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     }
 }
+
+/* === CARD SHARED STYLE === */
+.card {
+    background-color: #F8F8F8;
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+    padding: 1.5rem;
+}
+
+/* === PRODUCT GRID === */
+.productPage {
+    max-width: var(--pageWidth);
+    margin: auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+.productMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* MAIN IMAGE */
+.mainImage {
+    width: 100%;
+    height: auto;          /* 🔑 allows page to scale to image */
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* THUMBNAILS */
+.thumbnailRow {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+}
+
+.thumbnailRow img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, outline 0.2s ease;
+}
+
+/* ACTIVE / HOVER STATE */
+.thumbnailRow img:hover,
+.thumbnailRow img.active {
+opacity: 1;
+outline: 2px solid #735943;
+}
+
+.mainImage img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.thumbnailRow {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+}
+
+.thumbnailRow img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.thumbnailRow img:hover {
+    opacity: 1;
+}
+
+.productPurchase {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.priceBox {
+    border: 1px solid #403022;
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.priceBox .sku {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.priceBox .price {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.purchaseActions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.action {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.buyNow {
+    background-color: #BF8C6F;
+    color: #0D0D0D;
+}
+
+.buy {
+    background-color: #735943;
+    color: #F8F8F8;
+}
+
+.action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 960px) {
+.productPage {
+    grid-template-columns: 1fr;
+}
+
+.purchaseActions {
+    flex-direction: row;
+}
+
+.action {
+    flex: 1;
+}
+}
+
+@media (max-width: 768px) {
+.mainImage img {
+    height: 300px;
+}
+
+.purchaseActions {
+    flex-direction: column;
+}
+
+.priceBox .price {
+    font-size: 1.75rem;
+}
+}
+
