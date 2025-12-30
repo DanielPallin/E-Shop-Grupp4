@@ -11,7 +11,7 @@ let img = document.querySelector('article img.productImage');
 let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('article.productCard'))
     .backgroundColor)
     .split('#')[1]
-    .toLowerCase();
+    .toLowerCase(); // Get the background-color of the product card in hex-format.
 
 (() => {
     const inputC = document.querySelector('input#mockupCategories');
@@ -20,7 +20,7 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
 
     const url = new URL(location);
 
-    url.searchParams.has('mcats')
+    url.searchParams.has('mcats') // If search-params has mcats and mprods, use them, if not get amount of mockup categories and products from input field.
         ? (inputC.value = url.searchParams.get('mcats'))
         : url.searchParams.set('mcats', inputC.value);
 
@@ -29,7 +29,6 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
         : url.searchParams.set('mprods', inputP.value);
 
     history.replaceState(null, '', url);
-
 })();
 
 (() => {
@@ -39,10 +38,11 @@ let imgBgColor = rgbToHex(window.getComputedStyle(document.querySelector('articl
     mockupProducts();
     updSidebar();
 
-    changeImgBgColor(img, imgBgColor);
+    changeImgBgColor(img, imgBgColor); // Get images with same bg-color as product card.
 })();
 
 (() => {
+    /* Get amount of mockup categories and products from input field, on change and keyup. */
     const inputC = document.querySelector('input#mockupCategories');
     const inputP = document.querySelector('input#mockupProducts');
     if (!inputC || !inputP) return;
@@ -206,40 +206,46 @@ function mockupCategories(single) {
     if (!single) catList = randCatList(numCategories); // If single-element is not set, create a new random categories list.
 
     domCategories.forEach(category => {
-        category.innerHTML = catList[Math.floor(Math.random() * numCategories)]; //
+        let catName = catList[Math.floor(Math.random() * numCategories)];
+        category.innerHTML = catName; //
+        category.closest('article.productCard').setAttribute('data-productCategory', catName)
     });
 }
 
+/* Update sidebar */
+// To do: use existing UL and clone LI instead of deleting and creating new ones.
 function updSidebar() {
     if (catList.length == 0) return;
     const sidebar = document.querySelector('aside#sidebar nav');
     const currUl = sidebar.querySelector('ul');
-    if (currUl) currUl.remove(); 
 
-    const ul = document.createElement('ul');
+    if (currUl) currUl.remove(); // Remove existing ul.
 
-    const productCards = document.querySelectorAll('article.productCard');
+    const ul = document.createElement('ul'); // Create new ul.
+    ul.setAttribute('id', 'categoryList'); // Add id to new list.
+
+    const productCards = document.querySelectorAll('article.productCard'); // Create array of productCards.
 
     let productCatlist = {};
-    productCards.forEach(productCard => {
+    productCards.forEach(productCard => { // Loop through all productCards.
         const name = productCard.querySelector('h3.productName').textContent.trim();
         const cat = productCard.querySelector('span.productCategory').textContent.trim();
-        (productCatlist[cat] ??= []).push(name);
+        (productCatlist[cat] ??= []).push(name); // Add every productname to their corresponding category.
     });
 
-    const list = Object.entries(productCatlist)
+    const list = Object.entries(productCatlist) // Create new list with categories sorted alphabetically.
         .sort(([catA], [catB]) => catA.localeCompare(catB, 'sv'))
         .map(([cat, names]) => ({ cat, names }));
 
     list.forEach(({cat, names}) => {
-        const li = document.createElement('li');
+        const li = document.createElement('li'); // Create list items with inputs and labels.
         const checkbox = document.createElement('input');
         const label = document.createElement('label');
 
-        checkbox.setAttribute('type', 'checkbox');
+        checkbox.setAttribute('type', 'checkbox'); // Add attributes to checkbox.
         checkbox.setAttribute('id', 'id_' + cat);
 
-        label.setAttribute('for', 'id_' + cat);
+        label.setAttribute('for', 'id_' + cat); // Add attribute "for" to label.
         label.innerText = cat;
 
         li.append(checkbox);
@@ -248,7 +254,7 @@ function updSidebar() {
         ul.append(li);
 
         if (names.length > 0) {
-            const subUl = document.createElement('ul');
+            const subUl = document.createElement('ul'); // Create sublist to accommodate products.
 
             names.forEach(name => {
                 const li = document.createElement('li');
@@ -263,8 +269,10 @@ function updSidebar() {
     });
 
     sidebar.append(ul);
+    document.dispatchEvent(new Event('categoryList:updated')); // Trigger event.
 }
 
+/* Translate RGB value to HEX. */
 function rgbToHex (color) {
     const m = color.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i);
     if (!m) return color;
@@ -273,6 +281,7 @@ function rgbToHex (color) {
     return "#" + [r, g, b].map(v => v.toString(16).padStart(2, "0")).join("").toUpperCase();
 };
 
+/* Change image name depending on provided background color (hex) */
 function changeImgBgColor (img, imgBgColor) {
     const re = /_bg(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/;
     img.setAttribute('src', img.getAttribute('src').replace(re, '_bg' + imgBgColor));
@@ -297,3 +306,104 @@ function mockupPrice(min, max, round, curr) {
 
     return `${price} ${curr}`;
 }
+
+let selectedCategories = [];
+
+/* Add/remove class filtered depending on if product-category exists in selectedCategories. */
+function applyFilter() {
+    const productList = document.querySelectorAll('article.productCard');
+    productList.forEach(product => {
+        const productCat = product.getAttribute('data-productCategory');
+        const filtered = selectedCategories.length === 0 || selectedCategories.includes(productCat);
+        product.classList.toggle('filtered', filtered);
+    });
+};
+
+/* Updates heading with filtered categories. */
+function updateHeading() {
+    const heading = document.querySelector('main > h2');
+    if (!heading) return;
+
+    let headingSpan = document.querySelector('span[data-headingcats]');
+    if (!headingSpan) {
+        headingSpan = document.createElement('span');
+        headingSpan.dataset.headingcats = '1';
+        heading.append(headingSpan);
+    }
+
+    if (selectedCategories.length) {
+        headingSpan.textContent = ': ' + [...selectedCategories].sort().join(', '); // Join selected categories to one string.
+    } else {
+        headingSpan.remove();
+    }
+};
+
+(() => {
+    const sidebarNav = document.querySelector('aside#sidebar nav');
+    if (!sidebarNav) return;
+
+    const syncSelectedFromDOM = () => {
+        selectedCategories = [...sidebarNav.querySelectorAll('input[type="checkbox"]:checked')]
+            .map(inp => inp.closest('li')?.querySelector('label')?.innerText.trim())
+            .filter(Boolean);
+    };
+
+    sidebarNav.addEventListener('change', (e) => {
+        const input = e.target;
+        if (!(input instanceof HTMLInputElement) || input.type !== 'checkbox') return;
+        if (!input.closest('#categoryList')) return;
+
+        const label = input.closest('li')?.querySelector('label');
+        if (!label) return;
+
+        const catName = label.innerText.trim();
+
+        if (input.checked) {
+            if (!selectedCategories.includes(catName)) selectedCategories.push(catName); // Add category to selectedCategories list (if not already in the list).
+        } else {
+            selectedCategories = selectedCategories.filter(x => x !== catName); // Remove category from selectedCategories.
+        }
+
+        applyFilter();
+        updateHeading();
+    });
+
+    document.addEventListener('categoryList:updated', () => {
+        syncSelectedFromDOM();
+        applyFilter();
+        updateHeading();
+    });
+
+    syncSelectedFromDOM();
+    applyFilter();
+    updateHeading();
+})();
+
+/* Scroll arrows for horizontal scroll in navbar */
+(() => {
+    const nav = document.querySelector('aside#sidebar > nav');
+    const catList = nav.querySelector('ul#categoryList');
+    const scrollOffset = 10;
+
+    const updClasses = () => {
+            const hasScroll = (catList.scrollWidth - catList.clientWidth) > 1; // Check if content is wider than container.
+        
+            nav.classList.toggle('scrollLeft', (catList.scrollLeft > 0 + scrollOffset)); // If user has scrolled to the right, add class scrollLeft.
+            nav.classList.toggle('scrollRight', (hasScroll && catList.scrollLeft + catList.clientWidth < catList.scrollWidth - scrollOffset));  // If it is posible to scroll to the right, add class scrollRight.
+    }
+
+    ['load', 'resize'].forEach(event => {
+        window.addEventListener(event, () => { // Listen for load and resize.
+            const vW = document.documentElement.clientWidth;
+            if (vW > 960) return; // If viewport is wider than 960px, do nothing.
+
+            updClasses(); // Update classes.
+
+            catList.addEventListener('scroll', () => { // Opdate classes when user is scrolling the categoryList.
+                updClasses();
+            });
+
+        });
+    });
+
+})();
