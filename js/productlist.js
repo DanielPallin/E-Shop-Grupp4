@@ -392,11 +392,9 @@ async function listProducts() {
 }
 
 listCategories();
-
 listProducts();
 
-// const url = new URL(location);
-
-// if (url.searchParams.has('cat') && url.searchParams.get('cat').length > 0) {
-//     const test = document.getElementById('catid_' + url.searchParams.get('cat'));
-// }
+const url = new URL(location);
+if (url.searchParams.has('catid') && url.searchParams.get('catid').length > 0) {
+    const gVar = url.searchParams.get('catid'); 
+}
