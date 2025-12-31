@@ -90,3 +90,28 @@
 ***
 
 ### Sprint planning 2025-12-30
+
+#### Daily scrum
+##### Emily
+- Har skapat ny Pull Request för header.
+- Jobbar på med mobilanpassningen.
+- Till i morgon, försöka få allt pågående klart och börja rensa upp i koden.
+
+##### Marcus
+- Har avslutat arbetet med produktsidan.
+- Ska fixa javascript och uppdatera footer och header från main-branch.
+
+##### Shakur
+- Behöver fixa responsiva designen, så att det fungerar bättre på mobil och hämta header från main.
+- Eventuellt lägga till Javascript.
+
+##### Oscar
+- Har fixat pilar som visar att det går att scrolla om det finns för många kategorier i naven för att synas i viewporten.
+- Ska lägga in header och footer från main-branch.
+
+#### Sprint planning 30 dec-5 jan
+- Lagt in kort från föregående sprint för review.
+- Röstat om logotyp och bakgrundsbild för header.
+- Lagt in Feature: shopping cart, Page: checkout och Page: about i sprint-backloggen i övrigt fortsätter arbetet med de epics som är in progress.
+
+***
