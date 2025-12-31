@@ -67,11 +67,9 @@ function randCatList(num) {
 function mockupCategories(single) {
 
     // const numCategories = Number(document.querySelector('input#mockupCategories').value); // Get value from input field.
-    const params = new URLSearchParams(location.search);
-
-    const inputC = document.querySelector('input#mockupCategories');
-    const fallback = Number(inputC?.value ?? 1);
-
+    const params        = new URLSearchParams(location.search);
+    const inputC        = document.querySelector('input#mockupCategories');
+    const fallback      = Number(inputC?.value ?? 1);
     const numCategories = Number(params.get('mcats')) || fallback;
 
     const domCategories = (!single)
@@ -84,8 +82,8 @@ function mockupCategories(single) {
     if (!single) catList = randCatList(numCategories); // If single-element is not set, create a new random categories list.
 
     domCategories.forEach(category => {
-        let catName = catList[Math.floor(Math.random() * numCategories)];
-        category.innerHTML = catName; //
+        let catName         = catList[Math.floor(Math.random() * numCategories)];
+        category.innerHTML  = catName; //
         category.closest('article.productCard').setAttribute('data-productCategory', catName)
     });
 }
@@ -94,8 +92,8 @@ function mockupCategories(single) {
 // To do: use existing UL and clone LI instead of deleting and creating new ones.
 function updSidebar() {
     if (catList.length == 0) return;
-    const sidebar = document.querySelector('aside#sidebar nav');
-    const currUl = sidebar.querySelector('ul');
+    const sidebar   = document.querySelector('aside#sidebar nav');
+    const currUl    = sidebar.querySelector('ul');
 
     if (currUl) currUl.remove(); // Remove existing ul.
 
@@ -106,8 +104,8 @@ function updSidebar() {
 
     let productCatlist = {};
     productCards.forEach(productCard => { // Loop through all productCards.
-        const name = productCard.querySelector('h3.productName').textContent.trim();
-        const cat = productCard.querySelector('span.productCategory').textContent.trim();
+        const name  = productCard.querySelector('h3.productName').textContent.trim();
+        const cat   = productCard.querySelector('span.productCategory').textContent.trim();
         (productCatlist[cat] ??= []).push(name); // Add every productname to their corresponding category.
     });
 
@@ -135,10 +133,11 @@ function updSidebar() {
             const subUl = document.createElement('ul'); // Create sublist to accommodate products.
 
             names.forEach(name => {
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.setAttribute('href', 'product.html');
-                a.textContent = name;
+                const li        = document.createElement('li');
+                const a         = document.createElement('a');
+                a.href          = 'productpage-one.html';
+                a.textContent   = name;
+
                 li.append(a)
                 subUl.append(li);
             });
@@ -371,12 +370,19 @@ async function listProducts() {
 
                 const detailsUl = document.createElement('ul');
                 obj[attr].forEach(detail => {
-                    const detailsLi = document.createElement('li');
-                    detailsLi.innerText = detail ?? '';
+                    const detailsLi         = document.createElement('li');
+                    detailsLi.innerText     = detail ?? '';
+                    detailsUl.className     = attr;
                     detailsUl.append(detailsLi)
-                    detailsUl.className = attr;
+                    
                 });
                 el.replaceWith(detailsUl);
+            
+            } else if (attr == 'productName') {
+
+                const anchor        = el.querySelector('a');
+                anchor.innerText    = obj.productName;
+                anchor.href         = `productpage-one.html?id=${obj.productId}`;
 
             } else {
 
