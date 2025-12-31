@@ -222,7 +222,7 @@ function updSidebar() {
     if (currUl) currUl.remove(); // Remove existing ul.
 
     const ul = document.createElement('ul'); // Create new ul.
-    ul.setAttribute('id', 'categoryList'); // Add id to new list.
+    ul.setAttribute('class', 'categoryList'); // Add class to new list.
 
     const productCards = document.querySelectorAll('article.productCard'); // Create array of productCards.
 
@@ -351,7 +351,7 @@ function updateHeading() {
     sidebarNav.addEventListener('change', (e) => {
         const input = e.target;
         if (!(input instanceof HTMLInputElement) || input.type !== 'checkbox') return;
-        if (!input.closest('#categoryList')) return;
+        if (!input.closest('.categoryList')) return;
 
         const label = input.closest('li')?.querySelector('label');
         if (!label) return;
@@ -382,7 +382,7 @@ function updateHeading() {
 /* Scroll arrows for horizontal scroll in navbar */
 (() => {
     const nav = document.querySelector('aside#sidebar > nav');
-    const catList = nav.querySelector('ul#categoryList');
+    const catList = nav.querySelector('ul.categoryList');
     const scrollOffset = 10;
 
     const updClasses = () => {
@@ -423,40 +423,54 @@ function getProducts() {
 }
 
 async function listCategories() {
-    const data = await getProducts();
-    if (!data) return;
+  const data = await getProducts();
+  if (!data?.length) return;
 
-    const byId = new Map();
-    const sidebarList = document.querySelector('ul#categoryList');
-    const templateListItem = sidebarList.firstElementChild;
+  const byId = new Map();
+  data.forEach(({ productCategory: cat }) => {
+    if (cat?.id != null) byId.set(cat.id, cat);
+  });
 
-    const catListItem = (catName, catId) => {
-        const listItem = templateListItem.cloneNode(true);
-        const input = listItem.querySelector('input');
-        input.id = 'catid_' + catId;
-        const label = listItem.querySelector('label');
-        label.innerText = catName;
-        label.htmlFor = 'catid_' + catId;
+  const catList = [...byId.values()]
+    .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? '', 'sv'));
 
-        sidebarList.append(listItem);
-    }
+  const categoryLists = document.querySelectorAll('ul.categoryList');
+  if (categoryLists.length === 0) return;
 
-    data.forEach(obj => {
-        const cat = obj.productCategory;
-        byId.set(cat.id, cat);
+  categoryLists.forEach(categoryList => {
+    const templateLi = categoryList.firstElementChild;
+    if (!templateLi) return;
+
+    const templateLink = templateLi.querySelector('a');
+    const templateInput  = templateLi.querySelector('input');
+    const templateLabel  = templateLi.querySelector('label');
+
+    if (!templateLink && (!templateInput && !templateLabel)) return;
+
+    catList.forEach(cat => {
+      const li = templateLi.cloneNode(true);
+
+      if (templateLink) {
+        const a = li.querySelector('a');
+        a.href = `${templateLink.href}?catid=${cat.id}`;
+        a.textContent = cat.name ?? '';
+
+      } else {
+        const input = li.querySelector('input');
+        const label = li.querySelector('label');
+
+        input.id = label.htmlFor = `catid_${cat.id}`;
+        
+        label.textContent = cat.name ?? '';
+      }
+
+      categoryList.append(li);
     });
 
-    const catList = [...byId.values()];
-
-    catList
-        .sort((a, b) => a.name.localeCompare(b.name, 'sv'))
-        .forEach(cat => {
-            catListItem(cat.name, cat.id);
-        });
-
-    templateListItem.remove();
-
+    templateLi.remove();
+  });
 }
+
 
 async function listProducts() {
     const data = await getProducts();
