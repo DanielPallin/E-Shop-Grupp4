@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleguide.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +17,12 @@
 </head>
 <body>
 <header>
+    <div class="header-container">
     <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
     <a href="index.html" class="nav-logo-link">
     <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
-</a>
+    </a>
+    </div>
     <nav class="nav-header">
         
         <div class="hamburger">
@@ -31,24 +34,26 @@
 
             <a class="a-light" href="index.html">Home</a>
             <div class="dropdown">
-            <a href="productlist.html" class="dropbtn a-light" >
+            <a href="productlist.html" class="dropbtn a-light">
                <span class="link-product">Products</span>
                 <span class="material-symbols-outlined">keyboard_arrow_down</span>
             </a>
                 <div class="dropdown-content">
-                    <a class="a-light" href="#">Category 1</a>
-                    <a class="a-light" href="#">Category 2</a>
-                    <a class="a-light" href="#">Category 3</a>
+                    <a class="a-light" href="productlist.html">Category 1</a>
+                    <a class="a-light" href="productlist.html">Category 2</a>
+                    <a class="a-light" href="productlist.html">Category 3</a>
                 </div>
             </div>
-            <!-- Klipp ut active från raden under och lägg till på länken till din sida -->
+
+<!-- Klipp ut active från raden under och lägg till på länken till din sida -->
+
             <a class="a-light active" href="about.html">About </a>
             <a class="a-light" href="contact.html">Contact</a>
         </div>
             
         <div class="nav-right">
-            <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> Cart</button>
-            <button class="button-light"><span class="material-symbols-outlined">account_circle</span>Login</button>
+            <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+            <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
         </div>
     </nav>
 </header>
@@ -78,6 +83,37 @@
         <hr> 
     </div>
 </div>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h4>FaceRoots</h4>
+      <p>
+        Premium grooming products for beard, skin and hair.
+        Developed with a focus on quality and style.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Links</h4>
+      <a href="productlist.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Email: support@faceroots.se</p>
+      <p>Phone: +46 8 123 45 67</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 FaceRoots. All rights reserved.
+  </div>
+</footer>
+
 <script src="js/header.js"></script>
 </body>
 </html>
