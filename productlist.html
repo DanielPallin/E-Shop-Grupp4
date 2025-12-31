@@ -6,27 +6,53 @@
     <meta name="description" content="Gruppuppgift: E-shop, FaceRoots">
     <meta name="author" content="Grupp 4 (Oscar Nilsson)">
     <title>FaceRoots - Products</title>
-    <!--<link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">-->
+    <link rel="stylesheet" href="css/styleguide.css">
     <link rel="stylesheet" href="css/productlist.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="js/header.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Header</h1>
+        <div class="header-container">
+        <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+        <a href="index.html" class="nav-logo-link">
+        <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+        </a>
         </div>
-        <!-- for testing:
-         <nav>
-            <ul class="categoryList">
-                <li>
-                    <a href="productlist.html">Test</a>
-                </li>
-            </ul>
+        <nav class="nav-header">
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-left">
+
+                <a class="a-light active" href="index.html">Home</a>
+                <div class="dropdown">
+                <a href="productlist.html" class="dropbtn a-light">
+                <span class="link-product">Products</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </a>
+                    <div class="dropdown-content">
+                        <a class="a-light" href="#">Category 1</a>
+                        <a class="a-light" href="#">Category 2</a>
+                        <a class="a-light" href="#">Category 3</a>
+                    </div>
+                </div>
+
+    <!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
+
+                <a class="a-light" href="about.html">About </a>
+                <a class="a-light" href="contact.html">Contact</a>
+            </div>
+                
+            <div class="nav-right">
+                <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+                <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+            </div>
         </nav>
-        -->
     </header>
     <div id="mainContainer"> <!-- div#mainContainer may be unecessary depending on header CSS. -->
         <main>
@@ -56,10 +82,10 @@
         <aside id="sidebar">
             <nav>
                 <h2>Categories</h2>
-                <ul class="categoryList">
+                <ul id="categoryList">
                     <li>
-                        <input id="catid_catid" type="checkbox" checked>
-                        <label for="catid_catid">Category name</label>
+                        <input id="id_categoryName" type="checkbox" checked>
+                        <label for="id_categoryName">Category name</label>
                     </li>
                 </ul>
                 <!-- Randomly generated with Javascript -->

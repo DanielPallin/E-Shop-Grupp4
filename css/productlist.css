@@ -55,12 +55,6 @@
     }
 }
 
-/* @media screen and (max-width: 768px) {
-    :root {
-        
-    }
-} */
-
 :root * {
     box-sizing: border-box;
 }
@@ -73,7 +67,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: var(--pageAlignment);
 
     & a {
         color: var(--linkColor);
@@ -99,49 +93,14 @@ body {
     }
 }
 
-/* Temporary until header.html and header.css is available --> */
+/* Must have if body is display: flex; */
 body > header, body > footer {
     width: 100%;
-    color: #F8F8F8;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    & > * {
-        width: 100%;
-        max-width: var(--pageWidth);
-        text-align: center;
-        padding: 0 1rem;
-    }
-
-    & div.container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-    }
 }
-
-body > header {
-    background-image: url(../img/header_bg.png);
-    background-size: cover;
-    background-position: center;
-}
-
-body > footer {
-    height: 300px;
-    background-color: #403022;
-}
-
-div#mainContainer {
-    max-width: var(--pageWidth);
-}
-/* --> */
 
 /* Main container: containing sidebar and main */
 div#mainContainer {
+    max-width: var(--pageWidth);
     flex: 1;
     display: grid;
     align-items: start;
@@ -198,7 +157,6 @@ article.productCard {
             "productName productName"
             "productBrand productPrice"
             "productCategory productPrice";
-        width: 100%;
 
         & figure {
             
@@ -249,19 +207,11 @@ article.productCard {
         }
     }
 
-    & p, & ul {
-        margin: 0;
+    & p.productDescription {
+        display: none;
     }
 
-    & ul {
-        padding: 0 0 0 1.5em;
-    }
-
-    & *.productDescription {
-        /* display: none; */
-    }
-
-    & *.productDetails {
+    & p.productDetails {
         display: none;
     }
 
@@ -353,7 +303,6 @@ div#cart {
 /* Mockup panel */
 div#mockupPanel {
     display: grid;
-    display: none;
     grid-template-columns: auto 1fr;
     position: fixed;
     bottom: var(--gridRowGap);
@@ -509,7 +458,6 @@ div#mockupPanel {
                     color: var(--linkColor);
                     padding: .33em .5em .25em .5em;
                     border-radius: 6px;
-                    white-space: nowrap;
 
                     &:hover {
                         color: var(--linkHoverColor);
