@@ -306,7 +306,7 @@ div#cart {
 
 /* Mockup panel */
 div#mockupPanel {
-    display: grid;
+    display: none;
     grid-template-columns: auto 1fr;
     position: fixed;
     bottom: var(--gridRowGap);
