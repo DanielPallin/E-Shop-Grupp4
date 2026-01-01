@@ -115,3 +115,28 @@
 - Lagt in Feature: shopping cart, Page: checkout och Page: about i sprint-backloggen i övrigt fortsätter arbetet med de epics som är in progress.
 
 ***
+
+### Daily scrum 2025-12-31
+
+#### Emily
+- Fixat klart about-sidan.
+- Skickat upp den senaste header-delen (se kommentarer om vilka rader som ska kommenteras bort för home-sidan).
+- Siktar på att få till så att knapparna funkar bra i mobil.
+
+#### Daniel
+- Ska ladda hem Emilys header och få den att fungera med home-page.
+- Ska färgsätta home-page och gå igenom alla funktioner och se över länkar osv.
+
+#### Shakur
+- Har skapat en separat footer.html och .css.
+- Kopplat headern till contact-sidan.
+- Har sett över det responsiva.
+- Ska lägga till logotypen.
+- Se över allt en sista gång för att kontrollera så att inget är missat.
+
+#### Oscar
+- Har skapat en databas med mockup-produkter.
+- Ska få header och footer att fungera ordentligt.
+- Ska skriva klart script som listar kategorier för att kunna ha i drop down-menyn.
+
+***
