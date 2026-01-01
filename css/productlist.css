@@ -462,6 +462,7 @@ div#mockupPanel {
                     color: var(--linkColor);
                     padding: .33em .5em .25em .5em;
                     border-radius: 6px;
+                    white-space: nowrap;
 
                     &:hover {
                         color: var(--linkHoverColor);
