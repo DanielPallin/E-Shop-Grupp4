@@ -68,29 +68,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: var(--pageAlignment);
-
-    & a {
-        color: var(--linkColor);
-        text-decoration: var(--linkTextDecoration);
-
-        &:hover {
-            color: var(--linkHoverColor);
-            text-decoration: var(--linkHoverTextDecoration);
-        }
-    }
-
-    & button {
-        background-color: var(--btnBgColor);
-        color: var(--btnColor);
-        border: none;
-        border-radius: var(--btnBorderRadius);
-        cursor: pointer;
-        font-weight: 300;
-
-        &:hover {
-            background-color: var(--btnHoverColor);
-        }
-    }
 }
 
 /* Must have if body is display: flex; */
@@ -113,6 +90,29 @@ div#mainContainer {
         grid-column: 1 / span 3;
         margin: 0;
         margin-bottom: calc(var(--gridRowGap) / 2 * -1);
+    }
+
+    & a {
+        color: var(--linkColor);
+        text-decoration: var(--linkTextDecoration);
+
+        &:hover {
+            color: var(--linkHoverColor);
+            text-decoration: var(--linkHoverTextDecoration);
+        }
+    }
+
+    & button {
+        background-color: var(--btnBgColor);
+        color: var(--btnColor);
+        border: none;
+        border-radius: var(--btnBorderRadius);
+        cursor: pointer;
+        font-weight: 300;
+
+        &:hover {
+            background-color: var(--btnHoverColor);
+        }
     }
 }
 

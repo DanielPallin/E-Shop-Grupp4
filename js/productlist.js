@@ -9,14 +9,10 @@ let catList = [];
 
 (() => {
     buyButtons();
-
-    if (catList.length === 0) mockupCategories();
-    updSidebar();
 })();
 
 /* Making buyButtons add items to cart. */
 function buyButtons() {
-
     let buyBtns = document.querySelectorAll('button.buy'); // Declare array with all buyBtns on page.
     const cartItems = document.querySelector('span.cartItems'); // Declare constant cartItems.
 
@@ -42,120 +38,14 @@ function capitalize(s) {
     return t ? t[0].toUpperCase() + t.slice(1) : t; // Make first letter uppercase and return string.
 };
 
-/* Create mockup categories */
-function randCatList(num) {
-    const words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium reiciendis tenetur quibusdam molestias fugit a velit. Nesciunt, eaque harum. Earum sed, cum quia incidunt maxime vero alias laborum saepe sint.'
-        .replace(/[^a-zA-Z ]/g, '')
-        .split(' ')
-        .filter(w => w.length >= 2); // Remove special characters, split the string into array, and filter words shorter than 2 characters.
-
-    // Make a list of the unique words in the array and make them lowercase.
-    const pool = [...new Set(words.map(w => w.toLowerCase()))];
-    num = Math.min(num, pool.length); // Adjust the pool to defined max number of words.
-
-    const arr = [];
-    while (arr.length < num) {
-        const i = Math.floor(Math.random() * pool.length);
-        const [picked] = pool.splice(i, 1); // Remove picked word from the pool.
-        arr.push(capitalize(picked)); // Push picked word to return array and capitalize first letter.
-    }
-
-    return arr;
-}
-
-/* Uppdate all .productCategory innerHTML with random category */
-function mockupCategories(single) {
-
-    // const numCategories = Number(document.querySelector('input#mockupCategories').value); // Get value from input field.
-    const params        = new URLSearchParams(location.search);
-    const inputC        = document.querySelector('input#mockupCategories');
-    const fallback      = Number(inputC?.value ?? 1);
-    const numCategories = Number(params.get('mcats')) || fallback;
-
-    const domCategories = (!single)
-        ? document.querySelectorAll('.productCategory') // If single-element isn't set declare domCategories as array of all .productCategory elements from page.
-        : single.querySelectorAll('.productCategory'); // Else, use the provided element.
-
-    const s = new Set([...domCategories].map(el => el.textContent.trim())); // Make a list of categories where everything but the text is stripped.
-    let uniqueCat = [...s]; // Filter and keep unique values in list.
-
-    if (!single) catList = randCatList(numCategories); // If single-element is not set, create a new random categories list.
-
-    domCategories.forEach(category => {
-        let catName         = catList[Math.floor(Math.random() * numCategories)];
-        category.innerHTML  = catName; //
-        category.closest('article.productCard').setAttribute('data-productCategory', catName)
-    });
-}
-
-/* Update sidebar */
-// To do: use existing UL and clone LI instead of deleting and creating new ones.
-function updSidebar() {
-    if (catList.length == 0) return;
-    const sidebar   = document.querySelector('aside#sidebar nav');
-    const currUl    = sidebar.querySelector('ul');
-
-    if (currUl) currUl.remove(); // Remove existing ul.
-
-    const ul = document.createElement('ul'); // Create new ul.
-    ul.setAttribute('class', 'categoryList'); // Add class to new list.
-
-    const productCards = document.querySelectorAll('article.productCard'); // Create array of productCards.
-
-    let productCatlist = {};
-    productCards.forEach(productCard => { // Loop through all productCards.
-        const name  = productCard.querySelector('h3.productName').textContent.trim();
-        const cat   = productCard.querySelector('span.productCategory').textContent.trim();
-        (productCatlist[cat] ??= []).push(name); // Add every productname to their corresponding category.
-    });
-
-    const list = Object.entries(productCatlist) // Create new list with categories sorted alphabetically.
-        .sort(([catA], [catB]) => catA.localeCompare(catB, 'sv'))
-        .map(([cat, names]) => ({ cat, names }));
-
-    list.forEach(({cat, names}) => {
-        const li = document.createElement('li'); // Create list items with inputs and labels.
-        const checkbox = document.createElement('input');
-        const label = document.createElement('label');
-
-        checkbox.setAttribute('type', 'checkbox'); // Add attributes to checkbox.
-        checkbox.setAttribute('id', 'id_' + cat);
-
-        label.setAttribute('for', 'id_' + cat); // Add attribute "for" to label.
-        label.innerText = cat;
-
-        li.append(checkbox);
-        li.append(label);
-
-        ul.append(li);
-
-        if (names.length > 0) {
-            const subUl = document.createElement('ul'); // Create sublist to accommodate products.
-
-            names.forEach(name => {
-                const li        = document.createElement('li');
-                const a         = document.createElement('a');
-                a.href          = 'productpage-one.html';
-                a.textContent   = name;
-
-                li.append(a)
-                subUl.append(li);
-            });
-            ul.append(subUl);
-        }
-    });
-
-    sidebar.append(ul);
-    document.dispatchEvent(new Event('categoryList:updated')); // Trigger event.
-}
-
 let selectedCategories = [];
 
 /* Add/remove class filtered depending on if product-category exists in selectedCategories. */
 function applyFilter() {
     const productList = document.querySelectorAll('article.productCard');
     productList.forEach(product => {
-        const productCat = product.getAttribute('data-productCategory');
+        const productCat = product.getAttribute('data-product-cat');
+        const productCatId = product.getAttribute('data-product-catid');
         const filtered = selectedCategories.length === 0 || selectedCategories.includes(productCat);
         product.classList.toggle('filtered', filtered);
     });
@@ -210,12 +100,6 @@ function updateHeading() {
         updateHeading();
     });
 
-    document.addEventListener('categoryList:updated', () => {
-        syncSelectedFromDOM();
-        applyFilter();
-        updateHeading();
-    });
-
     syncSelectedFromDOM();
     applyFilter();
     updateHeading();
@@ -254,14 +138,13 @@ function updateHeading() {
 let productsPromise;
 
 function getProducts() {
-  if (!productsPromise) { // If productPromise not already set.
-    productsPromise = fetch("db/products.json")
-      .then(r => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      });
-  }
-  return productsPromise;
+    if (!productsPromise) { // If productPromise not already set.
+        productsPromise = fetch("db/products.json").then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.json();
+        });
+    }
+    return productsPromise;
 }
 
 /* List categories */
@@ -305,7 +188,7 @@ async function listCategories() {
                     ? el
                     : el.querySelector('a');
 
-                const newHref = templateLink.href.split('?')[0];
+                const newHref = templateLink.href.split('#')[0].split('?')[0];
                 a.href = `${newHref}?catid=${cat.id}`; // Add href.
 
                 a.textContent = cat.name ?? ''; // Add text content.
@@ -314,6 +197,7 @@ async function listCategories() {
                 const input = el.querySelector('input');
                 const label = el.querySelector('label');
 
+                input.dataset.catid = cat.id;
                 input.id = label.htmlFor = `catid_${cat.id}`; // Add id to input and for to label.
                 label.textContent = cat.name ?? ''; // Add text content to label.
             }
@@ -358,7 +242,9 @@ async function listProducts() {
 
             } else if (attr == 'productCategory') { // If category, set the productCards data-attribute to category name.
 
-                newProductCard.setAttribute('data-productcategory', obj.productCategory.name);
+                newProductCard.dataset.productCat = obj.productCategory.name;
+                newProductCard.dataset.productCatid = obj.productCategory.id;
+                //newProductCard.setAttribute('data-productcategory', obj.productCategory.name);
                 el.textContent = obj[attr].name ?? '';
 
             } else if (attr == 'productPrice') { // If price, set both price and currency.
@@ -397,10 +283,21 @@ async function listProducts() {
     productCard.remove(); // Remove the hard coded productCard.
 }
 
-listCategories();
-listProducts();
+/* Apply category id from URL */
+const applyCatidFromUrl = () => {
+    const url = new URL(location.href);
+    const catid = url.searchParams.get('catid'); // Get catid from url
+    if (!catid) return;
 
-const url = new URL(location);
-if (url.searchParams.has('catid') && url.searchParams.get('catid').length > 0) {
-    const gVar = url.searchParams.get('catid'); 
-}
+    const sidebarNav = document.querySelector('aside#sidebar nav');
+    const input = sidebarNav.querySelector(`input[data-catid="${catid}"]`); // Get element with same data-catid attribute as catid in URL.
+    if (!input) return;
+
+    input.checked = true;
+    input.dispatchEvent(new Event('change', { bubbles: true })); // "Bubble" event so that the eventlistener on parent element can catch it.
+};
+
+(async () => {
+    await Promise.all([listCategories(), listProducts()]);
+    applyCatidFromUrl();
+})();
