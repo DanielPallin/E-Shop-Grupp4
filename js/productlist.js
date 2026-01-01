@@ -544,6 +544,7 @@ listProducts();
 
 // const url = new URL(location);
 
-// if (url.searchParams.has('cat') && url.searchParams.get('cat').length > 0) {
-//     const test = document.getElementById('catid_' + url.searchParams.get('cat'));
-// }
+(async () => {
+    await Promise.all([listCategories(), listProducts()]);
+    applyCatidFromUrl();
+})();
