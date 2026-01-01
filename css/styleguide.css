@@ -75,7 +75,6 @@ p {
 }
 
 
-
 /* HEADER */
 /* HEADER */
 /* HEADER */
@@ -184,14 +183,6 @@ header {
 .material-symbols-outlined {
   vertical-align: middle;
   line-height: 1;
-=======
-    text-decoration: underline;
-}
-
-.material-symbols-outlined {    text-decoration: underline;
-}
-
-.material-symbols-outlined {
   text-decoration: none;
 }
 
@@ -257,11 +248,10 @@ button {
 
 /* TABLET */
 @media (max-width: 960px) {
-  
-
+/*
 .header-img {
 /* max-height: 35vh;
- */}
+}*/
 
 .hamburger {
   display: flex;
