@@ -222,7 +222,7 @@ function updSidebar() {
     if (currUl) currUl.remove(); // Remove existing ul.
 
     const ul = document.createElement('ul'); // Create new ul.
-    ul.setAttribute('id', 'categoryList'); // Add id to new list.
+    ul.setAttribute('class', 'categoryList'); // Add class to new list.
 
     const productCards = document.querySelectorAll('article.productCard'); // Create array of productCards.
 
@@ -351,7 +351,7 @@ function updateHeading() {
     sidebarNav.addEventListener('change', (e) => {
         const input = e.target;
         if (!(input instanceof HTMLInputElement) || input.type !== 'checkbox') return;
-        if (!input.closest('#categoryList')) return;
+        if (!input.closest('.categoryList')) return;
 
         const label = input.closest('li')?.querySelector('label');
         if (!label) return;
@@ -382,7 +382,7 @@ function updateHeading() {
 /* Scroll arrows for horizontal scroll in navbar */
 (() => {
     const nav = document.querySelector('aside#sidebar > nav');
-    const catList = nav.querySelector('ul#categoryList');
+    const catList = nav.querySelector('ul.categoryList');
     const scrollOffset = 10;
 
     const updClasses = () => {
@@ -407,3 +407,143 @@ function updateHeading() {
     });
 
 })();
+
+/* Get products from JSON */
+let productsPromise;
+
+function getProducts() {
+  if (!productsPromise) { // If productPromise not already set.
+    productsPromise = fetch("db/products.json")
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      });
+  }
+  return productsPromise;
+}
+
+async function listCategories() {
+  const data = await getProducts();
+  if (!data?.length) return;
+
+  const byId = new Map();
+  data.forEach(({ productCategory: cat }) => {
+    if (cat?.id != null) byId.set(cat.id, cat);
+  });
+
+  const catList = [...byId.values()]
+    .sort((a, b) => (a.name ?? '').localeCompare(b.name ?? '', 'sv'));
+
+  const categoryLists = document.querySelectorAll('ul.categoryList');
+  if (categoryLists.length === 0) return;
+
+  categoryLists.forEach(categoryList => {
+    const templateLi = categoryList.firstElementChild;
+    if (!templateLi) return;
+
+    const templateLink = templateLi.querySelector('a');
+    const templateInput  = templateLi.querySelector('input');
+    const templateLabel  = templateLi.querySelector('label');
+
+    if (!templateLink && (!templateInput && !templateLabel)) return;
+
+    catList.forEach(cat => {
+      const li = templateLi.cloneNode(true);
+
+      if (templateLink) {
+        const a = li.querySelector('a');
+        a.href = `${templateLink.href}?catid=${cat.id}`;
+        a.textContent = cat.name ?? '';
+
+      } else {
+        const input = li.querySelector('input');
+        const label = li.querySelector('label');
+
+        input.id = label.htmlFor = `catid_${cat.id}`;
+        
+        label.textContent = cat.name ?? '';
+      }
+
+      categoryList.append(li);
+    });
+
+    templateLi.remove();
+  });
+}
+
+
+async function listProducts() {
+    const data = await getProducts();
+    if(!data) return; // If no data were fetched, stop.
+
+    const productCard = document.querySelector('article.productCard');
+
+    if(!productCard) return;
+
+    data.forEach(obj => { // Loop through fetched data.
+
+        const newProductCard = productCard.cloneNode(true);
+
+        const productAttr = [
+            "productName",
+            "productImage",
+            "productCategory",
+            "productBrand",
+            "productPrice",
+            "productDescription",
+            "productDetails"
+        ]; // Create list of all product attributes (class names) included in a product card.
+
+        productAttr.forEach(attr => { // Loop through list of attributes.
+            const el = newProductCard.querySelector(`.${attr}`); // Define constant based on class name.
+
+            if (!el) return; // If not found, stop.
+
+            if (attr == 'productImage') { // If image, set src and alt.
+
+                el.src = `img/products/${obj[attr]}`;
+                el.alt = obj.productName ?? '';
+
+            } else if (attr == 'productCategory') { // If category, set the productCards data-attribute to category name.
+
+                newProductCard.setAttribute('data-productcategory', obj.productCategory.name);
+                el.textContent = obj[attr].name ?? '';
+
+            } else if (attr == 'productPrice') { // If price, set both price and currency.
+
+                const price = new Intl.NumberFormat("se-SE").format(obj.productPrice['amount']);
+                el.textContent = `${price} ${obj.productPrice['currency']}`;
+
+            } else if (attr == 'productDetails' && obj[attr].length > 1) {
+
+                const detailsUl = document.createElement('ul');
+                obj[attr].forEach(detail => {
+                    const detailsLi = document.createElement('li');
+                    detailsLi.innerText = detail ?? '';
+                    detailsUl.append(detailsLi)
+                    detailsUl.className = attr;
+                });
+                el.replaceWith(detailsUl);
+
+            } else {
+
+                el.textContent = obj[attr] ?? '';
+
+            }
+        });
+
+        productCard.parentNode.append(newProductCard); // Append to parent node.
+    });
+
+    productCard.remove(); // Remove the hard coded productCard.
+}
+
+listCategories();
+
+listProducts();
+
+// const url = new URL(location);
+
+// if (url.searchParams.has('cat') && url.searchParams.get('cat').length > 0) {
+//     const test = document.getElementById('catid_' + url.searchParams.get('cat'));
+// }
