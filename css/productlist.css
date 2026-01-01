@@ -68,29 +68,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: var(--pageAlignment);
-}
-
-/* Must have if body is display: flex; */
-body > header, body > footer {
-    width: 100%;
-}
-
-/* Main container: containing sidebar and main */
-div#mainContainer {
-    max-width: var(--pageWidth);
-    flex: 1;
-    display: grid;
-    align-items: start;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: var(--sidebarWidth) auto;
-    gap: var(--gridRowGap) var(--gridColGap);
-    padding: var(--gridRowGap) var(--gridColGap);
-
-    & h2 {
-        grid-column: 1 / span 3;
-        margin: 0;
-        margin-bottom: calc(var(--gridRowGap) / 2 * -1);
-    }
 
     & a {
         color: var(--linkColor);
@@ -113,6 +90,29 @@ div#mainContainer {
         &:hover {
             background-color: var(--btnHoverColor);
         }
+    }
+}
+
+/* Must have if body is display: flex; */
+body > header, body > footer {
+    width: 100%;
+}
+
+/* Main container: containing sidebar and main */
+div#mainContainer {
+    max-width: var(--pageWidth);
+    flex: 1;
+    display: grid;
+    align-items: start;
+    grid-template-areas: "sidebar main";
+    grid-template-columns: var(--sidebarWidth) auto;
+    gap: var(--gridRowGap) var(--gridColGap);
+    padding: var(--gridRowGap) var(--gridColGap);
+
+    & h2 {
+        grid-column: 1 / span 3;
+        margin: 0;
+        margin-bottom: calc(var(--gridRowGap) / 2 * -1);
     }
 }
 
@@ -207,15 +207,11 @@ article.productCard {
         }
     }
 
-    & ul {
-       padding-left: 1.25em; 
+    & p.productDescription {
+        display: none;
     }
 
-    & *.productDescription {
-        /* display: none; */
-    }
-
-    & *.productDetails {
+    & p.productDetails {
         display: none;
     }
 
@@ -306,7 +302,7 @@ div#cart {
 
 /* Mockup panel */
 div#mockupPanel {
-    display: none;
+    display: grid;
     grid-template-columns: auto 1fr;
     position: fixed;
     bottom: var(--gridRowGap);
@@ -462,7 +458,6 @@ div#mockupPanel {
                     color: var(--linkColor);
                     padding: .33em .5em .25em .5em;
                     border-radius: 6px;
-                    white-space: nowrap;
 
                     &:hover {
                         color: var(--linkHoverColor);

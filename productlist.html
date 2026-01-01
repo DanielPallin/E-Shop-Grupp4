@@ -15,52 +15,58 @@
 <body>
     <header>
         <div class="header-container">
-            <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
-            <a href="index.html" class="nav-logo-link">
-                <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
-            </a>
+        <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+        <a href="index.html" class="nav-logo-link">
+        <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+        </a>
         </div>
         <nav class="nav-header">
+            
             <div class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
             <div class="nav-left">
-                <a class="a-light" href="index.html">Home</a>
+
+                <a class="a-light active" href="index.html">Home</a>
                 <div class="dropdown">
-                    <a href="productlist.html" class="active dropbtn a-light">
-                        <span class="link-product">Products</span>
-                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                    </a>
-                    <div class="dropdown-content categoryList">
+                <a href="productlist.html" class="dropbtn a-light">
+                <span class="link-product">Products</span>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </a>
+                    <div class="dropdown-content">
                         <a class="a-light" href="#">Category 1</a>
                         <a class="a-light" href="#">Category 2</a>
                         <a class="a-light" href="#">Category 3</a>
                     </div>
                 </div>
+
+    <!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
+
                 <a class="a-light" href="about.html">About </a>
                 <a class="a-light" href="contact.html">Contact</a>
             </div>
+                
             <div class="nav-right">
                 <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
                 <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
             </div>
         </nav>
     </header>
-    <div id="mainContainer">
+    <div id="mainContainer"> <!-- div#mainContainer may be unecessary depending on header CSS. -->
         <main>
             <h2>Products</h2>
-            <article class="productCard" data-product-cat="categoryName" data-product-catid="categoryId">
+            <article class="productCard" data-productCategory="categoryName">
                 <header>
                     <figure>
                         <a href="productpage.html">
-                            <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
+                            <img class="productImage" alt="Product 1" src="img/products/product-1_bgf8f8f8.png">
                         </a>
                         <figcaption>Label for product-1.jpg</figcaption>
                     </figure>
                     <h3 class="productName">
-                        <a href="productpage-one.html">Product name #1</a>
+                        <a href="productpage.html">Product name #1</a>
                     </h3>
                     <span class="productBrand" title="Brand">Brand name</span>
                     <span class="productCategory" title="Category">Category name</span>
@@ -69,17 +75,17 @@
                 <p class="productDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, quia? Illo nisi eius repellendus sunt.</p>
                 <p class="productDetails">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi aspernatur quisquam asperiores accusantium excepturi a pariatur ab expedita, dolor hic fuga numquam eum maxime tempora alias aliquid! Officiis, magni error?
                 Minus maiores doloremque cupiditate, ut eos repellendus praesentium debitis mollitia culpa aperiam asperiores amet corrupti porro at laudantium dolores voluptatibus quos aliquam itaque error et rerum officia non fugit. Laudantium.</p>
-                <a class="action" href="productpage-one.html">More info</a>
+                <a class="action" href="productpage.html">More info</a>
                 <button class="action buy">Add to cart</button>
             </article>
         </main>
         <aside id="sidebar">
             <nav>
                 <h2>Categories</h2>
-                <ul class="categoryList">
+                <ul id="categoryList">
                     <li>
-                        <input id="catid_catid" type="checkbox" data-catid="catId">
-                        <label for="catid_catid">Category name</label>
+                        <input id="id_categoryName" type="checkbox" checked>
+                        <label for="id_categoryName">Category name</label>
                     </li>
                 </ul>
             </nav>
@@ -88,12 +94,24 @@
                 Products (<span class="cartItems">0</span>)
             </div>
         </aside>
-    </div>
+    </div> <!-- div#mainContainer may be unecessary depending on header CSS. -->
     <footer>
         <div class="container">
             <p>Footer</p>
         </div>
     </footer>
+    <div id="mockupPanel">
+            <a class="close">Open</a>
+            <h3>Mockups</h3>
+            <div class="content">
+                <div class="inner">
+                    <label for="mockupCategories">Categories</label>
+                    <input id="mockupCategories" type="number" max="20" min="1" value="1">
+                    <label for="mockupProducts">Products</label>
+                    <input id="mockupProducts" type="number" max="40" min="1" value="1">
+                </div>
+            </div>
+    </div>
     <script type="text/javascript" src="js/productlist.js"></script>
 </body>
 </html>
