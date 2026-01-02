@@ -112,7 +112,7 @@ function updateSum() {
     const sum = cart?.querySelector('.sum');
 
     if (!sum) return;
-
+    
     if (cart.querySelectorAll('li').length === 0) {
 
         sum.innerText = 'Your shopping cart is empty.';
@@ -128,3 +128,5 @@ function updateSum() {
         sum.innerText = new Intl.NumberFormat('se-SE', { style: 'currency', currency: 'SEK', maximumFractionDigits: 0, currencyDisplay: 'code' }).format(calcSum);
     }
 }
+
+updateSum();
