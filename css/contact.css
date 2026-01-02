@@ -1,4 +1,5 @@
-
+@import url(styleguide.css);
+@import url(cart.css);
 
 .contact-hero {
   display: grid;
@@ -68,6 +69,69 @@
   background-size: cover;
   background-position: center;
 }
+
+
+/* *** */
+:root {
+  color: var(--color-brown-dark);
+}
+
+body {
+  background-color: var(--color-white);
+}
+
+section.contact-hero {
+  display: flex;
+  justify-content: flex-end;
+
+  & h2 {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  & > div {
+    flex: 1;
+    box-sizing: border-box;
+
+    &:first-child {
+      max-width: calc(1200px/2);
+      padding: 4rem 2rem;
+    }
+
+    &:last-child {
+      max-width: 50vw;
+    }
+  }
+
+  & button {
+  cursor: pointer;
+  padding: 1em 1.5em;
+  font-size: 1em;
+  background-color: var(--color-brown-dark);
+  color: var(--color-white);
+  }
+}
+/* *** */
+
+@media screen and (max-width: 960px) {
+  section.contact-hero {
+  flex-direction: column;
+
+  & h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  & div.contact-content {
+    padding: 4rem 1rem;
+  }
+
+  & div.contact-image {
+    max-width: none;
+    min-height: 300px;
+  }
+  }
+}
+/* *** */
 
 
 @media (max-width: 900px) {
