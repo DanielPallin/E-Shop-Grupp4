@@ -221,6 +221,7 @@ async function listProducts() {
         const newProductCard = productCard.cloneNode(true);
 
         const productAttr = [
+            "productId",
             "productName",
             "productImage",
             "productCategory",
@@ -232,6 +233,8 @@ async function listProducts() {
 
         productAttr.forEach(attr => { // Loop through list of attributes.
             const el = newProductCard.querySelector(`.${attr}`); // Define constant based on class name.
+
+            newProductCard.dataset.productId = obj.productId; // Set data attribute to product id.
 
             if (!el) return; // If not found, stop.
 
