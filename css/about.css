@@ -1,0 +1,83 @@
+/* ABOUT */
+/* ABOUT */
+/* ABOUT */
+/* ABOUT */
+
+.about-hero {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    max-width: 1200px;
+    gap: 2rem;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+  
+    margin-bottom: 1rem;
+    color: var(--color-brown-dark);
+}
+
+blockquote {
+    font-style: italic;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-brown-dark);
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+      line-height: 1.8; 
+    max-width: 60ch;
+    color: var(--color-black);
+}
+
+hr {
+    border: none;
+    border-top: 0.5px solid var(--color-brown);
+    margin: 2rem 0;
+}
+
+.respo-hr {
+  display: none;
+}
+
+.quote-left {
+    position: sticky;
+    align-self: start;
+    top: 2rem
+}
+
+/* TABLET */
+@media (max-width: 960px) {
+
+    /* About */
+.about-hero {
+    grid-template-columns: 1fr;
+}
+
+.quote-left {
+    position: static;
+}
+
+.respo-hr {
+  display: block;
+}
+}
+*/
+@media (max-width: 768px) {
+
+    .nav-left.active {
+        width: 90vw;
+    } 
+}
+ 
