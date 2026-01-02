@@ -53,7 +53,7 @@ function applyFilter() {
 
 /* Updates heading with filtered categories. */
 function updateHeading() {
-    const heading = document.querySelector('main > h2');
+    const heading = document.querySelector('main > h3');
     if (!heading) return;
 
     let headingSpan = document.querySelector('span[data-headingcats]');
@@ -64,9 +64,11 @@ function updateHeading() {
     }
 
     if (selectedCategories.length) {
-        headingSpan.textContent = ': ' + [...selectedCategories].sort().join(', '); // Join selected categories to one string.
+        // headingSpan.textContent = ': ' + [...selectedCategories].sort().join(', '); // Join selected categories to one string.
+        heading.textContent = [...selectedCategories].sort().join(', '); // Join selected categories to one string.
     } else {
-        headingSpan.remove();
+        // headingSpan.remove();
+        heading.textContent = 'All products';
     }
 };
 
