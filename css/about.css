@@ -73,7 +73,9 @@ hr {
   display: block;
 }
 }
-*/
+
+/* NAVIGATION */
+
 @media (max-width: 768px) {
 
     .nav-left.active {
