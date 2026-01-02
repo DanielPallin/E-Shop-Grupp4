@@ -6,7 +6,7 @@
 */
 
 @import url(styleguide.css);
-@import url(shoppingcart.css);
+@import url(cart.css);
 @import url(footer.css);
 
 :root {
@@ -223,7 +223,7 @@ article.productCard {
         text-decoration: underline;
     } */
 
-    & button.buy {
+    & button.addToCart {
         font-size: 1rem;
         padding: .5em .5em;
         white-space: nowrap;
