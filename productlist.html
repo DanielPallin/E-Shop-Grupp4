@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gruppuppgift: E-shop, FaceRoots">
+    <meta name="author" content="Grupp 4 (Oscar Nilsson)">
+    <title>FaceRoots - Products</title>
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/productlist.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="js/header.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+            <a href="index.html" class="nav-logo-link">
+                <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+            </a>
+        </div>
+        <nav class="nav-header">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-left">
+                <a class="a-light" href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="productlist.html" class="active dropbtn a-light">
+                        <span class="link-product">Products</span>
+                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    </a>
+                    <div class="dropdown-content categoryList">
+                        <a class="a-light" href="#">Category 1</a>
+                        <a class="a-light" href="#">Category 2</a>
+                        <a class="a-light" href="#">Category 3</a>
+                    </div>
+                </div>
+                <a class="a-light" href="about.html">About </a>
+                <a class="a-light" href="contact.html">Contact</a>
+            </div>
+            <div class="nav-right">
+                <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+                <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+            </div>
+        </nav>
+    </header>
+    <div id="mainContainer">
+        <main>
+            <h2>Products</h2>
+            <article class="productCard" data-product-cat="categoryName" data-product-catid="categoryId">
+                <header>
+                    <figure>
+                        <a href="productpage.html">
+                            <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
+                        </a>
+                        <figcaption>Label for product-1.jpg</figcaption>
+                    </figure>
+                    <h3 class="productName">
+                        <a href="productpage-one.html">Product name #1</a>
+                    </h3>
+                    <span class="productBrand" title="Brand">Brand name</span>
+                    <span class="productCategory" title="Category">Category name</span>
+                    <span class="productPrice" title="Price">1 499 SEK</span>
+                </header>
+                <p class="productDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, quia? Illo nisi eius repellendus sunt.</p>
+                <p class="productDetails">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi aspernatur quisquam asperiores accusantium excepturi a pariatur ab expedita, dolor hic fuga numquam eum maxime tempora alias aliquid! Officiis, magni error?
+                Minus maiores doloremque cupiditate, ut eos repellendus praesentium debitis mollitia culpa aperiam asperiores amet corrupti porro at laudantium dolores voluptatibus quos aliquam itaque error et rerum officia non fugit. Laudantium.</p>
+                <a class="action" href="productpage-one.html">More info</a>
+                <button class="action buy">Add to cart</button>
+            </article>
+        </main>
+        <aside id="sidebar">
+            <nav>
+                <h2>Categories</h2>
+                <ul class="categoryList">
+                    <li>
+                        <input id="catid_catid" type="checkbox" data-catid="catId">
+                        <label for="catid_catid">Category name</label>
+                    </li>
+                </ul>
+                <!-- Randomly generated with Javascript -->
+            </nav>
+            <div id="cart">
+                <h2>Cart</h2>
+                Products (<span class="cartItems">0</span>)
+            </div>
+        </aside>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h4>FaceRoots</h4>
+                <p>
+                    Premium grooming products for beard, skin and hair.
+                    Developed with a focus on quality and style.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Links</h4>
+                <a href="productlist.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Email: support@faceroots.se</p>
+                <p>Phone: +46 8 123 45 67</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 FaceRoots. All rights reserved.
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/productlist.js"></script>
+</body>
+</html>
