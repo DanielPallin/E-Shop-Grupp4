@@ -3,20 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/productpage.css" />
+    <title>FaceRoots – Product</title>
 
-
+    <link rel="stylesheet" href="css/productpage.css">
+    <link rel="stylesheet" href="css/styleguide.css"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <!-- header  -->
+    <script src="productpage-gallery.js"></script>
+<!-- Header & navbar -->
+<header>
+    <img class="header-img" src="image-repo/seven_men_1grey.webp" alt="bearded men">
+    <nav class="nav-header">
+        <div class="nav-left">
+            <img src="#" alt="FaceRoots">
+            <a class="a-light" href="index.html">Home</a>
+            <div class="dropdown">
+            <a href="productlist.html" class="dropbtn a-light" >Products</a>
+                <div class="dropdown-content">
+                    <a class="a-light" href="#">Category 1</a>
+                    <a class="a-light" href="#">Category 2</a>
+                    <a class="a-light" href="#">Category 3</a>
+                </div>
+            </div>
+            <a class="a-light active" href="about.html">About</a>
+            <a class="a-light" href="contact.html">Contact</a>
+        </div>
+            
+        <div class="nav-right">
+            <button class="button-light"><span class="material-symbols-outlined ">
+shopping_cart
+</span> Cart</button>
+            <button class="button-light"><span class="material-symbols-outlined">
+account_circle
+</span>Login</button>
+        </div>
+    </nav>
+</header>
+
+<main class="productPage">
+<!-- LEFT: Product gallery -->
+<section class="productMedia card">
+
+<img 
+    id="mainProductImage"
+    class="mainImage"
+    src="image-repo/beard_clipper_silver_three.avif"
+    alt="Beard Trimmer">
+
+<div class="thumbnailRow">
+    <img src="image-repo/beard_clipper_silver_three.avif" alt="Thumbnail 1" class="active">
+    <img src="image-repo/beard_clipper_silver_one.avif" alt="Thumbnail 2">
+    <img src="image-repo/beard_clipper_silver_two.avif alt="Thumbnail 3">
+</div>
+
+</section>
+
+<!-- RIGHT: Purchase box -->
+<section class="productPurchase card">
+
+    <h2 class="productTitle">Beard Turbo Master Trimmer</h2>
+    <span class="category">Beard Care</span>
+
+    <div class="priceBox">
+        <span class="price">€99</span>
     </div>
         
 
-    <div>
-            <button class="btn-primary"> Add to Cart </button>
+    <div class="purchaseActions">
+        <button class="action buyNow">Buy now</button>
+        <button class="action buy">Add to cart</button>
+    </div>
 
-</div>
+</section>
+
+<!-- DESCRIPTION -->
+<section class="description card fullWidth">
+    <h3>Description</h3>
+    <p>
+        High-performance beard trimmer designed for precision, durability
+        and effortless grooming.
+    </p>
+</section>
+
+<!-- PRODUCT INFO -->
+    <details class="productDetails fullWidth card">
+    <summary>Product information</summary>
+    <ul>
+        <li><strong>Origin:</strong> Sweden</li>
+        <li><strong>Material:</strong> Stainless steel</li>
+        <li><strong>Battery:</strong> USB-C rechargeable</li>
+    </ul>
+    </details>
+
+</main>
+
+<footer>
+    <p>Footer</p>
+</footer>
+
 </body>
 </html>
