@@ -5,82 +5,42 @@ const dropBtn = document.querySelector('.dropbtn');
 
 let dropdownOpen = false;
 
-function updateAria() {
-    hamburger.setAttribute(
-        'aria-expanded',
-        navLeft.classList.contains('active')
-    );
-    dropBtn.setAttribute(
-        'aria-expanded',
-        dropdown.classList.contains('active')
-    );
-}
-
-hamburger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navLeft.classList.toggle('active');
-    hamburger.classList.toggle('active');
-    updateAria();
+/* Hamburger */
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLeft.classList.toggle('active');
 });
 
+/* Products – dubbelklick-logik på mobil */
 dropBtn.addEventListener('click', (e) => {
-    if (window.innerWidth <= 960) {
-        if (!dropdownOpen) {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown.classList.add('active');
-            dropdownOpen = true;
-            updateAria();
-        } else {
-            dropdownOpen = false;
-        }
+  if (window.innerWidth <= 960) {
+    if (!dropdownOpen) {
+      e.preventDefault(); // stoppa navigation
+      dropdown.classList.add('active');
+      dropdownOpen = true;
+    } else {
+      dropdownOpen = false;
+      window.location.href = dropBtn.getAttribute('href');
     }
+  }
 });
 
-dropdown.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dropdown.classList.remove('active');
+/* Stäng vid klick utanför */
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-header')) {
     navLeft.classList.remove('active');
+    dropdown.classList.remove('active');
     hamburger.classList.remove('active');
     dropdownOpen = false;
-    updateAria();
+  }
 });
 
-document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 960 && !navLeft.contains(e.target)) {
-        dropdown.classList.remove('active');
-        navLeft.classList.remove('active');
-        hamburger.classList.remove('active');
-        dropdownOpen = false;
-        updateAria();
-    }
+/* Reset vid desktop */
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 960) {
+    navLeft.classList.remove('active');
+    dropdown.classList.remove('active');
+    hamburger.classList.remove('active');
+    dropdownOpen = false;
+  }
 });
-
-hamburger.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') hamburger.click();
-});
-
-dropBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') dropBtn.click();
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        navLeft.classList.remove('active');
-        dropdown.classList.remove('active');
-        hamburger.classList.remove('active');
-        dropdownOpen = false;
-        updateAria();
-    }
-});
-
-document.querySelectorAll('.nav-left a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLeft.classList.remove('active');
-        dropdown.classList.remove('active');
-        hamburger.classList.remove('active');
-        dropdownOpen = false;
-        updateAria();
-    });
-});
-
