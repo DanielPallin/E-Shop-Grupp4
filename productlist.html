@@ -6,15 +6,12 @@
     <meta name="description" content="Gruppuppgift: E-shop, FaceRoots">
     <meta name="author" content="Grupp 4 (Oscar Nilsson)">
     <title>FaceRoots - Products</title>
-    <link rel="stylesheet" href="css/styleguide.css">
-    <link rel="stylesheet" href="css/productlist.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <script src="js/header.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
     <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/productlist.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 </head>
 <body>
     <header>
@@ -49,16 +46,27 @@
             <div class="nav-right">
                 <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
                 <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+                <div id="shoppingCart">
+                    <ul>
+                        <li class="placeholder">
+                            <button class="remove" title="Remove">Remove</button>
+                            <span class="productName">Cedar Stand Razor Holder</span>
+                            <span class="productPrice">349 SEK</span>
+                        </li>
+                    </ul>
+                    <p class="sum">349 SEK</p>
+                    <button href="checkout.html">To checkout</button>
+                </div>
             </div>
         </nav>
     </header>
     <div id="mainContainer">
         <main>
             <h2>Products</h2>
-            <article class="productCard" data-product-cat="categoryName" data-product-catid="categoryId">
+            <article class="productCard" data-product-id="productId" data-product-cat="categoryName" data-product-catid="categoryId">
                 <header>
                     <figure>
-                        <a href="productpage.html">
+                        <a href="productpage-one.html">
                             <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
                         </a>
                         <figcaption>Label for product-1.jpg</figcaption>
@@ -74,7 +82,7 @@
                 <p class="productDetails">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi aspernatur quisquam asperiores accusantium excepturi a pariatur ab expedita, dolor hic fuga numquam eum maxime tempora alias aliquid! Officiis, magni error?
                 Minus maiores doloremque cupiditate, ut eos repellendus praesentium debitis mollitia culpa aperiam asperiores amet corrupti porro at laudantium dolores voluptatibus quos aliquam itaque error et rerum officia non fugit. Laudantium.</p>
                 <a class="action" href="productpage-one.html">More info</a>
-                <button class="action buy">Add to cart</button>
+                <button class="action addToCart">Add to cart</button>
             </article>
         </main>
         <aside id="sidebar">
@@ -86,12 +94,7 @@
                         <label for="catid_catid">Category name</label>
                     </li>
                 </ul>
-                <!-- Randomly generated with Javascript -->
             </nav>
-            <div id="cart">
-                <h2>Cart</h2>
-                Products (<span class="cartItems">0</span>)
-            </div>
         </aside>
     </div>
     <footer class="footer">
@@ -124,6 +127,8 @@
             © 2026 FaceRoots. All rights reserved.
         </div>
     </footer>
-    <script type="text/javascript" src="js/productlist.js"></script>
+    <script src="js/header.js" defer></script>
+    <script src="js/productlist.js" defer></script>
+    <script src="js/cart.js" defer></script>
 </body>
 </html>

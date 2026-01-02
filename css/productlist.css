@@ -5,6 +5,10 @@
 * oscar.nilsson@medieinstitutet.se
 */
 
+@import url(styleguide.css);
+@import url(cart.css);
+@import url(footer.css);
+
 :root {
     --pageWidth: 1200px; /* Desktop */
     --tabletWidth: 960px;
@@ -17,22 +21,22 @@
     --gridColGap: 2rem;
     --gridRowGap: 2rem;
 
-    --pageBg: #f8f8f8;
-    --contentBg: #f8f8f8;
+    --pageBg: var(--color-white);
+    --contentBg: var(--color-white);
 
-    --color: #403022;
+    --color: var(--color-brown-dark);
     --linkColor: rgba(64, 48, 34, 1);
     --linkHoverColor: rgba(64, 48, 34, 1);
     --linkTextDecoration: none;
     --linkHoverTextDecoration: underline;
     
-    --btnColor: #eee;
+    --btnColor: var(--color-white);
     --btnBgColor: rgba(64, 48, 34, 1);
     --btnHoverColor: #333;
     --btnHoverBgColor: rgba(64, 48, 34, .9);
     --btnBorderRadius: 8px;
 
-    --accentColor: #403022;
+    --accentColor: var(--color-brown-dark);
 
     --borderRadius: 4px;
 
@@ -219,7 +223,7 @@ article.productCard {
         text-decoration: underline;
     } */
 
-    & button.buy {
+    & button.addToCart {
         font-size: 1rem;
         padding: .5em .5em;
         white-space: nowrap;
