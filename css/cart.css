@@ -5,6 +5,16 @@
 * oscar.nilsson@medieinstitutet.se
 */
 
+:root {
+    --gridColGap: 2rem;
+    --productCardBoxShadow: 
+    rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, 
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    --btnBorderRadius: var(--radius-sm);
+    --btnBgColor: var(--color-brown-dark);
+    --btnColor: var(--color-white);
+}
+
 nav.nav-header > div.nav-right > button {
     cursor: pointer;
 }
@@ -60,7 +70,7 @@ div#shoppingCart {
         }
     }
 
-    & button:not(.remove) {
+    & a, & button:not(.remove) {
         background-color: var(--btnBgColor);
         border-radius: var(--btnBorderRadius);
         color: var(--btnColor);
@@ -68,6 +78,11 @@ div#shoppingCart {
         cursor: pointer;
         margin: 0;
         margin-top: .5em;
+        padding: .5em .7em .5em .7em;
+        text-decoration: none;
+        display: block;
+        font-family: 'Epiloque', sans-serif;
+        font-weight: 300;
     }
 
     & button.remove {

@@ -33,8 +33,11 @@ if (typeof(getProducts) !== 'function') {
 /* Add to cart and sum */
 (()=>{
     const cart = document.getElementById('shoppingCart');
-    const placeholder = cart.querySelector('li.placeholder');
-    const template = placeholder.cloneNode(true);
+    const placeholder = cart?.querySelector('li.placeholder');
+    const template = placeholder?.cloneNode(true);
+
+    if(!template) return;
+
     placeholder.remove();
 
     document.addEventListener('click', async (e) => {
