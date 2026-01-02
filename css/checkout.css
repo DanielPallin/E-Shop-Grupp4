@@ -1,0 +1,123 @@
+/*
+* Gruppuppgift: E-shop
+* Grupp 4 / FaceRoots
+* Oscar Nilsson
+* oscar.nilsson@medieinstitutet.se
+*/
+
+@import url(productlist.css);
+@import url(cart.css);
+
+.nav-right {
+    position: relative;
+}
+
+div#mainContainer {
+    grid-template-areas: "main sidebar";
+    grid-template-columns: 1fr auto;
+    grid-column-gap: var(--gridColGap);
+
+    & button {
+        background-color: var(--btnBgColor);
+        color: var(--btnColor);
+        border: none;
+        border-radius: var(--btnBorderRadius);
+        cursor: pointer;
+        font-weight: 300;
+        font-size: 1rem;
+        padding: .5em .5em;
+        white-space: nowrap;
+        border: 1px solid;
+
+        &:hover {
+            background-color: var(--btnHoverColor);
+        }
+    }
+
+    & main {
+
+        & article {
+
+            background-color: #fff;
+            padding: var(--gridColGap);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--productCardBoxShadow);
+            
+            position: relative;
+            grid-column: 1 / span 3;
+
+            display: grid;
+            grid-template-columns: 150px auto;
+            grid-column-gap: var(--gridColGap);
+
+            & header {
+                grid-column: 1 / 2;
+                grid-row: 1 / span 10;
+
+                & figure {
+                    width: 100%;
+
+                    & img {
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    & figcaption {
+                        display: none;
+                    }
+                }
+            }
+            
+            & input {
+                font-size: 1rem;
+                line-height: 2rem;
+                box-sizing: border-box;
+                padding: 0 0 0 .5em;
+                margin: 0 .5em;
+            }
+
+            /* &:not(:last-of-type)::after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: calc(var(--gridRowGap) * -1 / 2);
+                border-bottom: 1px solid;
+                left: 0;
+                right: 0;
+                color: #ddd;
+            } */
+        }
+    }
+
+    & aside {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto;
+        grid-column-gap: .5em;
+        grid-row-gap: 0;
+        align-items: center;
+
+        & h2, & h3, & button {
+            grid-column: 1 / span 2;
+        }
+
+        & h3, & button {
+            margin-top: var(--gridRowGap);
+        }
+
+        & table {
+            display: none;
+        }
+
+        & ul.cartSummary {
+            grid-column: 1 / span 2;
+
+            list-style: none;
+            margin-top: 1rem;
+
+            & > li {
+                text-align: right;
+            }
+        }
+    }
+}
