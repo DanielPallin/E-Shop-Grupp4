@@ -17,28 +17,31 @@
 </head>
 <body>
 <header>
-    <div class="header-container">
-    <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
-    <a href="index.html" class="nav-logo-link">
+ 
+ <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+ <h1>
     <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
-    </a>
-    </div>
+    </h1>
+
+
+    <div class="nav-container-header">
     <nav class="nav-header">
-        
-        <div class="hamburger">
+
+        <button class="hamburger" aria-label="Open menu">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
         <div class="nav-left">
+<!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
 
             <a class="a-light" href="index.html">Home</a>
             <div class="dropdown">
-            <a href="productlist.html" class="dropbtn a-light">
+            <a href="productlist.html" class="dropbtn a-light" aria-expanded="false">
                <span class="link-product">Products</span>
                 <span class="material-symbols-outlined">keyboard_arrow_down</span>
             </a>
-                <div class="dropdown-content">
+                <div class="dropdown-content categoryList">
                     <a class="a-light" href="productlist.html">Category 1</a>
                     <a class="a-light" href="productlist.html">Category 2</a>
                     <a class="a-light" href="productlist.html">Category 3</a>
@@ -53,10 +56,12 @@
             <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
         </div>
     </nav>
+    </div>
 </header>
+
 <div class="about-hero">
     <div class="quote-left">
-        <h1>About Faceroots</h1>
+        <h2 class="h1">About Faceroots</h2>
         <blockquote>Premium beard care, rooted in purpose.</blockquote>
         <hr class="respo-hr">
     </div>
@@ -111,6 +116,8 @@
   </div>
 </footer>
 
-<script src="js/header.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/listcategories.js"></script>
+<script> sr</script>
 </body>
 </html>
