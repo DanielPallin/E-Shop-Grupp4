@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<body>
     <script src="js/productpage-gallery.js"></script>
 <!-- Header & navbar -->
 <meta charset="UTF-8">
@@ -20,12 +19,13 @@
 </head>
 <body>
 <header>
-    <div class="header-container">
-    <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
-    <a href="index.html" class="nav-logo-link">
-    <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
-    </a>
-    </div>
+        <div class="header-container">
+            <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+            <a href="index.html" class="nav-logo-link">
+                <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+            </a>
+        </div>
+        <div class="nav-container-header">
         <nav class="nav-header">
             <div class="hamburger">
                 <span></span>
@@ -51,9 +51,22 @@
             <div class="nav-right">
                 <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
                 <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+                <div id="shoppingCart">
+                     <h2>Cart</h2>
+                    <ul>
+                        <li class="placeholder">
+                            <button class="remove" title="Remove">Remove</button>
+                            <span class="productName">Cedar Stand Razor Holder</span>
+                            <span class="productPrice">349 SEK</span>
+                        </li>
+                    </ul>
+                    <p class="sum">349 SEK</p>
+                    <a class="btn" href="checkout.html">To checkout</a>
+                </div>
             </div>
         </nav>
-</header>
+        </div>
+    </header>
 
 <main class="productPage">
 <!-- LEFT: Product gallery -->

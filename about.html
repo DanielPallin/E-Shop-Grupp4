@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/styleguide.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,47 +18,54 @@
 </head>
 <body>
 <header>
- 
- <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
- <h1>
-    <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
-    </h1>
-
-
-    <div class="nav-container-header">
-    <nav class="nav-header">
-
-        <button class="hamburger" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-left">
-<!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
-
-            <a class="a-light" href="index.html">Home</a>
-            <div class="dropdown">
-            <a href="productlist.html" class="dropbtn a-light" aria-expanded="false">
-               <span class="link-product">Products</span>
-                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        <div class="header-container">
+            <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+            <a href="index.html" class="nav-logo-link">
+                <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
             </a>
-                <div class="dropdown-content categoryList">
-                    <a class="a-light" href="productlist.html">Category 1</a>
-                    <a class="a-light" href="productlist.html">Category 2</a>
-                    <a class="a-light" href="productlist.html">Category 3</a>
+        </div>
+        <div class="nav-container-header">
+        <nav class="nav-header">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-left">
+                <a class="a-light" href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="productlist.html" class="dropbtn a-light">
+                        <span class="link-product">Products</span>
+                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    </a>
+                    <div class="dropdown-content categoryList">
+                        <a class="a-light" href="#">Category 1</a>
+                        <a class="a-light" href="#">Category 2</a>
+                        <a class="a-light" href="#">Category 3</a>
+                    </div>
+                </div>
+                <a class="a-light active" href="about.html">About </a>
+                <a class="a-light" href="contact.html">Contact</a>
+            </div>
+            <div class="nav-right">
+                <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+                <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+                <div id="shoppingCart">
+                   <h2>Cart</h2>
+                    <ul>
+                        <li class="placeholder">
+                            <button class="remove" title="Remove">Remove</button>
+                            <span class="productName">Cedar Stand Razor Holder</span>
+                            <span class="productPrice">349 SEK</span>
+                        </li>
+                    </ul>
+                    <p class="sum">349 SEK</p>
+                    <a class="btn" href="checkout.html">To checkout</a>
                 </div>
             </div>
-            <a class="a-light active" href="about.html">About </a>
-            <a class="a-light" href="contact.html">Contact</a>
+        </nav>
         </div>
-            
-        <div class="nav-right">
-            <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
-            <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
-        </div>
-    </nav>
-    </div>
-</header>
+    </header>
 
 <div class="about-hero">
     <div class="quote-left">
@@ -115,9 +123,8 @@
     © 2026 FaceRoots. All rights reserved.
   </div>
 </footer>
-
-<script type="text/javascript" src="js/header.js"></script>
-<script type="text/javascript" src="js/listcategories.js"></script>
-<script> sr</script>
+<script src="js/header.js" defer></script>
+		<script src="js/cart.js" defer></script>
+		<script src="js/listcategories.js" defer></script>
 </body>
 </html>
