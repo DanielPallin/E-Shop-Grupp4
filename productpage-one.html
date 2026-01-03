@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<body>
     <script src="js/productpage-gallery.js"></script>
 <!-- Header & navbar -->
 <meta charset="UTF-8">
@@ -20,39 +19,46 @@
 </head>
 <body>
 <header>
-    <div class="header-container">
-    <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
-    <a href="index.html" class="nav-logo-link">
+ 
+ <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+ <h1>
     <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
-    </a>
-    </div>
-        <nav class="nav-header">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="nav-left">
-                <a class="a-light" href="index.html">Home</a>
-                <div class="dropdown">
-                    <a href="productlist.html" class="active dropbtn a-light">
-                        <span class="link-product">Products</span>
-                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                    </a>
-                    <div class="dropdown-content categoryList">
-                        <a class="a-light" href="#">Category 1</a>
-                        <a class="a-light" href="#">Category 2</a>
-                        <a class="a-light" href="#">Category 3</a>
-                    </div>
+    </h1>
+
+
+    <div class="nav-container-header">
+    <nav class="nav-header">
+
+        <button class="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-left">
+<!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
+
+            <a class="a-light" href="index.html">Home</a>
+            <div class="dropdown">
+            <a href="productlist.html" class="dropbtn a-light active" aria-expanded="false">
+               <span class="link-product">Products</span>
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+            </a>
+                <div class="dropdown-content categoryList">
+                    <a class="a-light" href="productlist.html">Category 1</a>
+                    <a class="a-light" href="productlist.html">Category 2</a>
+                    <a class="a-light" href="productlist.html">Category 3</a>
                 </div>
-                <a class="a-light" href="about.html">About </a>
-                <a class="a-light" href="contact.html">Contact</a>
             </div>
-            <div class="nav-right">
-                <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
-                <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
-            </div>
-        </nav>
+            <a class="a-light" href="about.html">About </a>
+            <a class="a-light" href="contact.html">Contact</a>
+        </div>
+            
+        <div class="nav-right">
+            <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+            <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+        </div>
+    </nav>
+    </div>
 </header>
 
 <main class="productPage">
