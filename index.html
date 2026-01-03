@@ -1,111 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FaceRoots</title>
-  <link rel="stylesheet" href="css/index.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<!-- LINKS TO CSS -->
+
+    <link rel="stylesheet" href="css/home.css">
+
+<!-- LINKS TO JS -->
+
+    <script src="js/header.js" defer></script>
+
+<!-- LINKS TO FONTS AND ICONS -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
+    <title>FaceRoots</title>
 </head>
+
 <body>
+    
 
-  <!-- HERO -->
-  <section class="hero">
-    <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
-    <div class="hero-placeholder">
-      <span>FaceRoots</span>
-    </div>
-  </section>
-
-  <!-- HEADER -->
-<<<<<<< HEAD
 <header>
+    <div class="header-container">
     <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+    
+    <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+
+    </div>
     <nav class="nav-header">
+        
+        <div role="button" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="nav-left">
-            <img src="#" alt="FaceRoots">
-            <a class="a-light" href="index.html">Home</a>
+<!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
+
+            <a class="a-light active" href="index.html">Home</a>
             <div class="dropdown">
-            <a href="productlist.html" class="dropbtn a-light" >Products</a>
+            <a href="productlist.html" class="dropbtn a-light" aria-expanded="false">
+               <span class="link-product">Products</span>
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+            </a>
                 <div class="dropdown-content">
-                    <a class="a-light" href="#">Category 1</a>
-                    <a class="a-light" href="#">Category 2</a>
-                    <a class="a-light" href="#">Category 3</a>
+                    <a class="a-light" href="productlist.html">Category 1</a>
+                    <a class="a-light" href="productlist.html">Category 2</a>
+                    <a class="a-light" href="productlist.html">Category 3</a>
                 </div>
             </div>
-            <a class="a-light active" href="about.html">About</a>
+            <a class="a-light" href="about.html">About </a>
             <a class="a-light" href="contact.html">Contact</a>
-=======
-  <header class="header">
-    <div class="nav-container">
-      <div class="logo">Logo</div>
-      <nav class="nav">
-        <a href="#">Home</a>
-        <div class="dropdown">
-          <span>Products</span>
-          <div class="dropdown-menu">
-            <a href="#">P1</a>
-            <a href="#">P2</a>
-            <a href="#">P3</a>
-          </div>
->>>>>>> main
         </div>
             
-          <div class="nav-right">
-            <button class="button-light"><span class="material-symbols-outlined ">
-shopping_cart
-</span> Cart</button>
-            <button class="button-light"><span class="material-symbols-outlined">
-account_circle
-</span>Login</button>
+        <div class="nav-right">
+            <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+            <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
         </div>
     </nav>
 </header>
 
-  <!-- INSPIRATION -->
+  <!-- TOP PRODUCTS -->
   <section class="section">
-    <h2>Inspiration</h2>
+    <h2>Top Products</h2>
     <div class="grid three">
-      <div class="card">skäggolja</div>
-      <div class="card">vax</div>
-      <div class="card">borste</div>
+      <div class="card" onclick="location.href='productlist.html'">
+        <img src="img/products/product_fr-011.png" alt="product image">
+      </div>
+      <div class="card" onclick="location.href='productlist.html'">
+        <img src="img/products/product_fr-012.png" alt="product image">
+      </div>
+      <div class="card" onclick="location.href='productlist.html'">
+        <img src="img/products/product_fr-014.png" alt="product image">
+      </div>
     </div>
   </section>
 
-  <!-- CALL TO ACTION -->
+  <!-- TRENDING -->
   <section class="section">
-    <h2>Call to action</h2>
+    <h2>Trending</h2>
     <div class="grid three">
-      <div class="card">
-        #1 utvalda produkter<br>för clean shave
+      <div class="card" onclick="location.href='productlist.html'">
+        <img src="img/products/product_fr-018.png" alt="product image">
       </div>
-      <div class="card">
-        #2 utvalda produkter<br>för short-medium beard
+        <div class="card" onclick="location.href='productlist.html'">
+          <img src="img/products/product_fr-020.png" alt="product image">
       </div>
-      <div class="card">
-        #3 utvalda produkter<br>för long beard
+      <div class="card" onclick="location.href='productlist.html'">
+        <img src="img/products/product_fr-021.png" alt="product image">
       </div>
     </div>
   </section>
 
   <!-- PARTNERS -->
-  <section class="section">
-    <h2>Samarbetspartners</h2>
-  </section>
+  <!-- PARTNERS -->
+<section class="section partners">
+  <h2>Samarbetspartners</h2>
+
+  <div class="partner-track">
+    <div class="partner-track-inner">
+      <img src="img/partners/logo1.png" alt="Partner 1">
+      <img src="img/partners/logo2.png" alt="Partner 2">
+      <img src="img/partners/logo3.png" alt="Partner 3">
+      <img src="img/partners/logo4.png" alt="Partner 4">
+      <img src="img/partners/logo5.png" alt="Partner 5">
+      <img src="img/partners/logo6.png" alt="Partner 6">
+      <img src="img/partners/logo7.png" alt="Partner 7">
+      <img src="img/partners/logo8.png" alt="Partner 8">
+
+      <!-- duplicate for seamless loop -->
+      <img src="img/partners/logo1.png" alt="Partner 1">
+      <img src="img/partners/logo2.png" alt="Partner 2">
+      <img src="img/partners/logo3.png" alt="Partner 3">
+      <img src="img/partners/logo4.png" alt="Partner 4">
+      <img src="img/partners/logo5.png" alt="Partner 5">
+      <img src="img/partners/logo6.png" alt="Partner 6">
+      <img src="img/partners/logo7.png" alt="Partner 7">
+      <img src="img/partners/logo8.png" alt="Partner 8">
+    </div>
+  </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-grid">
-      <p>Lorem ipsum dolor sit amet et delectus accommodare</p>
+  <div class="footer-container">
 
-      <ul>
-        <li>support</li>
-        <li>about</li>
-        <li>privacy</li>
-        <li>placeholder</li>
-      </ul>
+    <div class="footer-col">
+      <h4>FaceRoots</h4>
+      <p>
+        Premium grooming products for beard, skin and hair.
+        Developed with a focus on quality and style.
+      </p>
     </div>
-    <p class="copyright">footer copyright</p>
-  </footer>
+
+    <div class="footer-col">
+      <h4>Links</h4>
+      <a href="productlist.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Email: support@faceroots.se</p>
+      <p>Phone: +46 8 123 45 67</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 FaceRoots. All rights reserved.
+  </div>
+</footer>
 
 </body>
 </html>

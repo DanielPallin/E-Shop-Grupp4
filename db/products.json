@@ -1,0 +1,452 @@
+[
+  {
+    "productId": "FR-011",
+    "productName": "Cask & Cedar Beard Oil",
+    "productImage": "product_fr-011.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 319, "currency": "SEK" },
+    "productDescription": "Softens beard and skin with a warm profile of oak cask and cedarwood.",
+    "productDetails": [
+      "Jojoba and argan oils",
+      "Scent notes: cedar, oak, vanilla",
+      "Fast-absorbing, non-greasy finish",
+      "Glass dropper bottle (30 ml)"
+    ]
+  },
+  {
+    "productId": "FR-012",
+    "productName": "Tobacco Ember Beard Balm",
+    "productImage": "product_fr-012.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Cedar & Ash Co.",
+    "productPrice": { "amount": 339, "currency": "SEK" },
+    "productDescription": "Conditioning balm with light hold for a tidy beard and a deep, smoky character.",
+    "productDetails": [
+      "Shea butter, cocoa butter, beeswax",
+      "Soft to medium hold",
+      "Scent notes: tobacco, leather",
+      "60 ml aluminum tin"
+    ]
+  },
+  {
+    "productId": "FR-013",
+    "productName": "Granite Hold Moustache Wax",
+    "productImage": "product_fr-013.png",
+    "productCategory": { "id": 2, "name": "Styling"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 169, "currency": "SEK" },
+    "productDescription": "Classic moustache wax with reliable hold for sharp shapes that last all day.",
+    "productDetails": [
+      "Beeswax with natural oils",
+      "Medium to strong hold",
+      "Matte finish",
+      "15 ml metal tin"
+    ]
+  },
+  {
+    "productId": "FR-014",
+    "productName": "Rugged Ridge Beard Conditioner",
+    "productImage": "product_fr-014.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "North Shore Grooming Co.",
+    "productPrice": { "amount": 269, "currency": "SEK" },
+    "productDescription": "Softening conditioner that detangles and strengthens the beard after washing.",
+    "productDetails": [
+      "Aloe vera and panthenol",
+      "Scent notes: cedar, vetiver",
+      "Leaves beard soft without weighing it down",
+      "200 ml bottle"
+    ]
+  },
+  {
+    "productId": "FR-015",
+    "productName": "Birch Smoke Beard Wash",
+    "productImage": "product_fr-015.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 259, "currency": "SEK" },
+    "productDescription": "Cleans effectively yet gently with a hint of birch smoke and dry woods.",
+    "productDetails": [
+      "Sulfate-free, mild formula",
+      "Scent notes: birch, smoke, spice",
+      "Suitable for daily use",
+      "200 ml bottle"
+    ]
+  },
+  {
+    "productId": "FR-016",
+    "productName": "Caravan Pre-Shave Oil",
+    "productImage": "product_fr-016.png",
+    "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
+    "productBrand": "Ridge & Oak Apothecary",
+    "productPrice": { "amount": 229, "currency": "SEK" },
+    "productDescription": "Preps skin before shaving and improves glide for a smoother experience.",
+    "productDetails": [
+      "Grapeseed and castor oils",
+      "Scent notes: warm spice, citrus",
+      "Reduces friction and irritation",
+      "Glass bottle (30 ml)"
+    ]
+  },
+  {
+    "productId": "FR-017",
+    "productName": "Blacksmith Shaving Cream",
+    "productImage": "product_fr-017.png",
+    "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
+    "productBrand": "Black Anvil Tools",
+    "productPrice": { "amount": 199, "currency": "SEK" },
+    "productDescription": "Dense shaving cream that builds a rich lather and dependable protection.",
+    "productDetails": [
+      "Classic creamy texture",
+      "Scent notes: cedar, black pepper",
+      "Works with brush or by hand",
+      "150 ml tube"
+    ]
+  },
+  {
+    "productId": "FR-018",
+    "productName": "Highland Aftershave Splash",
+    "productImage": "product_fr-018.png",
+    "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
+    "productBrand": "Cedar & Ash Co.",
+    "productPrice": { "amount": 249, "currency": "SEK" },
+    "productDescription": "Traditional aftershave splash with a bright kick and a warm woody base.",
+    "productDetails": [
+      "Alcohol-based classic",
+      "Scent notes: bergamot, oak, spice",
+      "Tightening, refreshing feel",
+      "100 ml glass bottle"
+    ]
+  },
+  {
+    "productId": "FR-019",
+    "productName": "Iron Strop Razor Strop",
+    "productImage": "product_fr-019.png",
+    "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
+    "productBrand": "Black Anvil Tools",
+    "productPrice": { "amount": 549, "currency": "SEK" },
+    "productDescription": "Leather strop to maintain edge and deliver a smoother straight-razor shave.",
+    "productDetails": [
+      "Vegetable-tanned leather",
+      "D-ring for secure hanging",
+      "For straight razors",
+      "Length: 45 cm"
+    ]
+  },
+  {
+    "productId": "FR-020",
+    "productName": "Cedar Stand Razor Holder",
+    "productImage": "product_fr-020.png",
+    "productCategory": { "id": 4, "name": "Accessories"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 349, "currency": "SEK" },
+    "productDescription": "Solid wooden stand for a razor or shavette—keeps your sink setup in order.",
+    "productDetails": [
+      "Handmade cedar wood",
+      "Protective felt base",
+      "Fits most razors",
+      "Oiled matte finish"
+    ]
+  },
+  {
+    "productId": "FR-021",
+    "productName": "Nomad Beard Brush",
+    "productImage": "product_fr-021.png",
+    "productCategory": { "id": 5, "name": "Tools"},
+    "productBrand": "North Shore Grooming Co.",
+    "productPrice": { "amount": 289, "currency": "SEK" },
+    "productDescription": "Shapes the beard and stimulates skin with firm natural bristles.",
+    "productDetails": [
+      "Boar bristles",
+      "Compact oval shape",
+      "Dark wood handle",
+      "For short to long beards"
+    ]
+  },
+  {
+    "productId": "FR-022",
+    "productName": "Barrelhouse Beard Kit",
+    "productImage": "product_fr-022.png",
+    "productCategory": { "id": 6, "name": "Kits & Bundles"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 699, "currency": "SEK" },
+    "productDescription": "A complete starter kit with beard oil, balm, and a pocket comb in classic Face Roots style.",
+    "productDetails": [
+      "Beard oil 30 ml + beard balm 60 ml",
+      "Pocket-size wooden comb",
+      "Scent profile: oak, cedar, spices",
+      "Delivered in a gift box"
+    ]
+  },
+  {
+    "productId": "FR-023",
+    "productName": "Saddle Leather Dopp Kit",
+    "productImage": "product_fr-023.png",
+    "productCategory": { "id": 4, "name": "Accessories"},
+    "productBrand": "Ridge & Oak Apothecary",
+    "productPrice": { "amount": 899, "currency": "SEK" },
+    "productDescription": "Hard-wearing leather dopp kit built for grooming on the road.",
+    "productDetails": [
+      "Full-grain leather in dark brown",
+      "Water-resistant inner lining",
+      "Sturdy YKK zipper",
+      "Size: 26 × 14 × 12 cm"
+    ]
+  },
+  {
+    "productId": "FR-024",
+    "productName": "Desert Resin Beard Oil",
+    "productImage": "product_fr-024.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Ridge & Oak Apothecary",
+    "productPrice": { "amount": 329, "currency": "SEK" },
+    "productDescription": "Inspired by warm winds and resinous woods—adds softness and shine without weight.",
+    "productDetails": [
+      "Argan, squalane, jojoba oils",
+      "Scent notes: amber, resin, spice",
+      "Ideal for coarse beards",
+      "Glass dropper bottle (30 ml)"
+    ]
+  },
+  {
+    "productId": "FR-025",
+    "productName": "Tundra Matte Beard Balm",
+    "productImage": "product_fr-025.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 329, "currency": "SEK" },
+    "productDescription": "Light care and shape with a dry, matte feel for a natural look.",
+    "productDetails": [
+      "Shea butter and beeswax",
+      "Light to medium hold",
+      "Matte finish",
+      "60 ml aluminum tin"
+    ]
+  },
+  {
+    "productId": "FR-026",
+    "productName": "Coal & Clove Beard Wash Bar",
+    "productImage": "product_fr-026.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Cedar & Ash Co.",
+    "productPrice": { "amount": 149, "currency": "SEK" },
+    "productDescription": "Solid wash bar that cleans beard and face with charcoal and spiced notes.",
+    "productDetails": [
+      "Activated charcoal for deep cleansing",
+      "Scent notes: clove, dry woods",
+      "Travel-friendly solid format",
+      "110 g bar"
+    ]
+  },
+  {
+    "productId": "FR-027",
+    "productName": "Raven Safety Razor",
+    "productImage": "product_fr-027.png",
+    "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
+    "productBrand": "Black Anvil Tools",
+    "productPrice": { "amount": 599, "currency": "SEK" },
+    "productDescription": "Metal safety razor with balanced weight for a close, controlled shave.",
+    "productDetails": [
+      "Double-edge (DE) safety razor",
+      "Knurled grip for control",
+      "Durable black finish",
+      "Fits standard DE blades"
+    ]
+  },
+  {
+    "productId": "FR-028",
+    "productName": "Field Notes Beard Journal",
+    "productImage": "product_fr-028.png",
+    "productCategory": { "id": 4, "name": "Accessories"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 129, "currency": "SEK" },
+    "productDescription": "Pocket journal for routines, styles, and trim lengths—for the detail-minded.",
+    "productDetails": [
+      "Matte kraft-paper cover",
+      "Dotted pages for structure",
+      "Pocket-size format",
+      "64 pages"
+    ]
+  },
+  {
+    "productId": "FR-029",
+    "productName": "Cedar Peak Beard Comb XL",
+    "productImage": "product_fr-029.png",
+    "productCategory": { "id": 5, "name": "Tools"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 299, "currency": "SEK" },
+    "productDescription": "Extra-large comb for long, thick beards—detangles without pulling.",
+    "productDetails": [
+      "Made from hard wood",
+      "Wide teeth for coarse hair",
+      "Hand-polished edges",
+      "Length: 15 cm"
+    ]
+  },
+  {
+    "productId": "FR-030",
+    "productName": "Oakmoss Beard Spray",
+    "productImage": "product_fr-030.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "North Shore Grooming Co.",
+    "productPrice": { "amount": 219, "currency": "SEK" },
+    "productDescription": "Light conditioning spray that refreshes the beard with a discreet woody scent.",
+    "productDetails": [
+      "Aloe vera and glycerin",
+      "Scent notes: oakmoss, cedar",
+      "Perfect for a daily refresh",
+      "100 ml spray bottle"
+    ]
+  },
+  {
+    "productId": "FR-031",
+    "productName": "Stone Ridge Beard Butter",
+    "productImage": "product_fr-031.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 349, "currency": "SEK" },
+    "productDescription": "Softening butter for an evening routine—hydrates and soothes skin under the beard.",
+    "productDetails": [
+      "Mango butter and shea butter",
+      "Low hold, high conditioning",
+      "Scent notes: cedar, vetiver",
+      "60 ml jar"
+    ]
+  },
+  {
+    "productId": "FR-032",
+    "productName": "Night Ember Beard Oil",
+    "productImage": "product_fr-032.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Cedar & Ash Co.",
+    "productPrice": { "amount": 319, "currency": "SEK" },
+    "productDescription": "Evening oil with a soft smoky profile for calmer skin and a smoother beard feel.",
+    "productDetails": [
+      "Jojoba, argan, vitamin E",
+      "Scent notes: smoke, oak, vanilla",
+      "Helps soothe dry skin",
+      "Glass dropper bottle (30 ml)"
+    ]
+  },
+  {
+    "productId": "FR-033",
+    "productName": "Caravan Beard Balm",
+    "productImage": "product_fr-033.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Ridge & Oak Apothecary",
+    "productPrice": { "amount": 339, "currency": "SEK" },
+    "productDescription": "Shape and care with spiced warmth—built on sand, wood, and leather tones.",
+    "productDetails": [
+      "Beeswax and botanical oils",
+      "Medium hold",
+      "Scent notes: amber, spice",
+      "60 ml tin"
+    ]
+  },
+  {
+    "productId": "FR-034",
+    "productName": "Forge Edge Detail Trimmer",
+    "productImage": "product_fr-034.png",
+    "productCategory": { "id": 7, "name": "Trimmers"},
+    "productBrand": "Black Anvil Tools",
+    "productPrice": { "amount": 795, "currency": "SEK" },
+    "productDescription": "Detail trimmer for lines, edges, and moustache—sharp, compact, and precise.",
+    "productDetails": [
+      "Precision steel blade",
+      "Adjustable guide combs",
+      "USB charging",
+      "Compact metal body"
+    ]
+  },
+  {
+    "productId": "FR-035",
+    "productName": "Timber Shaving Bowl",
+    "productImage": "product_fr-035.png",
+    "productCategory": { "id": 4, "name": "Accessories"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 299, "currency": "SEK" },
+    "productDescription": "Wooden bowl for building lather with a brush—classic barbershop feel.",
+    "productDetails": [
+      "Turned hardwood",
+      "Textured interior for lathering",
+      "Oiled surface",
+      "Diameter: 10 cm"
+    ]
+  },
+  {
+    "productId": "FR-036",
+    "productName": "Bergamot & Oak Aftershave Balm",
+    "productImage": "product_fr-036.png",
+    "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 289, "currency": "SEK" },
+    "productDescription": "Post-shave hydration with a bright top and a woody base—absorbs fast, no residue.",
+    "productDetails": [
+      "Alcohol-free formula",
+      "Aloe vera and niacinamide",
+      "Scent notes: bergamot, oak",
+      "100 ml bottle"
+    ]
+  },
+  {
+    "productId": "FR-037",
+    "productName": "Cinder Beard Brush Mini",
+    "productImage": "product_fr-037.png",
+    "productCategory": { "id": 5, "name": "Tools"},
+    "productBrand": "North Shore Grooming Co.",
+    "productPrice": { "amount": 219, "currency": "SEK" },
+    "productDescription": "Travel brush that keeps the beard in shape on the go.",
+    "productDetails": [
+      "Boar bristles",
+      "Pocket-friendly format",
+      "Dark-stained wood handle",
+      "For short to medium beards"
+    ]
+  },
+  {
+    "productId": "FR-038",
+    "productName": "Ironwood Beard Scissor Pro",
+    "productImage": "product_fr-038.png",
+    "productCategory": { "id": 5, "name": "Tools"},
+    "productBrand": "Face Roots Workshop",
+    "productPrice": { "amount": 449, "currency": "SEK" },
+    "productDescription": "Professional beard scissors for even cutting and a precise finish.",
+    "productDetails": [
+      "Stainless steel",
+      "Micro-serrated edge for grip",
+      "Ergonomic finger rings",
+      "Leather case included"
+    ]
+  },
+  {
+    "productId": "FR-039",
+    "productName": "Whisky Oak Beard Perfume",
+    "productImage": "product_fr-039.png",
+    "productCategory": { "id": 1, "name": "Beard Care"},
+    "productBrand": "Cedar & Ash Co.",
+    "productPrice": { "amount": 249, "currency": "SEK" },
+    "productDescription": "A subtle fragrance mist for beard—warm oak, spice, and a hint of barrel aging.",
+    "productDetails": [
+      "Light mist for beard and moustache",
+      "Scent notes: oak, spice, vanilla",
+      "Ideal between washes",
+      "50 ml spray bottle"
+    ]
+  },
+  {
+    "productId": "FR-040",
+    "productName": "Desert Stone Beard Comb",
+    "productImage": "product_fr-040.png",
+    "productCategory": { "id": 5, "name": "Tools"},
+    "productBrand": "Ridge & Oak Apothecary",
+    "productPrice": { "amount": 259, "currency": "SEK" },
+    "productDescription": "Smooth comb with rounded teeth—gentle on both skin and hair.",
+    "productDetails": [
+      "Anti-static composite",
+      "Rounded, polished teeth",
+      "Great for thick hair",
+      "Pocket size"
+    ]
+  }
+]

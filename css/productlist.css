@@ -5,6 +5,10 @@
 * oscar.nilsson@medieinstitutet.se
 */
 
+@import url(styleguide.css);
+@import url(cart.css);
+@import url(footer.css);
+
 :root {
     --pageWidth: 1200px; /* Desktop */
     --tabletWidth: 960px;
@@ -17,32 +21,28 @@
     --gridColGap: 2rem;
     --gridRowGap: 2rem;
 
-    --pageBg: #f8f8f8;
-    --contentBg: #f8f8f8;
+    --pageBg: var(--color-white);
+    --contentBg: var(--color-white);
 
-    --color: #403022;
+    --color: var(--color-brown-dark);
     --linkColor: rgba(64, 48, 34, 1);
     --linkHoverColor: rgba(64, 48, 34, 1);
     --linkTextDecoration: none;
     --linkHoverTextDecoration: underline;
     
-    --btnColor: #eee;
+    --btnColor: var(--color-white);
     --btnBgColor: rgba(64, 48, 34, 1);
     --btnHoverColor: #333;
     --btnHoverBgColor: rgba(64, 48, 34, .9);
-    --btnBorderRadius: 8px;
+    --btnBorderRadius: var(--borderRadius);
 
-    --accentColor: #403022;
+    --accentColor: var(--color-brown-dark);
 
-    --borderRadius: 4px;
+    --borderRadius: var(--radius-sm);
 
     --productCardBoxShadow: 
         rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, 
         rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-
-    font-family: 'Epilogue', Arial, Verdana, sans-serif;
-    font-weight: 400;
-    font-size: 16px;
 }
 
 @media screen and (max-width: 960px) {
@@ -54,12 +54,6 @@
         font-size: 14px;
     }
 }
-
-/* @media screen and (max-width: 768px) {
-    :root {
-        
-    }
-} */
 
 :root * {
     box-sizing: border-box;
@@ -73,7 +67,38 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: var(--pageAlignment);
+}
+
+/* Must have if body is display: flex; */
+body > header, body > footer {
+    width: 100%;
+}
+
+/* Main container: containing sidebar and main */
+div#mainContainer {
+    max-width: var(--pageWidth);
+    flex: 1;
+    display: grid;
+    align-items: start;
+    grid-template-areas: "heading heading"
+    "sidebar main";
+    grid-template-columns: var(--sidebarWidth) auto;
+    grid-template-rows: auto 1fr;
+    gap: var(--gridRowGap) var(--gridColGap);
+    padding: 4rem var(--gridColGap);
+
+    & h2 {
+        font-size: 3rem;
+        margin-bottom: calc(2.5rem - var(--gridRowGap));
+        grid-area: heading;
+    }
+
+    & h3 {
+        grid-column: 1 / span 3;
+        margin: 0;
+        margin-bottom: calc(var(--gridRowGap) / 2 * -1);
+    }
 
     & a {
         color: var(--linkColor);
@@ -91,69 +116,12 @@ body {
         border: none;
         border-radius: var(--btnBorderRadius);
         cursor: pointer;
+        font-family: 'Epiloque', sans-serif;
         font-weight: 300;
 
         &:hover {
             background-color: var(--btnHoverColor);
         }
-    }
-}
-
-/* Temporary until header.html and header.css is available --> */
-body > header, body > footer {
-    width: 100%;
-    color: #F8F8F8;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    & > * {
-        width: 100%;
-        max-width: var(--pageWidth);
-        text-align: center;
-        padding: 0 1rem;
-    }
-
-    & div.container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-    }
-}
-
-body > header {
-    background-image: url(../img/header_bg.png);
-    background-size: cover;
-    background-position: center;
-}
-
-body > footer {
-    height: 300px;
-    background-color: #403022;
-}
-
-div#mainContainer {
-    max-width: var(--pageWidth);
-}
-/* --> */
-
-/* Main container: containing sidebar and main */
-div#mainContainer {
-    flex: 1;
-    display: grid;
-    align-items: start;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: var(--sidebarWidth) auto;
-    gap: var(--gridRowGap) var(--gridColGap);
-    padding: var(--gridRowGap) var(--gridColGap);
-
-    & h2 {
-        grid-column: 1 / span 3;
-        margin: 0;
-        margin-bottom: calc(var(--gridRowGap) / 2 * -1);
     }
 }
 
@@ -221,7 +189,7 @@ article.productCard {
             }
         }
 
-        & h3.productName {
+        & h4.productName {
             grid-area: productName;
             margin: 0;
             font-size: 1em;
@@ -248,8 +216,12 @@ article.productCard {
         }
     }
 
-    & p.productDescription {
-        display: none;
+    & ul {
+       padding-left: 1.25em; 
+    }
+
+    & *.productDescription {
+        /* display: none; */
     }
 
     & p.productDetails {
@@ -260,9 +232,9 @@ article.productCard {
         text-decoration: underline;
     } */
 
-    & button.buy {
+    & button.addToCart {
         font-size: 1rem;
-        padding: .5em .5em;
+        padding: .5em .75em;
         white-space: nowrap;
         justify-self: end;
     }
@@ -336,75 +308,6 @@ aside {
     }
 }
 
-/* Cart */
-div#cart {
-    display: none;
-}
-
-/* Mockup panel */
-div#mockupPanel {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    position: fixed;
-    bottom: var(--gridRowGap);
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px;
-    background-color: rgba(248, 248, 248, .75); /* var(--contentBg); */
-    color: var(--color);
-    padding: calc(var(--gridRowGap) / 2) calc(var(--gridColGap) / 2);
-    border-radius: var(--borderRadius);
-    box-shadow: var(--productCardBoxShadow);
-    align-items: center;
-
-    & div.content {
-        display: grid;
-        grid-template-rows: 0fr;
-        grid-column: 1 / span 2;
-        transition: grid-template-rows .25s ease;
-
-        & > div.inner {
-            display: grid;
-            margin-top: 1rem;
-            gap: .5rem;
-            grid-template-columns: 1fr 1fr;
-            grid-auto-rows: max-content;
-            align-items: center;
-            overflow: hidden;
-        }
-    }
-
-    &.open > div.content {
-        grid-template-rows: 1fr;
-    }
-
-    & a.close {
-        grid-column: 2 / 3;
-        text-align: right;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        margin-bottom: -.3em;
-    }
-
-    & h3 {
-        grid-row: 1 / 2;
-        grid-column: 1 / 2;
-        margin: 0;
-        margin-bottom: -.2em;
-    }
-
-    & input {
-        font-size: inherit;
-        border-radius: var(--borderRadius);
-        border: 1px solid #ccc;
-        padding: .33em 0 .33em .33em;
-        overflow: hidden;
-        background-color: rgba(255, 255, 255, .5);
-    }
-}
-
 /* Responsiveness: tablet */
 @media screen and (max-width: 960px) {
     body {
@@ -416,17 +319,23 @@ div#mockupPanel {
     }
 
     div#mainContainer {
+        padding: var(--gridRowGap) var(--gridColGap);
         width: 100%;
         grid-template-areas: 
-            "sidebar" 
+            "sidebar"
+            "heading"
             "main";
         grid-template-columns: auto;
-        grid-template-rows: auto 1fr;
+        grid-template-rows: auto auto 1fr;
+
+        & h2 {
+            margin-bottom: calc((2.5rem - var(--gridRowGap)) / 2);
+        }
 
         & main {
             grid-template-columns: 1fr 1fr 1fr;
 
-            & h2 {
+            & h3 {
                 grid-column: 1 / span 3;
             }
 
@@ -499,6 +408,7 @@ div#mockupPanel {
                     color: var(--linkColor);
                     padding: .33em .5em .25em .5em;
                     border-radius: 6px;
+                    white-space: nowrap;
 
                     &:hover {
                         color: var(--linkHoverColor);
@@ -516,7 +426,7 @@ div#mockupPanel {
         & main {
             grid-template-columns: 1fr 1fr;
 
-            & h2 {
+            & h3 {
                 grid-column: 1 / span 2;
             }
         }
@@ -528,3 +438,4 @@ div#mockupPanel {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+
