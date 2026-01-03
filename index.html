@@ -13,7 +13,7 @@
     <script src="js/header.js" defer></script>
 
 <!-- LINKS TO FONTS AND ICONS -->
-
+<!-- <link rel="stylesheet" href="css/styleguide.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,19 +28,21 @@
     
 
 <header>
-    <div class="header-container">
-    <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
-    
+ 
+ <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+ <h1>
     <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+    </h1>
 
-    </div>
+
+    <div class="nav-container-header">
     <nav class="nav-header">
-        
-        <div role="button" class="hamburger">
+
+        <button class="hamburger" aria-label="Open menu">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
         <div class="nav-left">
 <!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
 
@@ -50,7 +52,7 @@
                <span class="link-product">Products</span>
                 <span class="material-symbols-outlined">keyboard_arrow_down</span>
             </a>
-                <div class="dropdown-content">
+                <div class="dropdown-content categoryList">
                     <a class="a-light" href="productlist.html">Category 1</a>
                     <a class="a-light" href="productlist.html">Category 2</a>
                     <a class="a-light" href="productlist.html">Category 3</a>
@@ -65,6 +67,7 @@
             <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
         </div>
     </nav>
+    </div>
 </header>
 
   <!-- TOP PRODUCTS -->
@@ -160,6 +163,8 @@
     © 2026 FaceRoots. All rights reserved.
   </div>
 </footer>
-
+	<script src="js/header.js" defer></script>
+		<script src="js/cart.js" defer></script>
+		<script src="js/listcategories.js" defer></script>
 </body>
 </html>
