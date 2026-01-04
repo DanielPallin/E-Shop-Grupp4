@@ -5,17 +5,35 @@
 * oscar.nilsson@medieinstitutet.se
 */
 
-@import url(productlist.css);
+@import url(styleguide.css);
 @import url(cart.css);
+@import url(productlist.css);
+@import url(footer.css);
 
 .nav-right {
     position: relative;
 }
 
 div#mainContainer {
-    grid-template-areas: "main sidebar";
-    grid-template-columns: 1fr auto;
+    grid-template-areas: 
+        "heading heading"
+        "main sidebar";
+    grid-template-columns: auto 1fr;
     grid-column-gap: var(--gridColGap);
+    align-items: start;
+    padding: 4rem var(--gridColGap);
+
+    & h2 {
+        grid-area: heading;
+        font-size: var(--h1-font-size);
+        font-weight: var(--h1-font-weight);
+        margin-bottom: calc(var(--h1-margin-bottom) - var(--gridRowGap));
+    }
+
+    & * > h3 {
+        font-size: var(--h2-font-size);
+        font-weight: var(--h2-font-weight);
+    }
 
     & button {
         background-color: var(--btnBgColor);
@@ -97,11 +115,11 @@ div#mainContainer {
         grid-row-gap: 0;
         align-items: center;
 
-        & h2, & h3, & button {
+        & h3, & h4, & button {
             grid-column: 1 / span 2;
         }
 
-        & h3, & button {
+        & h4, & button {
             margin-top: var(--gridRowGap);
         }
 
