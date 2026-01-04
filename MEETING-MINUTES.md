@@ -140,3 +140,26 @@
 - Ska skriva klart script som listar kategorier för att kunna ha i drop down-menyn.
 
 ***
+
+### Sprint review 2026-01-04
+- Flyttat allt som legat för review till färdigställt.
+- Har tillsammans gått igenom allt som blivit färdigställt och haft en gemensam finslipning av alla sidor.
+- Checkout page hanns inte med under sprinten. Försöker få till det innan presentationen.
+
+### Sprint retrospect 2026-01-04
+
+##### Problem under sprinten
+- Git och GitHub-problem som grundade sig på bristande erfarenhet och rutin.
+    - Råkade merga en gammal styleguid in i main.
+    - Mergade in main i branch när avsikten var den motsatta.
+
+##### Möjlighet till förbättringar
+- Hade varit enklare att utse en ansvarig för både den grafiska profilen och uppdatering av styleguide. Som vi gjorde nu kom vi igång och kodade tidigt med provisorisk styling som sedan blev onödigt svår att göra enhetlig.
+- Marcus understryker vikten av att kommentera sin kod.
+- Skapa en projektspecifik rutin för hur man hanterar Git, GitHub, branches och merges.
+
+##### Bra saker som vi ska fortsätta att göra
+- Hålla oss till styleguiden så långt det går och minimera mängden freestyling.
+- Tillgängligheten och hjälpsamheten inom teamet. Om man ställer en fråga i chatten så får man bra svar och väldigt snabb respons.
+
+***
