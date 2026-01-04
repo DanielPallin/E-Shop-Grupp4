@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gruppuppgift: E-shop, FaceRoots">
+    <meta name="author" content="Grupp 4 (Oscar Nilsson)">
+    <title>FaceRoots - Checkout</title>
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <script src="js/header.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+        <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+        <a href="index.html" class="nav-logo-link">
+        <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+        </a>
+        </div>
+        <nav class="nav-header">
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-left">
+
+                <a class="a-light" href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="productlist.html" class="active dropbtn a-light">
+                        <span class="link-product">Products</span>
+                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    </a>
+                    <div class="dropdown-content categoryList">
+                        <a class="a-light" href="productlist.html?catid=1">Category 1</a>
+                        <a class="a-light" href="productlist.html?catid=2">Category 2</a>
+                        <a class="a-light" href="productlist.html?catid=3">Category 3</a>
+                    </div>
+                </div>
+
+    <!-- Klipp ut classen active från raden under och lägg till på länken till din sida -->
+
+                <a class="a-light" href="about.html">About </a>
+                <a class="a-light" href="contact.html">Contact</a>
+            </div>
+                
+            <div class="nav-right">
+                <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+                <div id="shoppingCart">
+                    <ul>
+                        <li>
+                            <button class="remove" title="Remove">Remove</button>
+                            <span class="productName">Cedar Stand Razor Holder</span>
+                            <span class="productPrice">349 SEK</span>
+                        </li>
+                        <li>
+                            <button class="remove" title="Remove">Remove</button>
+                            <span class="productName">Saddle Leather Dopp Kit</span>
+                            <span class="productPrice">899 SEK</span>
+                        </li>
+                        <li>
+                            <button class="remove" title="Remove">Remove</button>
+                            <span class="productName">Field Notes Beard Journal</span>
+                            <span class="productPrice">129 SEK</span>
+                        </li>
+                    </ul>
+                    <p class="sum">3 750 SEK</p>
+                    <button href="checkout.html">To checkout</button>
+                </div>
+                <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+            </div>
+        </nav>
+    </header>
+    <div id="mainContainer">
+        <main>
+            <h2>Shopping cart</h2>
+            <article>
+                <header>
+                    <figure>
+                        <a href="productpage.html">
+                            <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
+                        </a>
+                        <figcaption>Label for product-1.jpg</figcaption>
+                    </figure>
+                    <h3 class="productName">
+                        <a href="productpage-one.html">Product name #1</a>
+                    </h3>
+                    <span class="productBrand" title="Brand">Brand name</span>
+                    <span class="productCategory" title="Category">Category name</span>
+                    <span class="productPrice" title="Price">1 499 SEK</span>
+                </header>
+                <p class="productDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, quia? Illo nisi eius repellendus sunt.</p>
+                <ul class="productDetails">
+                    <li>Detail 1</li>
+                    <li>Detail 2</li>
+                    <li>Detail 3</li>
+                    <li>Detail 4</li>
+                </ul>
+                <label for="product1_amount">Items</label>
+                <input type="number" id="product1_amount" min="0" max="20">
+                <button>Update</button><button>Remove</button>
+            </article>
+            <article>
+                <header>
+                    <figure>
+                        <a href="productpage.html">
+                            <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
+                        </a>
+                        <figcaption>Label for product-1.jpg</figcaption>
+                    </figure>
+                    <h3 class="productName">
+                        <a href="productpage-one.html">Product name #1</a>
+                    </h3>
+                    <span class="productBrand" title="Brand">Brand name</span>
+                    <span class="productCategory" title="Category">Category name</span>
+                    <span class="productPrice" title="Price">1 499 SEK</span>
+                </header>
+                <p class="productDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, quia? Illo nisi eius repellendus sunt.</p>
+                <ul class="productDetails">
+                    <li>Detail 1</li>
+                    <li>Detail 2</li>
+                    <li>Detail 3</li>
+                    <li>Detail 4</li>
+                </ul>
+                <label for="product1_amount">Items</label>
+                <input type="number" id="product1_amount" min="0" max="20">
+                <button>Update</button><button>Remove</button>
+            </article>
+        </main>
+        <aside id="sidebar">
+            <h2>Checkout</h2>
+            <h3>Summary</h3>
+            <table>
+                <tr>
+                    <td colspan="2">1 250 SEK</td>
+                </tr>
+                <tr>
+                    <td colspan="2">1 250 SEK</td>
+                </tr>
+                <tr>
+                    <td colspan="2">1 250 SEK</td>
+                </tr>
+                <tr>
+                    <td>Tax:</td><td>750 SEK</td>
+                </tr>
+                <tr>
+                    <td>Total:</td><td>750 SEK</td>
+                </tr>
+            </table>
+            <ul class="cartSummary">
+                <li>1 250 SEK</li>
+                <li>1 250 SEK</li>
+                <li>1 250 SEK</li>
+                <li class="tax"><span>Tax:</span> 750 SEK</li>
+                <li class="sum"><span>Total:</span> 3 750 SEK</li>
+            </ul>
+            <h3>Payment method</h3>
+            <input type="radio"><label for="">Credit card</label>
+            <input type="radio"><label for="">Invoice</label>
+            <h3>Shipping</h3>
+            <input type="radio"><label for="">Home delivery</label>
+            <input type="radio"><label for="">Pick up at store</label>
+            <button>Checkout</button>
+        </aside>
+    </div>
+    <script type="text/javascript" src="js/listcategories.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
+</body>
+</html>
