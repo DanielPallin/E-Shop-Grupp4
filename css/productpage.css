@@ -103,12 +103,15 @@ button {
 
 /* PRODUCT GRID  */
 .productPage {
+    display: grid;
+    grid-auto-flow: 150px;
     max-width: var(--pageWidth);
     margin: auto;
     padding: 2rem 1rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
+    background-color: var(--color-white);
 }
 
 .fullWidth {
