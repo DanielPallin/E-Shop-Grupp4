@@ -58,7 +58,7 @@ button {
 
 .productDetails {
     margin-top: 1.5rem;
-    background-color: #BF8C6F;
+    background-color: var(--color-white);
     border-radius: var(--borderRadius);
 }
 
@@ -95,7 +95,7 @@ button {
 
 /*  CARD SHARED STYLE  */
 .card {
-    background-color: #F8F8F8;
+    background-color: #FFFFFF;
     border-radius: 4px;
     box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
     padding: 1.5rem;
@@ -103,12 +103,15 @@ button {
 
 /* PRODUCT GRID  */
 .productPage {
+    display: grid;
+    grid-auto-flow: 150px;
     max-width: var(--pageWidth);
     margin: auto;
     padding: 2rem 1rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
+    background-color: var(--color-white);
 }
 
 .fullWidth {
