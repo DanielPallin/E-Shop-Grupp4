@@ -41,33 +41,42 @@ if (typeof(getProducts) !== 'function') {
         'productPrice',
     ];
 
-    const cartSummary = document.querySelector('.cartSummary');
-    const tax = cartSummary?.querySelector('.tax');
-    const sum = cartSummary?.querySelector('.sum');
-    if (!tax || !sum) return;
+    const cartSummary = document.querySelector('ul.cartSummary');
+    console.log(cartSummary);
+    const placeholderItem = cartSummary?.querySelector('li.item');
+    const tax = cartSummary?.querySelector('li.tax');
+    const sum = cartSummary?.querySelector('li.sum');
+    if (!placeholderItem || !tax || !sum) return;
+
+    const templateItem = placeholderItem.cloneNode(true);
+    placeholderItem.remove();
 
     for (let index = 0; index < numProducts; index++) {
         const newProductCard = template.cloneNode(true);
-        const newLi = document.createElement('li');
+        const newLi = templateItem.cloneNode(true);
 
         productAttr.forEach(attr => {
             if (attr == 'productPrice') {
                 newProductCard.querySelector(`.${attr}`).innerText = 
-                    newLi.innerText = `${data[index][attr]['amount']} ${data[index][attr]['currency']}`;
+                    newLi.querySelector('span:last-child').innerText = `${data[index][attr]['amount']} ${data[index][attr]['currency']}`;
             } else if (attr == 'productImage') {
                 newProductCard.querySelector(`.${attr}`).src = `img/products/${data[index][attr]}`;
             } else if (attr == 'productCategory') {
-                newProductCard.querySelector(`.${attr}`).innerText = data[index][attr]['name']
+                newProductCard.querySelector(`.${attr}`).innerText = data[index][attr]['name'];
+            } else if (attr == 'productName') {
+                newProductCard.querySelector(`.${attr}`).innerText =
+                    newLi.querySelector('span:first-child').innerText = data[index][attr];
             } else {
                 newProductCard.querySelector(`.${attr}`).innerText = data[index][attr];
             }
         });
 
         container.append(newProductCard);
-        cartSummary.insertBefore(newLi, sum);
+        cartSummary.insertBefore(newLi, sum );
     
     }
     template.remove();
+    templateItem.remove();
 
     updateCheckoutSum();
 })();
@@ -76,12 +85,12 @@ if (typeof(getProducts) !== 'function') {
 function updateCheckoutSum() {
 
     const cartSummary = document.querySelector('.cartSummary');
-    const placeholder = cartSummary.querySelector('li:not(.tax):not(.sum)');
+    // const placeholder = cartSummary.querySelector('li:not(.tax):not(.sum)');
     const tax = cartSummary?.querySelector('.tax span:last-child');
     const sum = cartSummary?.querySelector('.sum span:last-child');
 
     if (!sum || !tax) return;
-    if (placeholder) placeholder.remove();
+    // if (placeholder) placeholder.remove();
 
     let calcSum = 0;
 
