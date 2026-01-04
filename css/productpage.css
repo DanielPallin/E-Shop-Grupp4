@@ -1,3 +1,7 @@
+body{
+    background-color: var(--color-white);
+}
+
 button {
     border: 0;
     border-radius: var(--radius-sm);
@@ -103,15 +107,14 @@ button {
 
 /* PRODUCT GRID  */
 .productPage {
-    display: grid;
-    grid-auto-flow: 150px;
-    max-width: var(--pageWidth);
+    max-width: 1200px;
     margin: auto;
     padding: 2rem 1rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     background-color: var(--color-white);
+    box-sizing: border-box;
 }
 
 .fullWidth {
