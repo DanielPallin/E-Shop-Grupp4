@@ -10,6 +10,7 @@
     gap: 2rem;
     margin: 2rem auto;
     padding: 2rem;
+    box-sizing: border-box;
 }
 
 .h1 {
@@ -70,6 +71,13 @@ hr {
 .respo-hr {
   display: block;
 }
+}
+
+@media (max-width: 960px) {
+  .about-hero {
+    padding-left: 1rem;
+    padding-right: 1rem; 
+  }
 }
 
 /* NAVIGATION */
