@@ -7,7 +7,6 @@
 
 @import url(styleguide.css);
 @import url(cart.css);
-/* @import url(productlist.css); */
 @import url(footer.css);
 
 :root {
@@ -148,19 +147,38 @@ div#mainContainer {
             grid-row-gap: var(--gridColGap);
 
             & header {
-                grid-area: header;
-                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-areas: 
+                    "productName productName"
+                    "productBrand productPrice"
+                    "productCategory productPrice";
+                column-gap: .5rem;
 
                 & h4 {
+                    grid-area: productName;
                     font-size: var(--h2-font-size);
                     font-weight: var(--h2-font-weight);
+                    margin-bottom: .25em;
+                }
+
+                & span.productbrand {
+                    grid-area: productbrand;
+                }
+                & span.productPrice {
+                    grid-area: productPrice;
+                    font-size: 1.25em;
+                }
+                & span.productCategory {
+                    grid-area: productCategory;
+                    opacity: .5;
                 }
             }
 
             & figure {
                 grid-area: image;
-
                 width: 100%;
+                grid-row: 1 / span 3;
 
                 & img {
                     width: 100%;
@@ -310,6 +328,16 @@ div#mainContainer {
         grid-template-columns: auto;
         grid-template-rows: auto;
         padding: 4rem var(--gridColGap);
+
+        & main {
+            & article.productCard {
+                grid-template-areas: 
+                    "image header"
+                    "image content"
+                    "form form";
+                grid-template-rows: auto 1fr auto;
+            }
+        }
 
         & aside {
             & h3 {

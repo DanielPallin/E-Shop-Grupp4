@@ -39,6 +39,7 @@ if (typeof(getProducts) !== 'function') {
         'productCategory',
         'productBrand',
         'productPrice',
+        
     ];
 
     const cartSummary = document.querySelector('ul.cartSummary');
