@@ -22,7 +22,7 @@ div#mainContainer {
     grid-template-areas: 
         "heading heading"
         "main sidebar";
-    grid-template-columns: auto var(--sidebarWidth);
+    grid-template-columns: auto 300px;
     grid-template-rows: auto 1fr;
     gap: var(--gridRowGap) var(--gridColGap);
     padding: 4rem var(--gridColGap);
@@ -79,6 +79,7 @@ div#mainContainer {
 
             & header {
                 grid-area: header;
+                width: 100%;
 
                 & h4 {
                     font-size: var(--h2-font-size);
@@ -146,33 +147,65 @@ div#mainContainer {
     }
 
     & aside {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto;
-        grid-column-gap: .5em;
-        grid-row-gap: 0;
-        align-items: center;
+        & div.container {
+            border-radius: var(--radius-sm);
+            box-shadow: var(--productCardBoxShadow);
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto;
+            grid-column-gap: .5em;
+            grid-row-gap: 0;
+            align-items: center;
+            padding: var(--gridColGap);
 
-        & h3, & h4, & button {
-            grid-column: 1 / span 2;
-        }
+            & h3, & h4, & button {
+                grid-column: 1 / span 2;
+            }
 
-        & h4, & button {
-            margin-top: var(--gridRowGap);
-        }
+            & h4 {
+                font-size: var(--h3-font-size);
+                margin-bottom: .5em;
+                font-weight: var(--h2-font-weight);
+            }
 
-        & table {
-            display: none;
-        }
+            & h4, & button {
+                margin-top: var(--gridRowGap);
+            }
 
-        & ul.cartSummary {
-            grid-column: 1 / span 2;
+            & input[type="radio"] {
+                -webkit-accent-color: var(--color-brown-dark);
+                accent-color: var(--color-brown-dark);
+            }
 
-            list-style: none;
-            margin-top: 1rem;
+            & input, & label {
+                cursor: pointer;
+            }
 
-            & > li {
-                text-align: right;
+            & table {
+                display: none;
+            }
+
+            & ul.cartSummary {
+                grid-column: 1 / span 2;
+
+                list-style: none;
+
+                & > li {
+                    text-align: right;
+
+                    &.tax {
+                        opacity: .6;
+                    }
+                    &.sum {
+                        margin-top: .5em;
+                        font-weight: 600;
+                    }
+                    &.sum, &.tax {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
             }
         }
     }

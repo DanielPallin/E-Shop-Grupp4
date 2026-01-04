@@ -68,39 +68,7 @@
         <h2>Checkout</h2>
         <main>
             <h3>Shopping cart</h3>
-            <article>
-                <figure>
-                    <a href="productpage.html">
-                        <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
-                    </a>
-                    <figcaption>Label for product-1.jpg</figcaption>
-                </figure>
-
-                <header>
-                    <h4 class="productName">
-                        <a href="productpage-one.html">Product name #1</a>
-                    </h4>
-                    <span class="productBrand" title="Brand">Brand name</span>
-                    <span class="productCategory" title="Category">Category name</span>
-                    <span class="productPrice" title="Price">1 499 SEK</span>
-                </header>
-
-                <div class="content">
-                    <p class="productDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, quia? Illo nisi eius repellendus sunt.</p>
-                    <ul class="productDetails">
-                        <li>Detail 1</li>
-                        <li>Detail 2</li>
-                        <li>Detail 3</li>
-                        <li>Detail 4</li>
-                    </ul>
-                </div>
-                <div class="form-group">
-                    <label for="product1_amount">Items</label>
-                    <input type="number" id="product1_amount" min="0" max="20" value="1">
-                    <button>Update</button><button>Remove</button>
-                </div>
-            </article>
-            <article>
+            <article class="productCard">
                 <figure>
                     <a href="productpage.html">
                         <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
@@ -135,38 +103,26 @@
         </main>
         <aside id="sidebar">
             <h3>Checkout</h3>
-            <h4>Summary</h4>
-            <table>
-                <tr>
-                    <td colspan="2">1 250 SEK</td>
-                </tr>
-                <tr>
-                    <td colspan="2">1 250 SEK</td>
-                </tr>
-                <tr>
-                    <td colspan="2">1 250 SEK</td>
-                </tr>
-                <tr>
-                    <td>Tax:</td><td>750 SEK</td>
-                </tr>
-                <tr>
-                    <td>Total:</td><td>750 SEK</td>
-                </tr>
-            </table>
-            <ul class="cartSummary">
-                <li>1 250 SEK</li>
-                <li>1 250 SEK</li>
-                <li>1 250 SEK</li>
-                <li class="tax"><span>Tax:</span> 750 SEK</li>
-                <li class="sum"><span>Total:</span> 3 750 SEK</li>
-            </ul>
-            <h4>Payment method</h4>
-            <input type="radio"><label for="">Credit card</label>
-            <input type="radio"><label for="">Invoice</label>
-            <h4>Shipping</h4>
-            <input type="radio"><label for="">Home delivery</label>
-            <input type="radio"><label for="">Pick up at store</label>
-            <button>Checkout</button>
+            <div class="container">
+                <h4>Summary</h4>
+                <table>
+                    <tr>
+                        <td colspan="2">1 250 SEK</td>
+                    </tr>
+                </table>
+                <ul class="cartSummary">
+                    <li>1 250 SEK</li>
+                    <li class="sum"><span>Total</span> <span>3 750 SEK</span></li>
+                    <li class="tax"><span>Tax 25%</span> <span>750 SEK</span></li>
+                </ul>
+                <h4>Payment method</h4>
+                <input name="payment_method" id="payment_creditcard" type="radio"><label for="payment_creditcard">Credit card</label>
+                <input name="payment_method" id="payment_invoice" type="radio"><label for="payment_invoice">Invoice</label>
+                <h4>Shipping</h4>
+                <input name="shipping_method" id="shipping_homedelivery" type="radio"><label for="shipping_homedelivery">Home delivery</label>
+                <input name="shipping_method" id="shipping_pickup" type="radio"><label for="shipping_pickup">Pick up at store</label>
+                <button>Checkout</button>
+            </div>
         </aside>
     </div>
     <footer class="footer">
@@ -202,5 +158,6 @@
     <script src="js/header.js" defer></script>
     <script src="js/listcategories.js" defer></script>
     <script src="js/cart.js" defer></script>
+    <script src="js/checkout.js" defer></script>
 </body>
 </html>
