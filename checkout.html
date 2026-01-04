@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gruppuppgift: E-shop, FaceRoots">
+    <meta name="author" content="Grupp 4 (Oscar Nilsson)">
+    <title>FaceRoots - Checkout</title>
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Gravitas+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img class="header-img" src="img/seven_men_1grey.webp" alt="bearded men">
+            <a href="index.html" class="nav-logo-link">
+                <img src="SVG/white_logo/logo_vertical_white.svg" alt="FaceRoots" class="nav-logo">
+            </a>
+        </div>
+        <div class="nav-container-header">
+        <nav class="nav-header">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-left">
+                <a class="a-light" href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="productlist.html" class="dropbtn a-light">
+                        <span class="link-product">Products</span>
+                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    </a>
+                    <div class="dropdown-content categoryList">
+                        <a class="a-light" href="#">Category 1</a>
+                        <a class="a-light" href="#">Category 2</a>
+                        <a class="a-light" href="#">Category 3</a>
+                    </div>
+                </div>
+                <a class="a-light" href="about.html">About </a>
+                <a class="a-light" href="contact.html">Contact</a>
+            </div>
+            <div class="nav-right">
+                <button class="button-light"><span class="material-symbols-outlined ">shopping_cart</span> <span class="btn-text">Cart</span></button>
+                <button class="button-light"><span class="material-symbols-outlined">account_circle</span><span  class="btn-text">Login</span></button>
+                <div id="shoppingCart">
+                     <h2>Cart</h2>
+                    <ul>
+                        <li class="placeholder">
+                            <button class="remove" title="Remove">Remove</button>
+                            <span class="productName">Cedar Stand Razor Holder</span>
+                            <span class="productPrice">349 SEK</span>
+                        </li>
+                    </ul>
+                    <p class="sum">349 SEK</p>
+                    <a class="btn" href="checkout.html">To checkout</a>
+                </div>
+            </div>
+        </nav>
+        </div>
+    </header>
+    <div id="mainContainer">
+        <h2>Checkout</h2>
+        <main>
+            <h3>Shopping cart</h3>
+            <article class="productCard">
+                <figure>
+                    <a href="productpage-one.html">
+                        <img class="productImage" alt="Product 1" src="img/products/product_fr-011.png">
+                    </a>
+                    <figcaption>Label for product-1.jpg</figcaption>
+                </figure>
+
+                <header>
+                    <h4 class="productName">
+                        <a href="productpage-one.html">Product name #1</a>
+                    </h4>
+                    <span class="productBrand" title="Brand">Brand name</span>
+                    <span class="productCategory" title="Category">Category name</span>
+                    <span class="productPrice" title="Price">1 499 SEK</span>
+                </header>
+
+                <div class="content">
+                    <p class="productDescription">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, quia? Illo nisi eius repellendus sunt.</p>
+                    <ul class="productDetails">
+                        <li>Detail 1</li>
+                        <li>Detail 2</li>
+                        <li>Detail 3</li>
+                        <li>Detail 4</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="product1_amount">Items</label>
+                    <input type="number" id="product1_amount" min="0" max="20" value="1">
+                    <button>Update</button><button>Remove</button>
+                </div>
+            </article>
+        </main>
+        <aside id="sidebar">
+            <h3>Checkout</h3>
+            <div class="container">
+                <h4>Summary</h4>
+                <ul class="cartSummary">
+                    <li class="item"><span>Product name #1</span><span>1 250 SEK</span></li>
+                    <li class="sum"><span>Total</span> <span>3 750 SEK</span></li>
+                    <li class="tax"><span>Tax 25%</span> <span>750 SEK</span></li>
+                </ul>
+                <h4>Payment method</h4>
+                <input name="payment_method" id="payment_creditcard" type="radio"><label for="payment_creditcard">Credit card</label>
+                <input name="payment_method" id="payment_invoice" type="radio"><label for="payment_invoice">Invoice</label>
+                <h4>Shipping</h4>
+                <input name="shipping_method" id="shipping_homedelivery" type="radio"><label for="shipping_homedelivery">Home delivery</label>
+                <input name="shipping_method" id="shipping_pickup" type="radio"><label for="shipping_pickup">Pick up at store</label>
+                <button>Checkout</button>
+            </div>
+        </aside>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h4>FaceRoots</h4>
+                <p>
+                    Premium grooming products for beard, skin and hair.
+                    Developed with a focus on quality and style.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Links</h4>
+                <a href="productlist.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Email: support@faceroots.se</p>
+                <p>Phone: +46 8 123 45 67</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 FaceRoots. All rights reserved.
+        </div>
+    </footer>
+    <script src="js/header.js" defer></script>
+    <script src="js/listcategories.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/checkout.js" defer></script>
+</body>
+</html>

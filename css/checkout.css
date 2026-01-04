@@ -1,0 +1,320 @@
+/*
+* Gruppuppgift: E-shop
+* Grupp 4 / FaceRoots
+* Oscar Nilsson
+* oscar.nilsson@medieinstitutet.se
+*/
+
+@import url(styleguide.css);
+@import url(cart.css);
+/* @import url(productlist.css); */
+@import url(footer.css);
+
+:root {
+    --pageWidth: 1200px; /* Desktop */
+    --tabletWidth: 960px;
+    --mobileWidth: 768px;
+    --sidebarWidth: minmax(150px, 200px);
+    --footerHeight: 300px;
+
+    --pageAlignment: center;
+
+    --gridColGap: 2rem;
+    --gridRowGap: 2rem;
+
+    --pageBg: var(--color-white);
+    --contentBg: var(--color-white);
+
+    --color: var(--color-brown-dark);
+    --linkColor: rgba(64, 48, 34, 1);
+    --linkHoverColor: rgba(64, 48, 34, 1);
+    --linkTextDecoration: none;
+    --linkHoverTextDecoration: underline;
+    
+    --btnColor: var(--color-white);
+    --btnBgColor: rgba(64, 48, 34, 1);
+    --btnHoverColor: #333;
+    --btnHoverBgColor: rgba(64, 48, 34, .9);
+    --btnBorderRadius: var(--borderRadius);
+
+    --accentColor: var(--color-brown-dark);
+
+    --borderRadius: var(--radius-sm);
+
+    --productCardBoxShadow: 
+        rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, 
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+@media screen and (max-width: 960px) {
+    :root {
+        --pageWidth: auto;
+        --gridColGap: 1rem;
+        --gridRowGap: 1rem;
+
+        font-size: 14px;
+    }
+}
+
+:root * {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--contentBg);
+    color: var(--color);
+    min-height: 100svh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: var(--pageAlignment);
+}
+
+/* Must have if body is display: flex; */
+body > header, body > footer {
+    width: 100%;
+}
+
+.nav-right {
+    position: relative;
+}
+
+div#mainContainer {
+    max-width: var(--pageWidth);
+    flex: 1;
+    display: grid;
+    align-items: start;
+    grid-template-areas: 
+        "heading heading"
+        "main sidebar";
+    grid-template-columns: auto 350px;
+    grid-template-rows: auto 1fr;
+    gap: var(--gridRowGap) var(--gridColGap);
+    padding: 4rem var(--gridColGap);
+
+    & h2 {
+        grid-area: heading;
+        font-size: var(--h1-font-size);
+        font-weight: var(--h1-font-weight);
+        margin-bottom: calc(var(--h1-margin-bottom) - var(--gridRowGap));
+    }
+
+    & h3 {
+        font-size: var(--h2-font-size);
+        font-weight: var(--h2-font-weight);
+        margin-bottom: calc(var(--gridRowGap) / 2 * -1);
+    }
+
+    & button {
+        background-color: var(--btnBgColor);
+        color: var(--btnColor);
+        border: none;
+        border-radius: var(--btnBorderRadius);
+        cursor: pointer;
+        font-weight: 300;
+        font-size: 1rem;
+        padding: .5em .5em;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: var(--btnHoverColor);
+        }
+    }
+
+    & main {
+        grid-area: main;
+        display: grid;
+        gap: var(--gridRowGap) var(--gridColGap);
+        grid-template-columns: auto;
+
+        & article {
+
+            background-color: #fff;
+            padding: var(--gridColGap);
+            border-radius: var(--borderRadius);
+            box-shadow: var(--productCardBoxShadow);
+            
+            position: relative;
+            grid-column: 1 / span 3;
+
+            display: grid;
+            grid-template-areas: 
+                "image header"
+                "image content"
+                "image form";
+            grid-template-columns: 150px auto;
+            grid-column-gap: var(--gridColGap);
+            grid-row-gap: var(--gridColGap);
+
+            & header {
+                grid-area: header;
+                width: 100%;
+
+                & h4 {
+                    font-size: var(--h2-font-size);
+                    font-weight: var(--h2-font-weight);
+                }
+            }
+
+            & figure {
+                grid-area: image;
+
+                width: 100%;
+
+                & img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                & figcaption {
+                    display: none;
+                }
+            }
+
+            & div.content {
+                grid-area: content;
+
+                & ul {
+                    padding-left: 1.5em;
+                    margin: .5em 0;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            & div.form-group {
+                grid-area: form;
+                justify-self: end;
+            }
+            
+            & input, button {
+                margin: 0 .25em;
+                font-size: 1rem;
+                box-sizing: border-box;
+            }
+
+            & input {
+                padding: 0 0 0 .5em;
+                line-height: 2rem;
+            }
+
+            /* &:not(:last-of-type)::after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: calc(var(--gridRowGap) * -1 / 2);
+                border-bottom: 1px solid;
+                left: 0;
+                right: 0;
+                color: #ddd;
+            } */
+        }
+    }
+
+    & aside {
+        position: sticky;
+        top: var(--gridRowGap);
+        align-self: start;
+
+        grid-area: sidebar;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gridColGap);
+
+        & div.container {
+            border-radius: var(--radius-sm);
+            box-shadow: var(--productCardBoxShadow);
+            background-color: #fff;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto;
+            grid-column-gap: .5em;
+            grid-row-gap: 0;
+            align-items: center;
+            padding: var(--gridColGap);
+
+            & h3, & h4, & button {
+                grid-column: 1 / span 2;
+            }
+
+            & h4 {
+                font-size: var(--h3-font-size);
+                margin-bottom: .5em;
+                font-weight: var(--h2-font-weight);
+            }
+
+            & h4:not(:first-child), & button {
+                margin-top: var(--gridRowGap);
+            }
+
+            & input[type="radio"] {
+                -webkit-accent-color: var(--color-brown-dark);
+                accent-color: var(--color-brown-dark);
+            }
+
+            & input, & label {
+                cursor: pointer;
+                line-height: 1.42em;
+                align-self: center;
+            }
+
+            & button {
+                justify-self: end;
+            }
+
+            & ul.cartSummary {
+                grid-column: 1 / span 2;
+
+                white-space: nowrap;
+                list-style: none;
+
+                & > li {
+                    display: flex;
+                    justify-content: space-between;
+                    column-gap: .5em;
+
+                    & span:first-child {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    &.tax {
+                        opacity: .6;
+                    }
+                    &.sum {
+                        margin-top: .5em;
+                        font-weight: 600;
+                    }
+                    &.sum, &.tax {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 960px) {
+    div#mainContainer {
+        max-width: var(--pageWidth);
+        flex: 1;
+        display: grid;
+        align-items: start;
+        grid-template-areas: 
+            "heading"
+            "main"
+            "sidebar";
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        padding: 4rem var(--gridColGap);
+
+        & aside {
+            & h3 {
+                margin-top: var(--gridRowGap);
+            }
+        }
+    }
+}
