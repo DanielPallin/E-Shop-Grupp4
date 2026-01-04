@@ -171,13 +171,14 @@ div#mainContainer {
                 }
                 & span.productCategory {
                     grid-area: productCategory;
+                    opacity: .5;
                 }
             }
 
             & figure {
                 grid-area: image;
-
                 width: 100%;
+                grid-row: 1 / span 3;
 
                 & img {
                     width: 100%;
@@ -334,6 +335,7 @@ div#mainContainer {
                     "image header"
                     "image content"
                     "form form";
+                grid-template-rows: auto 1fr auto;
             }
         }
 
