@@ -1,96 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - FaceRoots</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="css/index.css" />
-  <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-</head>
+    <title>Contact - FaceRoots</title>
 
-<body>
+    <link rel="stylesheet" href="css/styleguide.css" />
 
-<header class="header">
-  <div class="nav-container">
-    <div class="logo">Logo</div>
+    <link rel="stylesheet" href="css/contact.css" />
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="productlist.html">Products</a>
-      <a href="about.html">About</a>
-    </nav>
+    <link rel="stylesheet" href="css/footer.css" />
 
-    <div class="nav-actions">
-      <button class="btn-outline">
-        Cart<br><small>Checkout</small>
-      </button>
-      <button class="btn-primary">Login</button>
-    </div>
-  </div>
-</header>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
 
-<section class="contact-hero">
-  <div class="contact-content">
-    <h1>Contact Us</h1>
+    <link rel="icon" type="image/png" href="SVG/brown_logo/favicon.svg" />
+  </head>
 
-    <div class="contact-grid">
-      <div class="contact-form">
-        <label>Full Name</label>
-        <input type="text">
+  <body>
+    <!-- ================= HEADER (SAME AS ABOUT) ================= -->
+    <header>
+      <img
+        class="header-img"
+        src="img/seven_men_1grey.webp"
+        alt="bearded men"
+      />
 
-        <label>Email</label>
-        <input type="email">
+      <a href="index.html" class="nav-logo-link">
+        <img
+          src="SVG/white_logo/logo_vertical_white.svg"
+          alt="FaceRoots"
+          class="nav-logo"
+        />
+      </a>
 
-        <label>Message</label>
-        <textarea></textarea>
+      <nav class="nav-header">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-        <button class="btn-primary">Contact Us</button>
+        <div class="nav-left">
+          <a class="a-light" href="index.html">Home</a>
+
+          <div class="dropdown">
+            <a href="productlist.html" class="dropbtn a-light">
+              <span class="link-product">Products</span>
+              <span class="material-symbols-outlined">keyboard_arrow_down</span>
+            </a>
+
+            <div class="dropdown-content">
+              <a class="a-light" href="#">Category 1</a>
+              <a class="a-light" href="#">Category 2</a>
+              <a class="a-light" href="#">Category 3</a>
+            </div>
+          </div>
+
+          <a class="a-light" href="about.html">About</a>
+          <a class="a-light active" href="contact.html">Contact</a>
+        </div>
+
+        <div class="nav-right">
+          <button class="button-light">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            Cart
+          </button>
+
+          <button class="button-light">
+            <span class="material-symbols-outlined">account_circle</span>
+            Login
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ================= CONTACT CONTENT ================= -->
+    <section class="contact-hero">
+      <div class="contact-content">
+        <h1>Contact Us</h1>
+
+        <div class="contact-grid">
+          <div class="contact-form">
+            <label>Full Name</label>
+            <input type="text" />
+
+            <label>Email</label>
+            <input type="email" />
+
+            <label>Message</label>
+            <textarea></textarea>
+
+            <button class="button-dark">Contact Us</button>
+          </div>
+
+          <div class="contact-info">
+            <p><strong>Contact</strong><br />support@faceroots.se</p>
+            <p><strong>Based in</strong><br />Stockholm, Sweden</p>
+          </div>
+        </div>
       </div>
 
-      <div class="contact-info">
-        <p><strong>Contact</strong><br>support@faceroots.se</p>
-        <p><strong>Based in</strong><br>Stockholm, Sweden</p>
+      <div class="contact-image"></div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>FaceRoots</h4>
+          <p>
+            Premium grooming products for beard. <br />
+            Developed with a focus on quality and style.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links</h4>
+          <a href="productlist.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Email: support@faceroots.se</p>
+          <p>Phone: +46 8 123 45 67</p>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="contact-image"></div>
-</section>
+      <div class="footer-bottom">© 2026 FaceRoots. All rights reserved.</div>
+    </footer>
 
-<!-- FOOTER (kopierad från footer.html) -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-col">
-      <h4>FaceRoots</h4>
-      <p>
-        Premium grooming products for beard, skin and hair.
-        Developed with a focus on quality and style.
-      </p>
-    </div>
-
-    <div class="footer-col">
-      <h4>Links</h4>
-      <a href="productlist.html">Products</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>Email: support@faceroots.se</p>
-      <p>Phone: +46 8 123 45 67</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 FaceRoots. All rights reserved.
-  </div>
-</footer>
-
-</body>
+    <!-- HEADER JS -->
+    <script src="js/header.js"></script>
+  </body>
 </html>
-
