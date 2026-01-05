@@ -274,6 +274,7 @@ async function listProducts() {
                 const anchor        = el.querySelector('a');
                 anchor.innerText    = obj.productName;
                 anchor.href         = `productpage-one.html?id=${obj.productId}`;
+                newProductCard.querySelector('a.action').href = `productpage-one.html?id=${obj.productId}`;
 
             } else {
 

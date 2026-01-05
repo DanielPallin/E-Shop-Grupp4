@@ -34,6 +34,7 @@ if (typeof(getProducts) !== 'function') {
     const template = placeholder.cloneNode(true);
     placeholder.remove();
     const productAttr = [
+        'productId',
         'productName',
         'productImage',
         'productCategory',
@@ -67,6 +68,10 @@ if (typeof(getProducts) !== 'function') {
             } else if (attr == 'productName') {
                 newProductCard.querySelector(`.${attr}`).innerText =
                     newLi.querySelector('span:first-child').innerText = data[index][attr];
+            } else if (attr == 'productId') {
+                const inputId = `input${data[index][attr]}`;
+                newProductCard.querySelector('.form-group input').id = 
+                    newProductCard.querySelector('.form-group label').htmlFor = inputId;
             } else {
                 newProductCard.querySelector(`.${attr}`).innerText = data[index][attr];
             }
