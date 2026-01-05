@@ -171,7 +171,7 @@ div#mainContainer {
                 }
                 & span.productCategory {
                     grid-area: productCategory;
-                    opacity: .5;
+                    opacity: .75;
                 }
             }
 
@@ -300,7 +300,7 @@ div#mainContainer {
                     }
 
                     &.tax {
-                        opacity: .6;
+                        opacity: .75;
                     }
                     &.sum {
                         margin-top: .5em;

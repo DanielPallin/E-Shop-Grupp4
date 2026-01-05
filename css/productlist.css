@@ -178,6 +178,7 @@ article.productCard {
             }
 
             & img {
+                display: block;
                 width: 100%;
                 height: auto;
                 /* aspect-ratio: 4/3;
@@ -187,6 +188,8 @@ article.productCard {
             & figcaption {
                 display: none;
             }
+            
+            margin-bottom: 1rem;
         }
 
         & h4.productName {
@@ -211,7 +214,7 @@ article.productCard {
 
         & span.productCategory {
             grid-area: productCategory;
-            opacity: .5;
+            opacity: .75;
             font-size: .8em;
         }
     }
@@ -220,9 +223,9 @@ article.productCard {
        padding-left: 1.25em; 
     }
 
-    & *.productDescription {
-        /* display: none; */
-    }
+    /* & *.productDescription {
+        display: none;
+    } */
 
     & p.productDetails {
         display: none;

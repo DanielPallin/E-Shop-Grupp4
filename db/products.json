@@ -2,7 +2,7 @@
   {
     "productId": "FR-011",
     "productName": "Cask & Cedar Beard Oil",
-    "productImage": "product_fr-011.png",
+    "productImage": "product_fr-011.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 319, "currency": "SEK" },
@@ -17,7 +17,7 @@
   {
     "productId": "FR-012",
     "productName": "Tobacco Ember Beard Balm",
-    "productImage": "product_fr-012.png",
+    "productImage": "product_fr-012.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Cedar & Ash Co.",
     "productPrice": { "amount": 339, "currency": "SEK" },
@@ -32,7 +32,7 @@
   {
     "productId": "FR-013",
     "productName": "Granite Hold Moustache Wax",
-    "productImage": "product_fr-013.png",
+    "productImage": "product_fr-013.webp",
     "productCategory": { "id": 2, "name": "Styling"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 169, "currency": "SEK" },
@@ -47,7 +47,7 @@
   {
     "productId": "FR-014",
     "productName": "Rugged Ridge Beard Conditioner",
-    "productImage": "product_fr-014.png",
+    "productImage": "product_fr-014.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "North Shore Grooming Co.",
     "productPrice": { "amount": 269, "currency": "SEK" },
@@ -62,7 +62,7 @@
   {
     "productId": "FR-015",
     "productName": "Birch Smoke Beard Wash",
-    "productImage": "product_fr-015.png",
+    "productImage": "product_fr-015.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 259, "currency": "SEK" },
@@ -77,7 +77,7 @@
   {
     "productId": "FR-016",
     "productName": "Caravan Pre-Shave Oil",
-    "productImage": "product_fr-016.png",
+    "productImage": "product_fr-016.webp",
     "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
     "productBrand": "Ridge & Oak Apothecary",
     "productPrice": { "amount": 229, "currency": "SEK" },
@@ -92,7 +92,7 @@
   {
     "productId": "FR-017",
     "productName": "Blacksmith Shaving Cream",
-    "productImage": "product_fr-017.png",
+    "productImage": "product_fr-017.webp",
     "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
     "productBrand": "Black Anvil Tools",
     "productPrice": { "amount": 199, "currency": "SEK" },
@@ -107,7 +107,7 @@
   {
     "productId": "FR-018",
     "productName": "Highland Aftershave Splash",
-    "productImage": "product_fr-018.png",
+    "productImage": "product_fr-018.webp",
     "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
     "productBrand": "Cedar & Ash Co.",
     "productPrice": { "amount": 249, "currency": "SEK" },
@@ -122,7 +122,7 @@
   {
     "productId": "FR-019",
     "productName": "Iron Strop Razor Strop",
-    "productImage": "product_fr-019.png",
+    "productImage": "product_fr-019.webp",
     "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
     "productBrand": "Black Anvil Tools",
     "productPrice": { "amount": 549, "currency": "SEK" },
@@ -137,7 +137,7 @@
   {
     "productId": "FR-020",
     "productName": "Cedar Stand Razor Holder",
-    "productImage": "product_fr-020.png",
+    "productImage": "product_fr-020.webp",
     "productCategory": { "id": 4, "name": "Accessories"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 349, "currency": "SEK" },
@@ -152,7 +152,7 @@
   {
     "productId": "FR-021",
     "productName": "Nomad Beard Brush",
-    "productImage": "product_fr-021.png",
+    "productImage": "product_fr-021.webp",
     "productCategory": { "id": 5, "name": "Tools"},
     "productBrand": "North Shore Grooming Co.",
     "productPrice": { "amount": 289, "currency": "SEK" },
@@ -167,7 +167,7 @@
   {
     "productId": "FR-022",
     "productName": "Barrelhouse Beard Kit",
-    "productImage": "product_fr-022.png",
+    "productImage": "product_fr-022.webp",
     "productCategory": { "id": 6, "name": "Kits & Bundles"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 699, "currency": "SEK" },
@@ -182,7 +182,7 @@
   {
     "productId": "FR-023",
     "productName": "Saddle Leather Dopp Kit",
-    "productImage": "product_fr-023.png",
+    "productImage": "product_fr-023.webp",
     "productCategory": { "id": 4, "name": "Accessories"},
     "productBrand": "Ridge & Oak Apothecary",
     "productPrice": { "amount": 899, "currency": "SEK" },
@@ -197,7 +197,7 @@
   {
     "productId": "FR-024",
     "productName": "Desert Resin Beard Oil",
-    "productImage": "product_fr-024.png",
+    "productImage": "product_fr-024.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Ridge & Oak Apothecary",
     "productPrice": { "amount": 329, "currency": "SEK" },
@@ -212,7 +212,7 @@
   {
     "productId": "FR-025",
     "productName": "Tundra Matte Beard Balm",
-    "productImage": "product_fr-025.png",
+    "productImage": "product_fr-025.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 329, "currency": "SEK" },
@@ -227,7 +227,7 @@
   {
     "productId": "FR-026",
     "productName": "Coal & Clove Beard Wash Bar",
-    "productImage": "product_fr-026.png",
+    "productImage": "product_fr-026.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Cedar & Ash Co.",
     "productPrice": { "amount": 149, "currency": "SEK" },
@@ -242,7 +242,7 @@
   {
     "productId": "FR-027",
     "productName": "Raven Safety Razor",
-    "productImage": "product_fr-027.png",
+    "productImage": "product_fr-027.webp",
     "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
     "productBrand": "Black Anvil Tools",
     "productPrice": { "amount": 599, "currency": "SEK" },
@@ -257,7 +257,7 @@
   {
     "productId": "FR-028",
     "productName": "Field Notes Beard Journal",
-    "productImage": "product_fr-028.png",
+    "productImage": "product_fr-028.webp",
     "productCategory": { "id": 4, "name": "Accessories"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 129, "currency": "SEK" },
@@ -272,7 +272,7 @@
   {
     "productId": "FR-029",
     "productName": "Cedar Peak Beard Comb XL",
-    "productImage": "product_fr-029.png",
+    "productImage": "product_fr-029.webp",
     "productCategory": { "id": 5, "name": "Tools"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 299, "currency": "SEK" },
@@ -287,7 +287,7 @@
   {
     "productId": "FR-030",
     "productName": "Oakmoss Beard Spray",
-    "productImage": "product_fr-030.png",
+    "productImage": "product_fr-030.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "North Shore Grooming Co.",
     "productPrice": { "amount": 219, "currency": "SEK" },
@@ -302,7 +302,7 @@
   {
     "productId": "FR-031",
     "productName": "Stone Ridge Beard Butter",
-    "productImage": "product_fr-031.png",
+    "productImage": "product_fr-031.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 349, "currency": "SEK" },
@@ -317,7 +317,7 @@
   {
     "productId": "FR-032",
     "productName": "Night Ember Beard Oil",
-    "productImage": "product_fr-032.png",
+    "productImage": "product_fr-032.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Cedar & Ash Co.",
     "productPrice": { "amount": 319, "currency": "SEK" },
@@ -332,7 +332,7 @@
   {
     "productId": "FR-033",
     "productName": "Caravan Beard Balm",
-    "productImage": "product_fr-033.png",
+    "productImage": "product_fr-033.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Ridge & Oak Apothecary",
     "productPrice": { "amount": 339, "currency": "SEK" },
@@ -347,7 +347,7 @@
   {
     "productId": "FR-034",
     "productName": "Forge Edge Detail Trimmer",
-    "productImage": "product_fr-034.png",
+    "productImage": "product_fr-034.webp",
     "productCategory": { "id": 7, "name": "Trimmers"},
     "productBrand": "Black Anvil Tools",
     "productPrice": { "amount": 795, "currency": "SEK" },
@@ -362,7 +362,7 @@
   {
     "productId": "FR-035",
     "productName": "Timber Shaving Bowl",
-    "productImage": "product_fr-035.png",
+    "productImage": "product_fr-035.webp",
     "productCategory": { "id": 4, "name": "Accessories"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 299, "currency": "SEK" },
@@ -377,7 +377,7 @@
   {
     "productId": "FR-036",
     "productName": "Bergamot & Oak Aftershave Balm",
-    "productImage": "product_fr-036.png",
+    "productImage": "product_fr-036.webp",
     "productCategory": { "id": 3, "name": "Shaving & Aftershave"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 289, "currency": "SEK" },
@@ -392,7 +392,7 @@
   {
     "productId": "FR-037",
     "productName": "Cinder Beard Brush Mini",
-    "productImage": "product_fr-037.png",
+    "productImage": "product_fr-037.webp",
     "productCategory": { "id": 5, "name": "Tools"},
     "productBrand": "North Shore Grooming Co.",
     "productPrice": { "amount": 219, "currency": "SEK" },
@@ -407,7 +407,7 @@
   {
     "productId": "FR-038",
     "productName": "Ironwood Beard Scissor Pro",
-    "productImage": "product_fr-038.png",
+    "productImage": "product_fr-038.webp",
     "productCategory": { "id": 5, "name": "Tools"},
     "productBrand": "Face Roots Workshop",
     "productPrice": { "amount": 449, "currency": "SEK" },
@@ -422,7 +422,7 @@
   {
     "productId": "FR-039",
     "productName": "Whisky Oak Beard Perfume",
-    "productImage": "product_fr-039.png",
+    "productImage": "product_fr-039.webp",
     "productCategory": { "id": 1, "name": "Beard Care"},
     "productBrand": "Cedar & Ash Co.",
     "productPrice": { "amount": 249, "currency": "SEK" },
@@ -437,7 +437,7 @@
   {
     "productId": "FR-040",
     "productName": "Desert Stone Beard Comb",
-    "productImage": "product_fr-040.png",
+    "productImage": "product_fr-040.webp",
     "productCategory": { "id": 5, "name": "Tools"},
     "productBrand": "Ridge & Oak Apothecary",
     "productPrice": { "amount": 259, "currency": "SEK" },
