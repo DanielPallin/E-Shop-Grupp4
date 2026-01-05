@@ -12,6 +12,9 @@
     padding: 2rem;
     box-sizing: border-box;
 }
+body {
+ background-color: var(--color-white);
+}
 
 .h1 {
     font-size: var(--h1-font-size);
@@ -59,7 +62,7 @@ hr {
 /* TABLET */
 @media (max-width: 960px) {
 
-    /* About */
+  /* About */
 .about-hero {
     grid-template-columns: 1fr;
 }
